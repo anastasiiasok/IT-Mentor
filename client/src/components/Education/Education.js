@@ -1,28 +1,18 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function Education() {
+  const degree = useSelector((state) => state.education[0].degree);
+  const institution = useSelector((state) => state.education[0].institution);
   return (
     <>
       <h3>Education</h3>
 
       <p>
-        <span>Master</span>
+        <span>{degree}</span>
       </p>
       <p>
-        <span>
-          Master of Computer Science Saint Petersburg State University, Saint
-          Petersburg, Russia
-        </span>
-      </p>
-
-      <p>
-        <span>Computer Science Center</span>
-      </p>
-      <p>
-        <span>
-          Coursework includes: data structures and algorithms, asymptotic
-          analysis and probability theory, machine learning
-        </span>
+        <span>{institution}</span>
       </p>
     </>
   );

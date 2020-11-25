@@ -1,16 +1,16 @@
 import React from "react";
+import { useSelector } from "react-redux";
 
 function Projects() {
+  const projects = useSelector((state) => state.projects[0].title);
+  const body = useSelector((state) => state.projects[0].body);
   return (
     <>
       <h3>Projects</h3>
       <div>
-        <p>Link for project(github page)</p>
+        <p>{projects}</p>
+        <p>Description: {body}</p>
       </div>
-      <p>
-        Project Description: I have completed this project as a part of a test
-        task for one of the job positions.
-      </p>
     </>
   );
 }
