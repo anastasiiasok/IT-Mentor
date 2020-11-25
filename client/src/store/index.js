@@ -17,7 +17,7 @@ const preloadedState = {
   ],
   price: 15,
   lessons: 3,
-  skills: ['JS', 'React'],
+  // skills: ['JS', 'React'],
   benefits: ['Help with JS', 'Help with React'],
   projects: [
     {
@@ -28,8 +28,8 @@ const preloadedState = {
   resume: [
     {
       date: {
-        start: '10.03.2018',
-        end: 'now',
+        start: new Date('2018-10-03'),
+        end: Date.now(),
       },
       company: 'Google',
       position: 'Front-end developer',
