@@ -1,9 +1,11 @@
+import { Provider } from 'react-redux';
+import { store } from './store/index';
 import Profile from './components/Profile/Profile';
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <Profile />
-    </div>
+    </Provider>
   );
 }
 
