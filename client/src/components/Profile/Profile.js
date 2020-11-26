@@ -1,22 +1,25 @@
-import Education from "../Education/Education";
-import Person from "../Person/Person";
-import Projects from "../Projects/Projects";
-import Price from "../Price/Price";
-import Resume from "../Resume/Resume";
-import BenefitList from "../BenefitList/BenefitList";
-// import Mentors from "../Mentors/Mentors";
+
+import Education from '../Education/Education';
+import Person from '../Person/Person';
+import Projects from '../Projects/Projects';
+import Price from '../Price/Price';
+import Resume from '../Resume/Resume';
+import BenefitList from '../BenefitList/BenefitList';
+import './styles.css';
 function Profile() {
   return (
-    <>
-      <h1>Profile</h1>
-      <Price />
-      <BenefitList />
-      <Resume />
-      <Education />
-      <Person />
-      <Projects />
-      {/* <Mentors /> */}
-    </>
+    <div className='full'>
+      <h1 className='heading'>Profile</h1>
+      <div className='full-info'>
+        <Price />
+        <BenefitList />
+        <Resume />
+        <Education />
+        <Person />
+        <Projects />
+      </div>
+    </div>
+
   );
 }
 
