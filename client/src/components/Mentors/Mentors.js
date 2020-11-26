@@ -1,41 +1,41 @@
-import { useSelector } from "react-redux";
 import React from "react";
+import { useSelector } from "react-redux";
 
-function Person() {
+function Mentors() {
   const name = useSelector((state) => state[0].name);
   const surname = useSelector((state) => state[0].surname);
   const city = useSelector((state) => state[0].city);
   const country = useSelector((state) => state[0].country);
   const timezone = useSelector((state) => state[0].timezone);
-  const email = useSelector((state) => state[0].email);
   const company = useSelector((state) => state[0].resume[0].company);
   const position = useSelector((state) => state[0].resume[0].position);
+
   return (
-    <>
-      <h3>
+    <div className="album py-5 bg-light">
+      {/* <Container>
+        <Row>
+          <Card className="mb-4 box-shadow">
+            <CardBody> */}
+      <p>All Mentors are here</p>
+      <h1>
         {name} {surname}
-      </h3>
+      </h1>
       <span>
         {city}, {country}
       </span>
       <br></br>
-
       <span>{timezone}</span>
       <p>
         {company} / {position}
       </p>
-
-      <div>
-        <p>{email}</p>
-        <p>
-          Люблю работать с данными и находить в них интересные закономерности
-        </p>
-      </div>
-      <div>
-        <p> #skills</p>
-      </div>
-    </>
+      <button>All Mentors</button>
+      {/* <Button>More Mentors</Button>
+            </CardBody>
+          </Card>
+        </Row>
+      </Container> */}
+    </div>
   );
 }
 
-export default Person;
+export default Mentors;

@@ -1,6 +1,1 @@
-import { VIEW_PROFILE } from './types';
-
-// export const viewProfile = () => ({
-//   type: ADD_TODO,
-//   payload: {},
-// });
+// import { VIEW_PROFILE } from "./types";

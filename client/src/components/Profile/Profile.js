@@ -1,3 +1,4 @@
+
 import Education from '../Education/Education';
 import Person from '../Person/Person';
 import Projects from '../Projects/Projects';
@@ -18,6 +19,7 @@ function Profile() {
         <Projects />
       </div>
     </div>
+
   );
 }
 

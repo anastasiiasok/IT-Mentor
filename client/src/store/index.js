@@ -1,9 +1,10 @@
-import { createStore } from 'redux';
-import { composeWithDevTools } from 'redux-devtools-extension';
-import { reducers } from './reducers';
+import { createStore } from "redux";
+import { composeWithDevTools } from "redux-devtools-extension";
+import { reducers } from "./reducers";
 
 const preloadedState = [
   {
+
     name: 'Ivan',
     surname: 'Petrov',
     country: 'Russia',
@@ -14,26 +15,31 @@ const preloadedState = [
       {
         degree: 'Master',
         institution: 'MGU',
+
       },
     ],
     price: 15,
     lessons: 3,
     // skills: ['JS', 'React'],
+
     benefits: ['Help with JS', 'Help with React'],
     projects: [
       {
         title: 'Broccoli Blog',
         body: 'Online Blog',
+
       },
     ],
     resume: [
       {
         date: {
+
           start: '2018-10-03',
           end: 'now',
         },
         company: 'Google',
         position: 'Front-end developer',
+
       },
     ],
   },
