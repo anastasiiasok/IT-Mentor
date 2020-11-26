@@ -21,8 +21,8 @@ const mentorSchema = new mongoose.Schema( {
     }],
     resume: [{
         date: {
-            start: {type: Date},
-            end: {type: Date || String},
+            start: {type: String},
+            end: {type: String},
         },
         company: {type: String},
         position: {type: String},
