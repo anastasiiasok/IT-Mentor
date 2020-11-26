@@ -8,9 +8,12 @@ const Mentors = ()=>{
   const state = useSelector((store)=>store);
   const dispatch = useDispatch();
 
-  const handleClick = ()=> {
+  const handleClick = async ()=> {
     console.log(state);
-    const mentors = [...state];
+    // const mentors = [...state];
+    const repsonse = await fetch('http://localhost:3100/mentor')
+    const mentors = await repsonse.json();// { [{}]} object with array of objects
+    console.log(mentors);
     dispatch(addMentors(mentors));
   }
   return (
