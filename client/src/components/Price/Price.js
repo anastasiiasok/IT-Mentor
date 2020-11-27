@@ -1,15 +1,15 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
-import { makeStyles, Card, CardContent, Typography } from '@material-ui/core';
+import React from "react";
+import { useSelector } from "react-redux";
+import { makeStyles, Card, CardContent, Typography } from "@material-ui/core";
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275,
   },
   bullet: {
-    display: 'inline-block',
-    margin: '0 2px',
-    transform: 'scale(0.8)',
+    display: "inline-block",
+    margin: "0 2px",
+    transform: "scale(0.8)",
   },
   title: {
     fontSize: 14,
@@ -26,11 +26,11 @@ function Price() {
   return (
     <Card className={classes.root}>
       <CardContent>
-        <Typography variant='h5' component='h2'>
+        <Typography variant="h5" component="h2">
           Price
         </Typography>
 
-        <Typography variant='body2' component='p'>
+        <Typography variant="body2" component="p">
           Hour session: {price}$
           <br />
           15 min test call: free
