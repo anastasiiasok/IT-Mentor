@@ -39,7 +39,7 @@ function Main() {
               <MenuIcon />
             </IconButton>
             <Typography variant='h6' className={classes.title}>
-              IT-Mentor
+              <Link to='/'>IT MENTOR</Link>
             </Typography>
             <Button color='inherit'>
               <Link to='/signup'>Sign Up</Link>
