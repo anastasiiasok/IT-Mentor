@@ -2,7 +2,7 @@ import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { reducers } from "./reducers";
 
-const preloadedState = [
+const preloadedState = { mentors: [
   {
 
     name: 'Ivan',
@@ -43,7 +43,9 @@ const preloadedState = [
       },
     ],
   },
-];
+],
+selectedValues: [],
+};
 
 const composeEnhancers = composeWithDevTools();
 

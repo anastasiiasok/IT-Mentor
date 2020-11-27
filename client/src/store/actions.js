@@ -1,4 +1,4 @@
-import {ADD_MENTORS} from "./types";
-const addMentors = (mentors) => ({type: ADD_MENTORS, payload: mentors });
+import {ADD_MENTORS, ADD_VALUES} from "./types";
 
-export default addMentors;
+export const addMentors = (mentors) => ({type: ADD_MENTORS, payload: mentors });
+export const addValues = (values)=>({type: ADD_VALUES, payload: values});
