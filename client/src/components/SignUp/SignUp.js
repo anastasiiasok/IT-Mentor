@@ -36,6 +36,9 @@ const useStyles = makeStyles((theme) => ({
 export default function SignUp() {
   const classes = useStyles();
 
+  const handleSubmit = ()=>{
+    
+  }
   return (
     <Container component='main' maxWidth='xs'>
       <CssBaseline />
@@ -72,11 +75,11 @@ export default function SignUp() {
             <Grid item xs={12} sm={6}>
               <TextField
                 autoComplete='fname'
-                name='firstName'
+                name='country'
                 variant='outlined'
                 required
                 fullWidth
-                id='firstName'
+                id='country'
                 label='Country'
                 autoFocus
               />
@@ -86,9 +89,9 @@ export default function SignUp() {
                 variant='outlined'
                 required
                 fullWidth
-                id='lastName'
+                id='city'
                 label='City'
-                name='lastName'
+                name='city'
                 autoComplete='lname'
               />
             </Grid>
@@ -123,6 +126,7 @@ export default function SignUp() {
             variant='contained'
             color='primary'
             className={classes.submit}
+            onSubmit={handleSubmit}
           >
             Sign Up
           </Button>
