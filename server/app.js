@@ -6,6 +6,7 @@ const cors = require('cors');
 const mentorRouter = require('./src/routes/mentor.js');
 const PORT = process.env.PORT || 3000;
 
+app.set('trust proxy', true);
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

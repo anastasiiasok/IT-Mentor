@@ -2,7 +2,7 @@ require('./dbConnect.js');
 require('dotenv').config();
 const Mentor = require('../models/Mentor');
 const faker = require('faker');
-const skills = ['Express','Postman', 'NodeJS','REST API','TypeScript','Saga','React','MongoDB','Sass','Ubuntu']
+const skills = ['Express','Postman', 'NodeJS','REST API','TypeScript','Saga','React','MongoDB','Sass','Ubuntu'];
 const randomSkillSet = ()=>{
   const size = Math.round(Math.random()*3)+4;
   const index = [];
