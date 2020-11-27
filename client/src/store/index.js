@@ -20,7 +20,7 @@ const preloadedState = [
     ],
     price: 15,
     lessons: 3,
-    // skills: ['JS', 'React'],
+    skills: ['JS', 'React'],
 
     benefits: ['Help with JS', 'Help with React'],
     projects: [
