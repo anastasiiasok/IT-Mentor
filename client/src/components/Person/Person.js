@@ -2,14 +2,13 @@ import { useSelector } from "react-redux";
 import React from "react";
 
 function Person() {
-  const name = useSelector((state) => state[0].name);
-  const surname = useSelector((state) => state[0].surname);
-  const city = useSelector((state) => state[0].city);
-  const country = useSelector((state) => state[0].country);
-  const timezone = useSelector((state) => state[0].timezone);
-  const email = useSelector((state) => state[0].email);
-  const company = useSelector((state) => state[0].resume[0].company);
-  const position = useSelector((state) => state[0].resume[0].position);
+  const { name, surname, city, country, timezone, email } = useSelector(
+    (state) => state.mentors[0]
+  );
+  const { company, position } = useSelector(
+    (state) => state.mentors[0].resume[0]
+  );
+
   return (
     <>
       <h3>
