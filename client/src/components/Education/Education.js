@@ -2,8 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 function Education() {
-  const degree = useSelector((state) => state[0].education[0].degree);
-  const institution = useSelector((state) => state[0].education[0].institution);
+  const { degree, institution } = useSelector(
+    (state) => state.mentors[0].education[0]
+  );
+
   return (
     <>
       <h3>Education</h3>

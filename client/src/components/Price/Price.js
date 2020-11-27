@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 function Price() {
   const classes = useStyles();
 
-  const price = useSelector((state) => state[0].price);
+  const price = useSelector((state) => state.mentors[0].price);
   return (
     <Card className={classes.root}>
       <CardContent>

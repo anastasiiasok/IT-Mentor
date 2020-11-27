@@ -1,9 +1,8 @@
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 function Resume() {
-  const resume = useSelector((state) => state[0].resume);
+  const resume = useSelector((state) => state.mentors[0].resume);
+  const { start, end } = resume[0].date;
 
-  const start = resume[0].date.start;
-  const end = resume[0].date.end;
   return (
     <div>
       <h3>Resume</h3>
