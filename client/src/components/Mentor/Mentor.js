@@ -8,6 +8,7 @@ import { Button } from "@material-ui/core";
 import BookmarkBorderIcon from "@material-ui/icons/BookmarkBorder";
 import "./mentor.css";
 
+
 const useStyles = makeStyles({
   root: {
     // minWidth: 275,
@@ -28,20 +29,19 @@ const useStyles = makeStyles({
   },
 });
 function Mentor({ mentor }) {
-  // const name = useSelector((state) => state[0].name);
-  // const surname = useSelector((state) => state[0].surname);
-  // const city = useSelector((state) => state[0].city);
-  // const country = useSelector((state) => state[0].country);
-  // const timezone = useSelector((state) => state[0].timezone);
-  // const company = useSelector((state) => state[0].resume[0].company);
-  // const position = useSelector((state) => state[0].resume[0].position);
+
   const classes = useStyles();
 
-  const { name, surname, city, country, timezone, resume } = mentor;
-  const { company, position } = resume[0];
+
+
+  
+  const {name, surname, city, country, timezone,resume, skills, price} = mentor;
+  const {company, position} = resume[0];
+
   return (
     <div>
       <br></br>
+
 
       <Card className={classes.root} className="panel">
         <CardContent>
@@ -62,6 +62,15 @@ function Mentor({ mentor }) {
         </CardContent>
         <Button>More Details</Button>
       </Card>
+
+      <span>{timezone}</span>
+      <br></br>
+      <span>{price}</span>
+      <p>{skills.map((skill)=><span> {skill} </span>)}</p>
+      <p>
+        {company} / {position}
+      </p>
+
     </div>
   );
 }

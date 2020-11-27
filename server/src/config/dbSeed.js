@@ -2,7 +2,17 @@ require('./dbConnect.js');
 require('dotenv').config();
 const Mentor = require('../models/Mentor');
 const faker = require('faker');
-
+const skills = ['Express','Postman', 'NodeJS','REST API','TypeScript','Saga','React','MongoDB','Sass','Ubuntu']
+const randomSkillSet = ()=>{
+  const size = Math.round(Math.random()*3)+4;
+  const index = [];
+  const skill = [...skills];
+  let set = [];
+  for (let i = 0; i < size; i += 1) {
+    set =[...set, ...skill.splice(Math.floor(Math.random()*(skills.length - i)),1)];
+  }
+  return set;
+}
 
 const seed = ()=>{
     const preloadedState = {
@@ -11,7 +21,8 @@ const seed = ()=>{
         country: faker.address.country(),
         city: faker.address.city(),
         email: faker.internet.email(),
-        timezone: faker.address.timeZone(),
+        timezone: `GMT:+${Math.round(Math.random()*4)+1}`,
+        summary: faker.lorem.words(),
         education: [
           {
             degree: faker.lorem.word(),
@@ -20,7 +31,7 @@ const seed = ()=>{
         ],
         price: Math.round(Math.random()*2000)+1e3,
         lessons: Math.round(Math.random()*1e2),
-        // skills: ['JS', 'React'],
+        skills: randomSkillSet(),
         benefits: [faker.lorem.words(), faker.lorem.words()],
         projects: [
           {
@@ -44,4 +55,4 @@ const seed = ()=>{
 };
 
 let count = 20;
-while(count > 0) {seed(); count -=1;}
+while(count > 0) {seed(); count -=1;};
