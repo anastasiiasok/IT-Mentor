@@ -1,8 +1,10 @@
-import React from "react";
-import { useSelector, useDispatch } from "react-redux";
-import Mentor from "../Mentor/Mentor";
-import { Button } from "@material-ui/core";
-import addMentors from "../../store/actions";
+
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import Mentor from '../Mentor/Mentor';
+import { Button } from '@material-ui/core';
+import addMentors from '../../store/actions';
+import SearchForm from '../SearchForm/SearchForm';
 
 const Mentors = () => {
   const state = useSelector((store) => store);
@@ -20,7 +22,9 @@ const Mentors = () => {
   };
   return (
     <div>
-      <br></br>
+
+      <SearchForm />
+
       {state.map((mentor) => (
         <Mentor mentor={mentor} />
       ))}

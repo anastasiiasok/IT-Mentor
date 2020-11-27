@@ -18,6 +18,10 @@
 .item-border {
   border: 1px solid grey;
 }
+A {
+  color: black;
+  font-weight: bold;
+}
 A:visited {
   color: white;
 }

@@ -1,3 +1,4 @@
+
 import Education from "../Education/Education";
 import Person from "../Person/Person";
 import Projects from "../Projects/Projects";
@@ -30,6 +31,7 @@ const useStyles = makeStyles({
     marginBottom: 12,
   },
 });
+
 function Profile() {
   const classes = useStyles();
   return (
