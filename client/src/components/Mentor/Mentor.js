@@ -2,15 +2,8 @@ import React from "react";
 // import { useSelector } from "react-redux";
 
 function Mentor({mentor}) {
-  // const name = useSelector((state) => state[0].name);
-  // const surname = useSelector((state) => state[0].surname);
-  // const city = useSelector((state) => state[0].city);
-  // const country = useSelector((state) => state[0].country);
-  // const timezone = useSelector((state) => state[0].timezone);
-  // const company = useSelector((state) => state[0].resume[0].company);
-  // const position = useSelector((state) => state[0].resume[0].position);
-
-  const {name, surname, city, country, timezone,resume} = mentor;
+  
+  const {name, surname, city, country, timezone,resume, skills, price} = mentor;
   const {company, position} = resume[0];
   return (
     <div className="album py-5 bg-light">
@@ -27,6 +20,9 @@ function Mentor({mentor}) {
       </span>
       <br></br>
       <span>{timezone}</span>
+      <br></br>
+      <span>{price}</span>
+      <p>{skills.map((skill)=><span> {skill} </span>)}</p>
       <p>
         {company} / {position}
       </p>

@@ -7,13 +7,14 @@ const mentorSchema = new mongoose.Schema( {
     city: {type: String, required: true},
     email: {type: String, required: true, unique: true},
     timezone: {type: String, required: true},
+    summary: {type: String},
     education: [ {
         degree: {type: String, required: true},
         institution: {type: String, required: true},
     }],
     price: {type: Number},
     lessons: {type: Number},
-    skills: [{type: mongoose.Schema.Types.ObjectId, ref: 'Skill'}],
+    skills: [{type:String}],
     benefits: [{type: String}],
     projects: [{
         title: {type: String},
