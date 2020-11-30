@@ -1,12 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Select from 'react-select';
-import {addValues, addMentors} from '../../store/actions';
+import { addValues, searchMentors } from '../../store/actions';
 import { Button } from '@material-ui/core';
 import './style.css';
 
 function SearchForm() {
-  const selectedValue = useSelector((store)=>store.selectedValues);
+  const selectedValue = useSelector((store) => store.selectedValues);
   const dispatch = useDispatch();
   const tags = [
     { value: 'express', label: 'Express', color: '#00B8D9', isFixed: true },
@@ -19,21 +19,23 @@ function SearchForm() {
     { value: 'sass', label: 'Sass', color: '#FFC400' },
     { value: 'ubuntu', label: 'Ubuntu', color: '#FFC400' },
   ];
-  const tagOptions = tags.map((tag)=>({...tag, value: tag.label}));
+  const tagOptions = tags.map((tag) => ({ ...tag, value: tag.label }));
 
   const handleChange = (e) => {
     let values = [];
-    if (Array.isArray(e)) values = e.map((x)=>x.value);
-    dispatch(addValues({values}));
+    if (Array.isArray(e)) values = e.map((x) => x.value);
+    dispatch(addValues({ values }));
   };
 
-  const handleClick = async ()=> {
+  const handleClick = async () => {
     const query = selectedValue.join(',');
-    const repsonse = await fetch(`http://localhost:3100/mentor?skills=${query}`);
-    const mentors = await repsonse.json();// { [{}]} object with array of objects
+    const repsonse = await fetch(
+      `http://localhost:3100/mentor?skills=${query}`
+    );
+    const mentors = await repsonse.json(); // { [{}]} object with array of objects
     console.log(mentors);
-    dispatch(addMentors(mentors));
-  }
+    dispatch(searchMentors(mentors));
+  };
   return (
     <div className='search-div'>
       <div className='search'>
