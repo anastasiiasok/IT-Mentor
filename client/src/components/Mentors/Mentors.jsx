@@ -4,6 +4,7 @@ import Mentor from "../Mentor/Mentor";
 import { Button } from "@material-ui/core";
 import { addMentors } from "../../store/actions";
 import SearchForm from "../SearchForm/SearchForm";
+import "./mentors.css";
 
 const Mentors = () => {
   const state = useSelector((store) => store.mentors);
