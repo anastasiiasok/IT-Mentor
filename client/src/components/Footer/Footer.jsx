@@ -6,12 +6,12 @@ function Footer() {
   return (
     <>
       <footer>
-        <div className='footer-mentors'>
-          <p className='footer-title'>Mentors</p>
-          <p className='footer-a'>
+        <div className='footerMentors'>
+          <p className='footerTitle'>Mentors</p>
+          <p className='footerA'>
             <a className='#'>Sign In</a>
           </p>
-          <p className='footer-a'>
+          <p className='footerA'>
             <Link to='/signup'>Become Mentor</Link>
           </p>
         </div>
