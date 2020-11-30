@@ -6,11 +6,6 @@ function Header() {
   return (
     <>
       <div className='header'>
-        {/* <div className='logo-name'>
-          <a href='#'>
-            <span className='it'>it</span>MENTOR
-          </a>
-        </div> */}
         <Link to='/'>
           <div className='logo-name'>
             <span className='it'>it</span>MENTOR
