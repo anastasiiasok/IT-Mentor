@@ -2,7 +2,10 @@ a {
   text-decoration: none;
   color: #fafafa;
 }
-
+li {
+  font-size: 18px;
+  list-style-type: none;
+}
 a:active {
   color: #f3c049;
 }
@@ -18,7 +21,7 @@ a:active {
   font-weight: 500;
   line-height: 1.4;
 }
-.find-bottom {
+.findBottom {
   margin-top: 46px;
   display: flex;
   justify-content: center;
@@ -31,7 +34,7 @@ a:active {
   margin-left: auto;
   margin-right: auto;
 }
-.find-text {
+.findText {
   line-height: 40px;
 }
 .subheading {
@@ -42,7 +45,7 @@ a:active {
   font-weight: 500;
 }
 /* TAGS */
-.tag-box {
+.tagBox {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -66,7 +69,7 @@ a:active {
 }
 
 /* PROFILES*/
-.profile-section {
+.profileSection {
   margin-top: 90px;
 }
 .container {
@@ -80,7 +83,7 @@ a:active {
   content: '';
   display: table;
 }
-.col-3 {
+.col3 {
   width: 290px;
   margin-right: 40px;
   float: left;
@@ -89,36 +92,32 @@ a:active {
   font-weight: 300;
   line-height: 80%;
 }
-.col-3:last-child {
+.col3:last-child {
   margin-right: 0px;
 }
-.portfolio-title {
+.portfolioTitle {
   font-size: 16px;
   font-weight: 400;
   margin-top: 15px;
-}
-.more-a {
-  color: #3d434b !important;
-  text-decoration: underline;
 }
 .moreA {
   color: #3d434b !important;
   text-decoration: underline;
 }
+
 /* MOTIVATION  */
-.info-section {
+.infoSection {
   margin-top: 120px;
   margin-bottom: 50px;
 }
-.list-info {
-  /* list-style-image: url(/img/checklist.png); */
+.listInfo {
   padding-top: 15px;
   line-height: 2.6;
-  font-size: 18px;
+  font-size: 18px !important;
   font-weight: 400;
   margin-left: 200px;
 }
-.find-btn {
+.findBtn {
   margin-top: 32px;
   width: 140px;
   height: 50px;

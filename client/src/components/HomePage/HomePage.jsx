@@ -10,14 +10,14 @@ function HomePage() {
           Learn technology, solve complex problems, <br />
           prepare for future online interviews
         </div>
-        <div className='find-bottom'>
-          <div className='find-text'>
+        <div className='findBottom'>
+          <div className='findText'>
             <Link to='/mentors'>Find Mentor</Link>
           </div>
         </div>
         <p className='subheading'>Find your mentor among 90+ professionals</p>
 
-        <div className='tag-box'>
+        <div className='tagBox'>
           <span className='tag'>
             <Link to='/mentors'>&#123; JAVA &#125;</Link>
           </span>
@@ -34,7 +34,7 @@ function HomePage() {
             <Link to='/mentors'>&#123; NodeJS &#125;</Link>
           </span>
         </div>
-        <div className='tag-box second'>
+        <div className='tagBox second'>
           <span className='tag'>
             <Link to='/mentors'>&#123; Machine Learning &#125;</Link>
           </span>
@@ -49,11 +49,11 @@ function HomePage() {
           </span>
         </div>
 
-        <div className='profile-section'>
+        <div className='profileSection'>
           <div className='container'>
             <div className='row'>
-              <div className='col-3'>
-                <div className='profilio-img'>
+              <div className='col3'>
+                <div className='profilioImg'>
                   <Link to='/profile'>
                     <img
                       src='/img/girl.jpg'
@@ -63,18 +63,18 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className='portfolio-title'>Anastasia Soktoeva</div>
-                <div className='portfolio-text'>
+                <div className='portfolioTitle'>Anastasia Soktoeva</div>
+                <div className='portfolioText'>
                   <p>Front-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
-                  <a href='#' className='more-a'>
+                  <a href='#' className='moreA'>
                     More Details
                   </a>
                 </div>
               </div>
 
-              <div className='col-3'>
-                <div className='profilio-img'>
+              <div className='col3'>
+                <div className='profilioImg'>
                   <Link to='/profile'>
                     <img
                       src='/img/girl.jpg'
@@ -84,18 +84,18 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className='portfolio-title'>Gayane Zurnachyan</div>
-                <div className='portfolio-text'>
+                <div className='portfolioTitle'>Gayane Zurnachyan</div>
+                <div className='portfolioText'>
                   <p>Front-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
-                  <a href='#' className='more-a'>
+                  <a href='#' className='moreA'>
                     More Details
                   </a>
                 </div>
               </div>
 
-              <div className='col-3'>
-                <div className='profilio-img'>
+              <div className='col3'>
+                <div className='profilioImg'>
                   <Link to='/profile'>
                     <img
                       src='/img/man.jpg'
@@ -105,11 +105,11 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className='portfolio-title'>Roman Dubinkin</div>
-                <div className='portfolio-text'>
+                <div className='portfolioTitle'>Roman Dubinkin</div>
+                <div className='portfolioText'>
                   <p>Back-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
-                  <a href='#' className='more-a'>
+                  <a href='#' className='moreA'>
                     More Details
                   </a>
                 </div>
@@ -118,17 +118,30 @@ function HomePage() {
           </div>
         </div>
 
-        <div className='info-section'>
-          <ul className='list-info'>
-            <li>Create an individual program</li>
-            <li>Prepare for the interview</li>
-            <li>Network</li>
-            <li>Choose the best materials and practices for self-study</li>
+        <div className='infoSection'>
+          <ul className='listInfo'>
             <li>
+              <img src='img/checklist.png' alt='checklist' />
+              Create an individual program
+            </li>
+            <li>
+              <img src='img/checklist.png' alt='checklist' />
+              Prepare for the interview
+            </li>
+            <li>
+              <img src='img/checklist.png' alt='checklist' />
+              Network
+            </li>
+            <li>
+              <img src='img/checklist.png' alt='checklist' />
+              Choose the best materials and practices for self-study
+            </li>
+            <li>
+              <img src='img/checklist.png' alt='checklist' />
               Motivate to keep up your studying pace and refrain from giving up
             </li>
           </ul>
-          <div className='find-btn'>
+          <div className='findBtn'>
             <Link to='/mentors'>Find Mentor</Link>
           </div>
         </div>

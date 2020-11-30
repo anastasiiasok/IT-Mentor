@@ -7,7 +7,7 @@ function Header() {
     <>
       <div className='header'>
         <Link to='/'>
-          <div className='logo-name'>
+          <div className='logoName'>
             <span className='it'>it</span>MENTOR
           </div>
         </Link>

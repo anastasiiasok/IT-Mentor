@@ -3,12 +3,12 @@ footer {
   color: #fafafa;
   padding: 0.5rem;
 }
-.footer-mentors {
+.footerMentors {
   margin-left: 1200px;
 }
-.footer-title {
+.footerTitle {
   text-transform: uppercase;
 }
-.footer-a {
+.footerA {
   text-decoration: underline;
 }
