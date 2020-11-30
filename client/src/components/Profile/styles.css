@@ -103,7 +103,6 @@ ul > li::before {
     border-radius: 10px;
     padding: 6px 20px;
     cursor: pointer;
-    margin-left: 60px;
     border: 1px solid transparent;
     transition-duration: 0.2s;
     transition-timing-function: ease-in-out;
@@ -113,6 +112,7 @@ ul > li::before {
 
 .btn.yellow {
     background-color: rgba(243, 192, 73, 1);
+
 }
 
 .btn.yellow:hover {
@@ -127,7 +127,7 @@ ul > li::before {
 
 
 .card__info__mentor, .card__mentor {
-    /* display: flex; */
+    display: flex;
     flex-direction: column;
     background-color: rgba(88, 150, 139, 1);
     padding: 15px;
@@ -183,6 +183,7 @@ ul > li::before {
         text-decoration: none;
         color: inherit;
         font-size: 16px;
-        margin-left: 90px;
+        /* margin-left: 4px; */
+        align-items: center;
     
 }
