@@ -1,0 +1,14 @@
+footer {
+  background-color: #58968b;
+  color: #fafafa;
+  padding: 0.5rem;
+}
+.footer-mentors {
+  margin-left: 1200px;
+}
+.footer-title {
+  text-transform: uppercase;
+}
+.footer-a {
+  text-decoration: underline;
+}
