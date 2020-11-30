@@ -8,16 +8,6 @@ function MainPage() {
   return (
     <>
       <div>
-        <div>
-          <Link to='/'>IT MENTOR</Link>
-
-          <Link to='/signup'>Sign Up</Link>
-
-          <Link to='/profile'>Profile</Link>
-
-          <Link to='/mentors'>All Mentors</Link>
-        </div>
-
         <Switch>
           <Route exact path='/'>
             <HomePage />

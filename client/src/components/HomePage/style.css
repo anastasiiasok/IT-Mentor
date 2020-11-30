@@ -1,8 +1,16 @@
+a {
+  text-decoration: none;
+  color: #fafafa;
+}
+
+a:active {
+  color: #f3c049;
+}
 .main {
   height: 100vh;
   min-height: 600px;
 }
-.main-heading {
+.mainHeading {
   font-size: 36px;
   text-align: center;
   color: #3d434b;
@@ -44,10 +52,11 @@
   padding: 5px;
   height: 30px;
   background-color: #58968b;
-  color: #fafafa;
+  /* color: #fafafa; */
+  color: red;
   font-size: 18px;
   border-radius: 8px;
-  font-weight: 300;
+  font-weight: 300 !important;
 }
 .tag:not(:last-child) {
   margin-right: 20px;
@@ -89,7 +98,11 @@
   margin-top: 15px;
 }
 .more-a {
-  color: #3d434b;
+  color: #3d434b !important;
+  text-decoration: underline;
+}
+.moreA {
+  color: #3d434b !important;
   text-decoration: underline;
 }
 /* MOTIVATION  */
@@ -98,7 +111,7 @@
   margin-bottom: 50px;
 }
 .list-info {
-  /* list-style-image: url(checklist.png); */
+  /* list-style-image: url(/img/checklist.png); */
   padding-top: 15px;
   line-height: 2.6;
   font-size: 18px;

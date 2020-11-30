@@ -1,7 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import './style.css';
-
+import { Link } from 'react-router-dom';
+import SignUp from '../SignUp/SignUp';
 function Footer() {
   return (
     <>
@@ -12,7 +12,7 @@ function Footer() {
             <a className='#'>Sign In</a>
           </p>
           <p className='footer-a'>
-            <a className='#'>Become Mentor</a>
+            <Link to='/signup'>Become Mentor</Link>
           </p>
         </div>
       </footer>
