@@ -10,42 +10,60 @@ function HomePage() {
           Learn technology, solve complex problems, <br />
           prepare for future online interviews
         </div>
-        <div className='findBottom'>
-          <div className='findText'>
-            <Link to='/mentors'>Find Mentor</Link>
+        <Link to='/mentors'>
+          <div className='findBottom'>
+            <div className='findText'>Find Mentor</div>
           </div>
-        </div>
+        </Link>
         <p className='subheading'>Find your mentor among 90+ professionals</p>
 
         <div className='tagBox'>
-          <span className='tag'>
-            <Link to='/mentors'>&#123; JAVA &#125;</Link>
+          <span className='toRight'>
+            <Link to='/mentors'>
+              <span className='tag'>&#123; JAVA &#125;</span>
+            </Link>
           </span>
-          <span className='tag'>
-            <Link to='/mentors'>&#123; Python &#125;</Link>
+          <span className='toRight'>
+            <Link to='/mentors'>
+              <span className='tag'>&#123; Python &#125;</span>
+            </Link>
           </span>
-          <span className='tag'>
-            <Link to='/mentors'>&#123; JavaScript &#125;</Link>
+          <span className='toRight'>
+            <Link to='/mentors'>
+              <span className='tag'>&#123; JavaScript &#125;</span>
+            </Link>
           </span>
-          <span className='tag'>
-            <Link to='/mentors'>&#123; React &#125;</Link>
+          <span className='toRight'>
+            <Link to='/mentors'>
+              <span className='tag'>&#123; React &#125;</span>
+            </Link>
           </span>
-          <span className='tag'>
-            <Link to='/mentors'>&#123; NodeJS &#125;</Link>
+          <span className='toRight'>
+            <Link to='/mentors'>
+              <span className='tag'>&#123; NodeJS &#125;</span>
+            </Link>
           </span>
         </div>
         <div className='tagBox second'>
-          <span className='tag'>
-            <Link to='/mentors'>&#123; Machine Learning &#125;</Link>
+          <span className='toRight'>
+            <Link to='/mentors'>
+              <span className='tag'>&#123; Machine Learning &#125;</span>
+            </Link>
           </span>
-          <span className='tag'>
-            <Link to='/mentors'>&#123; Team Lead &#125;</Link>
+          <span className='toRight'>
+            <Link to='/mentors'>
+              <span className='tag'>&#123; Team Lead &#125;</span>
+            </Link>
           </span>
-          <span className='tag'>
-            <Link to='/mentors'>&#123; DevOps &#125;</Link>
+          <span className='toRight'>
+            <Link to='/mentors'>
+              <span className='tag'>&#123; DevOps &#125;</span>
+            </Link>
           </span>
-          <span className='tag'>
-            <Link to='/mentors'>&#123; Algorithms &#125;</Link>
+          <span className='toRight'>
+            <Link to='/mentors'>
+              <span className='tag'>&#123; Algorithms &#125;</span>
+            </Link>
           </span>
         </div>
 
@@ -67,9 +85,9 @@ function HomePage() {
                 <div className='portfolioText'>
                   <p>Front-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
-                  <a href='#' className='moreA'>
-                    More Details
-                  </a>
+                  <Link to='/profile'>
+                    <p className='moreA'>More Details</p>
+                  </Link>
                 </div>
               </div>
 
@@ -88,9 +106,9 @@ function HomePage() {
                 <div className='portfolioText'>
                   <p>Front-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
-                  <a href='#' className='moreA'>
-                    More Details
-                  </a>
+                  <Link to='/profile'>
+                    <p className='moreA'>More Details</p>
+                  </Link>
                 </div>
               </div>
 
@@ -109,9 +127,9 @@ function HomePage() {
                 <div className='portfolioText'>
                   <p>Back-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
-                  <a href='#' className='moreA'>
-                    More Details
-                  </a>
+                  <Link to='/profile'>
+                    <p className='moreA'>More Details</p>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -121,28 +139,30 @@ function HomePage() {
         <div className='infoSection'>
           <ul className='listInfo'>
             <li>
-              <img src='img/checklist.png' alt='checklist' />
+              <img class='checklist' src='img/checklist.png' alt='checklist' />
               Create an individual program
             </li>
             <li>
-              <img src='img/checklist.png' alt='checklist' />
+              <img class='checklist' src='img/checklist.png' alt='checklist' />
               Prepare for the interview
             </li>
             <li>
-              <img src='img/checklist.png' alt='checklist' />
+              <img class='checklist' src='img/checklist.png' alt='checklist' />
               Network
             </li>
             <li>
-              <img src='img/checklist.png' alt='checklist' />
+              <img class='checklist' src='img/checklist.png' alt='checklist' />
               Choose the best materials and practices for self-study
             </li>
             <li>
-              <img src='img/checklist.png' alt='checklist' />
+              <img class='checklist' src='img/checklist.png' alt='checklist' />
               Motivate to keep up your studying pace and refrain from giving up
             </li>
           </ul>
-          <div className='findBtn'>
-            <Link to='/mentors'>Find Mentor</Link>
+          <div>
+            <Link to='/mentors'>
+              <div className='findBtn'>Find Mentor</div>
+            </Link>
           </div>
         </div>
       </div>
