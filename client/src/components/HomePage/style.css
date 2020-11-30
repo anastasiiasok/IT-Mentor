@@ -9,6 +9,11 @@ li {
 a:active {
   color: #f3c049;
 }
+.findBottom:active,
+.findBtn:active,
+.tag:active {
+  color: #f3c049;
+}
 .main {
   height: 100vh;
   min-height: 600px;
@@ -55,15 +60,16 @@ a:active {
   padding: 5px;
   height: 30px;
   background-color: #58968b;
-  /* color: #fafafa; */
-  color: red;
+  color: #fafafa;
+
   font-size: 18px;
   border-radius: 8px;
-  font-weight: 300 !important;
+  font-weight: 300;
 }
-.tag:not(:last-child) {
+.toRight:not(:last-child) {
   margin-right: 20px;
 }
+
 .second {
   margin-top: 14px;
 }
@@ -90,7 +96,7 @@ a:active {
   color: #3d434b;
   font-size: 14px;
   font-weight: 300;
-  line-height: 80%;
+  line-height: 1.5;
 }
 .col3:last-child {
   margin-right: 0px;
@@ -117,13 +123,16 @@ a:active {
   font-weight: 400;
   margin-left: 200px;
 }
+.checklist {
+  margin-right: 8px;
+}
 .findBtn {
   margin-top: 32px;
   width: 140px;
   height: 50px;
   background-color: #58968b;
   color: #fafafa;
-  font-size: 22px;
+  font-size: 20px;
   border-radius: 5px;
   line-height: 50px;
   text-align: center;
