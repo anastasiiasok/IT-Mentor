@@ -8,8 +8,6 @@ function Education() {
 
   return (
     <>
-      <h3>Education</h3>
-
       <p>
         <span>{degree}</span>
       </p>
