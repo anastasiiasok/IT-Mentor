@@ -1,5 +1,5 @@
 function BenefitItem({ benefit }) {
-  return <li>{benefit}</li>;
+  return <p>{benefit}</p>;
 }
 
 export default BenefitItem;

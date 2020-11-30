@@ -4,12 +4,11 @@ function BenefitList() {
   const benefits = useSelector((state) => state.mentors[0].benefits);
   return (
     <div>
-      <h3>BenefitList</h3>
-      <ul>
-        {benefits.map((benefit) => (
-          <BenefitItem benefit={benefit} />
-        ))}
-      </ul>
+      {/* <h3>BenefitList</h3> */}
+
+      {benefits.map((benefit) => (
+        <BenefitItem benefit={benefit} />
+      ))}
     </div>
   );
 }

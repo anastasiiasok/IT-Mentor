@@ -6,7 +6,6 @@ function Projects() {
   const body = useSelector((state) => state.mentors[0].projects[0].body);
   return (
     <>
-      <h3>Projects</h3>
       <div>
         <p>{projects}</p>
         <p>Description: {body}</p>
