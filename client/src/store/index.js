@@ -43,8 +43,7 @@ const preloadedState = { mentors: [
       },
     ],
   },
-],
-selectedValues: [],
+]
 };
 
 const composeEnhancers = composeWithDevTools();
