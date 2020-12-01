@@ -2,20 +2,21 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { addValues, searchMentors } from '../../store/actions';
-import { Button } from '@material-ui/core';
-import './style.css';
+import Checkbox from '../Checkbox/Checkbox';
+import styles from './SearchForm.module.css';
 
+const customStyles = {
+  multiValue: (provided, state) => ({
+    ...provided,
+    borderBottom: '1px solid green',
+    color: state.selectProps.menuColor,
+  }),
+};
 function SearchForm() {
-  const [checkedItems, setChecked] = useState({
-    priceup: false,
-    pricedown: false,
-    timezone: false,
-  });
-
   const selectedValue = useSelector((store) => store.selectedValues);
   const dispatch = useDispatch();
   const tags = [
-    { value: 'express', label: 'Express', isFixed: true },
+    { value: 'express', label: 'Express', isFixed: true, color: 'pink' },
     { value: 'postman', label: 'Postman' },
     { value: 'nodejs', label: 'NodeJS' },
     { value: 'restapi', label: 'REST API' },
@@ -33,10 +34,6 @@ function SearchForm() {
     dispatch(addValues({ values }));
   };
 
-  const handleChangeCheckbox = (e) => {
-    setChecked({ ...checkedItems, [e.target.name]: e.target.checked });
-  };
-  console.log('>>>>', checkedItems);
   const handleClick = async () => {
     const query = selectedValue.join(',');
     const repsonse = await fetch(
@@ -47,55 +44,32 @@ function SearchForm() {
     dispatch(searchMentors(mentors));
   };
   return (
-    <div className='search-div'>
-      <div className='search'>
-        <Select
-          onChange={handleChange}
-          value={tagOptions.filter((obj) => selectedValue.includes(obj.value))}
-          // defaultValue={[tagOptions[2], tagOptions[3]]}
-          isMulti
-          name='skills'
-          options={tagOptions}
-          className='basic-multi-select'
-          classNamePrefix='select'
-          isClearable
-        />
-      </div>
-      <Button onClick={handleClick}>Search</Button>
+    <div className={styles.searchMain}>
+      <div className={styles.searchDiv}>
+        <div className={styles.search}>
+          <Select
+            styles={customStyles}
+            onChange={handleChange}
+            value={tagOptions.filter((obj) =>
+              selectedValue.includes(obj.value)
+            )}
+            // defaultValue={[tagOptions[2], tagOptions[3]]}
+            isMulti
+            name='skills'
+            options={tagOptions}
+            className='basic-multi-select'
+            className={styles.selectItem}
+            classNamePrefix='select'
+            isClearable
 
-      <label>
-        <input
-          disabled={checkedItems.pricedown}
-          name='priceup'
-          id='priceup'
-          value='priceup'
-          type='checkbox'
-          onChange={handleChangeCheckbox}
-        />
-        Price Up
-      </label>
-      <br />
-      <label>
-        <input
-          disabled={checkedItems.priceup}
-          name='pricedown'
-          id='pricedown'
-          value='pricedown'
-          type='checkbox'
-          onChange={handleChangeCheckbox}
-        />
-        Price Down
-      </label>
-      <label>
-        <input
-          name='timezone'
-          id='timezone'
-          value='timezone'
-          type='checkbox'
-          onChange={handleChangeCheckbox}
-        />
-        Timezone
-      </label>
+            // styles={customStyles}
+          />
+        </div>
+        <div className={styles.searchButton}>
+          <button onClick={handleClick}>Search</button>
+        </div>
+      </div>
+      <Checkbox />
     </div>
   );
 }
