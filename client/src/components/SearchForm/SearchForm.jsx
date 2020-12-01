@@ -6,7 +6,11 @@ import { Button } from '@material-ui/core';
 import './style.css';
 
 function SearchForm() {
-  const [checked, setChecked] = useState();
+  const [checkedItems, setChecked] = useState({
+    priceup: false,
+    pricedown: false,
+    timezone: false,
+  });
 
   const selectedValue = useSelector((store) => store.selectedValues);
   const dispatch = useDispatch();
@@ -28,10 +32,11 @@ function SearchForm() {
     if (Array.isArray(e)) values = e.map((x) => x.value);
     dispatch(addValues({ values }));
   };
-  const handleChangeCheckbox = (e) => {
-    console.log('>>>>', checked);
-  };
 
+  const handleChangeCheckbox = (e) => {
+    setChecked({ ...checkedItems, [e.target.name]: e.target.checked });
+  };
+  console.log('>>>>', checkedItems);
   const handleClick = async () => {
     const query = selectedValue.join(',');
     const repsonse = await fetch(
@@ -60,6 +65,7 @@ function SearchForm() {
 
       <label>
         <input
+          disabled={checkedItems.pricedown}
           name='priceup'
           id='priceup'
           value='priceup'
@@ -71,6 +77,7 @@ function SearchForm() {
       <br />
       <label>
         <input
+          disabled={checkedItems.priceup}
           name='pricedown'
           id='pricedown'
           value='pricedown'
