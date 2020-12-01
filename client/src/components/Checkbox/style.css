@@ -1,9 +1,0 @@
-.checkbox-main {
-  color: #fafafa;
-  display: flex;
-  justify-content: flex-start;
-  margin: 14px 0 0 36px;
-}
-.label:not(:last-child) {
-  margin-right: 10px;
-}
