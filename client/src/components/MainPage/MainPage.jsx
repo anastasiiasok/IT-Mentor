@@ -4,6 +4,7 @@ import Profile from '../Profile/Profile';
 import Mentors from '../Mentors/Mentors';
 import SignUp from '../SignUp/SignUp';
 import HomePage from '../HomePage/HomePage';
+
 function MainPage() {
   return (
     <>
