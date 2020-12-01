@@ -1,11 +1,22 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
-import {searchMentors } from '../../store/actions';
-import { Button } from '@material-ui/core';
-import './style.css';
 
+import Checkbox from '../Checkbox/Checkbox';
+import styles from './SearchForm.module.css';
+
+import {searchMentors } from '../../store/actions';
+
+
+const customStyles = {
+  multiValue: (provided, state) => ({
+    ...provided,
+    borderBottom: '1px solid green',
+    color: state.selectProps.menuColor,
+  }),
+};
 function SearchForm() {
+
   const [filters, setFilters] = useState([]);
   const [checkedItems, setChecked] = useState({
     priceup: false,
@@ -15,7 +26,7 @@ function SearchForm() {
 
   const dispatch = useDispatch();
   const tags = [
-    { value: 'express', label: 'Express', isFixed: true },
+    { value: 'express', label: 'Express', isFixed: true, color: 'pink' },
     { value: 'postman', label: 'Postman' },
     { value: 'nodejs', label: 'NodeJS' },
     { value: 'restapi', label: 'REST API' },
@@ -35,6 +46,7 @@ function SearchForm() {
     setChecked({ ...checkedItems, [e.target.name]: e.target.checked });
   };
   
+
   const handleClick = async () => {
     const queryArr = [];
 
@@ -51,6 +63,7 @@ function SearchForm() {
     dispatch(searchMentors(mentors));
   };
   return (
+
     <div className='search-div'>
       <div className='search'>
         <Select
@@ -93,6 +106,7 @@ function SearchForm() {
         />
         Timezone
       </label>
+
     </div>
   );
 }
