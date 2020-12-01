@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 
-function Projects() {
-  const projects = useSelector((state) => state.mentors[0].projects[0].title);
-  const body = useSelector((state) => state.mentors[0].projects[0].body);
+function Projects({projects}) {
+  const project = projects.title;
+  const body = projects.body;
   return (
     <>
       <div>
-        <p>{projects}</p>
+        <p>{project}</p>
         <p>Description: {body}</p>
       </div>
     </>
