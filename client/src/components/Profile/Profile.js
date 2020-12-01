@@ -19,17 +19,14 @@ import Mentor from '../Mentor/Mentor';
 
 function Profile() {
   const mentor = useLocation().state.mentor;
-  console.log('>>>>> mentor', mentor);
   const [visible, setVisibility] = React.useState(false);
 
- const handleClick = ()=>{
-   setVisibility(!visible);
- }
+  const handleClick = () => {
+    setVisibility(!visible);
+  };
 
   return (
     <div className="full">
-      <h1 className="heading">Profile</h1>
-
       <div>
         <br></br>
       </div>
@@ -43,7 +40,7 @@ function Profile() {
         </a>
         <div className="profile__grid__template">
           <div className="card__mentor">
-            <SignIn visible={visible} setVisibility={setVisibility}/>
+            <SignIn visible={visible} setVisibility={setVisibility} />
             <div className="card__mentor__img">
               <img src="mentor_img.svg" alt="" />
             </div>
@@ -84,14 +81,6 @@ function Profile() {
                   <Resume resume={mentor.resume}/>
                 </div>
                 <div></div>
-                {/* <div>Содержание 5</div>
-                <div>Содержание 6</div>
-                <div>Содержание 7</div>
-                <div>Содержание 8</div>
-                <div>Содержание 9</div>
-                <div>Содержание 10</div>
-                <div>Содержание 11</div>
-                <div>Содержание 12</div> */}
               </div>
             </div>
             <div className="card__info__mentor">
@@ -99,11 +88,6 @@ function Profile() {
               <div>
                 <Projects projects={mentor.projects[0]}/>
               </div>
-
-              {/* <div>Содержание 5</div>
-              <div>Содержание 6</div>
-              <div>Содержание 7</div>
-              <div>Содержание 8</div> */}
             </div>
             <div className="card__info__mentor">
               <div className="grid-column-2-1fr">
@@ -126,6 +110,9 @@ function Profile() {
           </div>
         </div>
       </div>
+
+      <br></br>
+      <br></br>
     </div>
   );
 }
