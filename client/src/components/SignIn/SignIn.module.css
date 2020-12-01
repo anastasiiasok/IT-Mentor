@@ -1,0 +1,21 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  align-items: center;
+  max-width: 600px;
+  width: 120%;
+  min-width: 300px;
+  position: absolute;
+  background-color: #fafafa;
+  z-index: 1;
+  bottom: 100px;
+  left: 200px;
+  height: 550px;
+  border-radius: 10px;
+  border: solid rgba(88, 150, 139, 1) 4px;
+
+}

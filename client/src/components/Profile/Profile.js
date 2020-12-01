@@ -4,6 +4,7 @@ import Projects from "../Projects/Projects";
 import Price from "../Price/Price";
 import Resume from "../Resume/Resume";
 import BenefitList from "../BenefitList/BenefitList";
+import SignIn from "../SignIn/SignIn";
 import {
   BrowserRouter as Router,
   Switch,
@@ -31,6 +32,7 @@ function Profile() {
         </a>
         <div className="profile__grid__template">
           <div className="card__mentor">
+            <SignIn />
             <div className="card__mentor__img">
               <img src="mentor_img.svg" alt="" />
             </div>
