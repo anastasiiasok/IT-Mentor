@@ -22,15 +22,7 @@
   border: solid rgba(88, 150, 139, 1) 4px;
 
 }
-
-.button_container {
-  display: flex;
-  justify-content: space-around;
-  width: 90%;
-  margin-top: 0px;
-}
-
-.field {
+.container > input {
   color: rgba(88, 150, 139, 1);
   outline: none;
   border: none;
@@ -42,12 +34,18 @@
   font-size: 20px;
 }
 
-.field:focus {
+.container > input:focus {
   border: 2px solid rgba(88, 150, 139, 1);
 }
 
-.button_green {
-  background-color:  rgba(88, 150, 139, 1);
+.button_container {
+  display: flex;
+  justify-content: space-around;
+  width: 90%;
+  margin-top: 0px;
+}
+
+.button_container > button {
   border: none;
   border-radius: 4px;
   color: white;
@@ -58,16 +56,12 @@
   font-size: 16px;
 }
 
-.button_yellow {
+.green {
+  background-color:  rgba(88, 150, 139, 1);
+}
+
+.yellow {
    background-color: rgba(243, 192, 73, 1);
-  border: none;
-  border-radius: 4px;
-  color: white;
-  padding: 16px 16px;
-  text-decoration: none;
-  margin: 4px 2px;
-  cursor: pointer;
-  font-size: 16px;
 }
 
 ::placeholder {

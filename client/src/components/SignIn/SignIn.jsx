@@ -1,5 +1,5 @@
 import React from 'react';
-import styles  from './SignIn.module.css';
+import styles from './SignIn.module.css'
 
 const SignIn = ({visible, setVisibility})=>{
   const handleSubmit = ()=>{
@@ -7,15 +7,15 @@ const SignIn = ({visible, setVisibility})=>{
   }
   return(
     <div className={styles.container} style={{visibility: visible ? "visible" : "hidden"}}>
-      <input className={styles.field} placeholder="first name" type="text"/>
-      <input className={styles.field} placeholder="last name" type="text"/>
-      <input className={styles.field} placeholder="email" type="text"/>
+      <input placeholder="first name" type="text"/>
+      <input  placeholder="last name" type="text"/>
+      <input  placeholder="email" type="text"/>
       <div style={{height: "100px"}}></div>
-      <input className={styles.field} placeholder="password" type="text"/>
-      <input className={styles.field} placeholder="confirm password" type="text"/>
+      <input   placeholder="password" type="text"/>
+      <input  placeholder="confirm password" type="text"/>
       <div className={styles.button_container}>
-        <button className={styles.button_green} onClick={handleSubmit}>Submit</button>
-        <button className={styles.button_yellow}>Sign In with Google</button>
+        <button className={styles.green} onClick={handleSubmit}>Submit</button>
+        <button className={styles.yellow}>Sign In with Google</button>
       </div>
     </div>
   )
