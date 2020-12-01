@@ -1,3 +1,4 @@
+import React from 'react';
 import Education from "../Education/Education";
 import Person from "../Person/Person";
 import Projects from "../Projects/Projects";
@@ -15,6 +16,13 @@ import {
 import "./styles.css";
 
 function Profile() {
+  
+  const [visible, setVisibility] = React.useState(false);
+
+ const handleClick = ()=>{
+   setVisibility(!visible);
+ }
+
   return (
     <div className="full">
       <h1 className="heading">Profile</h1>
@@ -32,7 +40,7 @@ function Profile() {
         </a>
         <div className="profile__grid__template">
           <div className="card__mentor">
-            <SignIn />
+            <SignIn visible={visible}/>
             <div className="card__mentor__img">
               <img src="mentor_img.svg" alt="" />
             </div>
@@ -42,7 +50,7 @@ function Profile() {
               </a>
             </div>
 
-            <a href="" className="btn yellow">
+            <a onClick={handleClick} className="btn yellow">
               Schedule a free call
             </a>
             <div className="free_test_session">

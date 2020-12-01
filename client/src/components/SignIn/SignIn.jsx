@@ -1,9 +1,9 @@
 import React from 'react';
 import styles  from './SignIn.module.css';
 
-const SignIn = ()=>{
+const SignIn = ({visible})=>{
   return(
-    <div className={styles.container}>
+    <div className={styles.container} style={{visibility: visible ? "visible" : "hidden"}}>
       <input className={styles.field} placeholder="first name" type="text"/>
       <input className={styles.field} placeholder="last name" type="text"/>
       <input className={styles.field} placeholder="email" type="text"/>
