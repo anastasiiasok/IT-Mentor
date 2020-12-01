@@ -40,8 +40,9 @@ function SearchForm() {
 
     if (filters.length) queryArr.push('skills='+filters.join(','));
     if (checkedItems.timezone) queryArr.push('timezone=+3');
-    if (checkedItems.price) queryArr.push(`price=${1-2*checkedItems.down}`);
+    if (checkedItems.price) queryArr.push(`price=${checkedItems.down? -1: 1}`);
     const query =queryArr.join('&');
+    console.log(query);
     const repsonse = await fetch(
       `http://localhost:3100/mentor?${query}`
     );
