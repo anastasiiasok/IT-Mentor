@@ -37,6 +37,9 @@ function Mentor({ mentor }) {
               <div className="card__info__item">
                 <p>
                   {name} {surname}
+                  <a className="likebutn">
+                    <i class="far fa-thumbs-up"></i>{" "}
+                  </a>
                 </p>
               </div>
               <div className="card__info__item">
@@ -70,7 +73,10 @@ function Mentor({ mentor }) {
               </a>
 
               <span className="btn yellow">
-                <Link to={{pathname: "/profile", state: {mentor}}}> More Details </Link>
+                <Link to={{ pathname: "/profile", state: { mentor } }}>
+                  {" "}
+                  More Details{" "}
+                </Link>
               </span>
 
               <a href="https://www.w3schools.com" className="btn">

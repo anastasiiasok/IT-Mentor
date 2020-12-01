@@ -1,17 +1,24 @@
 .account{
-  float: right;
+  /* float: right;
   border: 0px solid #ccc;
   background-color: rgb(88, 150, 139);
   width: 20%;
-  height: 800px;
-  margin-top: -90px; 
+  height: 600px;
+  margin-top: 10px; 
+  margin-bottom: 10px;
   font-family: 'Roboto', sans-serif;
+  border-radius: 20%;
+
+  margin-right: -6px; */
+
 }
 
 h1{
   color: rgb(255, 255, 255);
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
-  line-height: 10;
+  line-height: 13;
+  text-align: center;
+
 }
 
