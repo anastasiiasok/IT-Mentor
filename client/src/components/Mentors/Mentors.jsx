@@ -1,13 +1,14 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import Mentor from '../Mentor/Mentor';
 
-import { addMentors } from '../../store/actions';
-import SearchForm from '../SearchForm/SearchForm';
-import './mentors.css';
+import React from "react";
+import { useSelector } from "react-redux";
+import Mentor from "../Mentor/Mentor";
+
+import SearchForm from "../SearchForm/SearchForm";
+import "./mentors.css";
+
 
 const Mentors = () => {
-  const state = useSelector((store) => store.mentors);
+  const state = useSelector((store) => store.mentors).filter((el,i)=> i<5);
 
   return (
     <div className='main'>
