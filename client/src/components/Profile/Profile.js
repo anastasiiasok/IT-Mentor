@@ -40,7 +40,7 @@ function Profile() {
         </a>
         <div className="profile__grid__template">
           <div className="card__mentor">
-            <SignIn visible={visible}/>
+            <SignIn visible={visible} setVisibility={setVisibility}/>
             <div className="card__mentor__img">
               <img src="mentor_img.svg" alt="" />
             </div>
