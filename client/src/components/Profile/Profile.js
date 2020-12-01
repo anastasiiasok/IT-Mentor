@@ -1,4 +1,5 @@
 import React from 'react';
+import {useLocation} from 'react-router-dom';
 import Education from "../Education/Education";
 import Person from "../Person/Person";
 import Projects from "../Projects/Projects";
@@ -14,9 +15,11 @@ import {
   Redirect,
 } from "react-router-dom";
 import "./styles.css";
+import Mentor from '../Mentor/Mentor';
 
 function Profile() {
-  
+  const mentor = useLocation().state.mentor;
+  console.log('>>>>> mentor', mentor);
   const [visible, setVisibility] = React.useState(false);
 
  const handleClick = ()=>{
@@ -46,7 +49,7 @@ function Profile() {
             </div>
             <div className="free_test_session">
               <a href="">
-                <Price />
+                <Price price={mentor.price}/>
               </a>
             </div>
 
@@ -62,7 +65,7 @@ function Profile() {
           <div className="info__mentor__container">
             <div className="card__info__mentor">
               <p>
-                <Person />
+                <Person mentor={mentor}/>
               </p>
             </div>
 
@@ -70,7 +73,7 @@ function Profile() {
               <p className="bold">Can help with</p>
 
               <p>
-                <BenefitList />
+                <BenefitList benefits={mentor.benefits}/>
               </p>
             </div>
             <div className="card__info__mentor">
@@ -78,7 +81,7 @@ function Profile() {
                 <div className="bold">Work experience</div>
                 <div></div>
                 <div>
-                  <Resume />
+                  <Resume resume={mentor.resume}/>
                 </div>
                 <div></div>
                 {/* <div>Содержание 5</div>
@@ -94,7 +97,7 @@ function Profile() {
             <div className="card__info__mentor">
               <div className="bold">Projects</div>
               <div>
-                <Projects />
+                <Projects projects={mentor.projects[0]}/>
               </div>
 
               {/* <div>Содержание 5</div>
@@ -108,7 +111,7 @@ function Profile() {
                 <div></div>
 
                 <div>
-                  <Education />
+                  <Education education={mentor.education[0]}/>
                 </div>
                 {/* <div>
                   Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut

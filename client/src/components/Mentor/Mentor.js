@@ -70,7 +70,7 @@ function Mentor({ mentor }) {
               </a>
 
               <span className="btn yellow">
-                <Link to="/profile"> More Details </Link>
+                <Link to={{pathname: "/profile", state: {mentor}}}> More Details </Link>
               </span>
 
               <a href="https://www.w3schools.com" className="btn">
