@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { addValues, searchMentors } from '../../store/actions';
@@ -6,18 +6,20 @@ import { Button } from '@material-ui/core';
 import './style.css';
 
 function SearchForm() {
+  const [checked, setChecked] = useState();
+
   const selectedValue = useSelector((store) => store.selectedValues);
   const dispatch = useDispatch();
   const tags = [
-    { value: 'express', label: 'Express', color: '#00B8D9', isFixed: true },
-    { value: 'postman', label: 'Postman', color: '#FF5630' },
-    { value: 'nodejs', label: 'NodeJS', color: '#0052CC' },
-    { value: 'restapi', label: 'REST API', color: '#5243AA' },
-    { value: 'saga', label: 'Saga', color: '#FF8B00' },
-    { value: 'react', label: 'React', color: '#FFC400' },
-    { value: 'mongodb', label: 'MongoDB', color: '#FFC400' },
-    { value: 'sass', label: 'Sass', color: '#FFC400' },
-    { value: 'ubuntu', label: 'Ubuntu', color: '#FFC400' },
+    { value: 'express', label: 'Express', isFixed: true },
+    { value: 'postman', label: 'Postman' },
+    { value: 'nodejs', label: 'NodeJS' },
+    { value: 'restapi', label: 'REST API' },
+    { value: 'saga', label: 'Saga' },
+    { value: 'react', label: 'React' },
+    { value: 'mongodb', label: 'MongoDB' },
+    { value: 'sass', label: 'Sass' },
+    { value: 'ubuntu', label: 'Ubuntu' },
   ];
   const tagOptions = tags.map((tag) => ({ ...tag, value: tag.label }));
 
@@ -25,6 +27,9 @@ function SearchForm() {
     let values = [];
     if (Array.isArray(e)) values = e.map((x) => x.value);
     dispatch(addValues({ values }));
+  };
+  const handleChangeCheckbox = (e) => {
+    console.log('>>>>', checked);
   };
 
   const handleClick = async () => {
@@ -44,13 +49,46 @@ function SearchForm() {
           value={tagOptions.filter((obj) => selectedValue.includes(obj.value))}
           // defaultValue={[tagOptions[2], tagOptions[3]]}
           isMulti
-          name='colors'
+          name='skills'
           options={tagOptions}
           className='basic-multi-select'
           classNamePrefix='select'
+          isClearable
         />
       </div>
-      <Button onClick={handleClick}>Search Mentors</Button>
+      <Button onClick={handleClick}>Search</Button>
+
+      <label>
+        <input
+          name='priceup'
+          id='priceup'
+          value='priceup'
+          type='checkbox'
+          onChange={handleChangeCheckbox}
+        />
+        Price Up
+      </label>
+      <br />
+      <label>
+        <input
+          name='pricedown'
+          id='pricedown'
+          value='pricedown'
+          type='checkbox'
+          onChange={handleChangeCheckbox}
+        />
+        Price Down
+      </label>
+      <label>
+        <input
+          name='timezone'
+          id='timezone'
+          value='timezone'
+          type='checkbox'
+          onChange={handleChangeCheckbox}
+        />
+        Timezone
+      </label>
     </div>
   );
 }

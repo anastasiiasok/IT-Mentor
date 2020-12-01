@@ -139,23 +139,43 @@ function HomePage() {
         <div className='infoSection'>
           <ul className='listInfo'>
             <li>
-              <img class='checklist' src='img/checklist.png' alt='checklist' />
+              <img
+                className='checklist'
+                src='img/checklist.png'
+                alt='checklist'
+              />
               Create an individual program
             </li>
             <li>
-              <img class='checklist' src='img/checklist.png' alt='checklist' />
+              <img
+                className='checklist'
+                src='img/checklist.png'
+                alt='checklist'
+              />
               Prepare for the interview
             </li>
             <li>
-              <img class='checklist' src='img/checklist.png' alt='checklist' />
+              <img
+                className='checklist'
+                src='img/checklist.png'
+                alt='checklist'
+              />
               Network
             </li>
             <li>
-              <img class='checklist' src='img/checklist.png' alt='checklist' />
+              <img
+                className='checklist'
+                src='img/checklist.png'
+                alt='checklist'
+              />
               Choose the best materials and practices for self-study
             </li>
             <li>
-              <img class='checklist' src='img/checklist.png' alt='checklist' />
+              <img
+                className='checklist'
+                src='img/checklist.png'
+                alt='checklist'
+              />
               Motivate to keep up your studying pace and refrain from giving up
             </li>
           </ul>

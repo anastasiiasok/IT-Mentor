@@ -1,12 +1,10 @@
 import { Provider } from 'react-redux';
 import { store } from './store/index';
-import { BrowserRouter as Router, Switch, Link, Route } from 'react-router-dom';
-
-import Main from './components/Main/Main';
+import { BrowserRouter as Router } from 'react-router-dom';
 import MainPage from './components/MainPage/MainPage';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
-import HomePage from './components/HomePage/HomePage';
+
 // import './App.css';
 function App() {
   return (
@@ -15,8 +13,6 @@ function App() {
         <Header />
         <MainPage />
         <Footer />
-
-        {/* <Main /> */}
       </Router>
     </Provider>
   );
