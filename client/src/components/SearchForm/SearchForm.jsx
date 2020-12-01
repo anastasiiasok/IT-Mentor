@@ -6,8 +6,13 @@ import { Button } from '@material-ui/core';
 import './style.css';
 
 function SearchForm() {
-  const [checked, setChecked] = useState();
   const [filters, setFilters] = useState([]);
+  const [checkedItems, setChecked] = useState({
+    priceup: false,
+    pricedown: false,
+    timezone: false,
+  });
+
   const dispatch = useDispatch();
   const tags = [
     { value: 'express', label: 'Express', isFixed: true },
@@ -25,10 +30,11 @@ function SearchForm() {
   const handleChange = (e) => {
     setFilters(Array.isArray(e)? e.map(x=>x.value): []);
   };
-  const handleChangeCheckbox = (e) => {
-    console.log('>>>>', checked);
-  };
 
+  const handleChangeCheckbox = (e) => {
+    setChecked({ ...checkedItems, [e.target.name]: e.target.checked });
+  };
+  console.log('>>>>', checkedItems);
   const handleClick = async () => {
     const query = filters.join(',');
     const repsonse = await fetch(
@@ -57,6 +63,7 @@ function SearchForm() {
 
       <label>
         <input
+          disabled={checkedItems.pricedown}
           name='priceup'
           id='priceup'
           value='priceup'
@@ -68,6 +75,7 @@ function SearchForm() {
       <br />
       <label>
         <input
+          disabled={checkedItems.priceup}
           name='pricedown'
           id='pricedown'
           value='pricedown'

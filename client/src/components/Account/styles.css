@@ -1,0 +1,17 @@
+.account{
+  float: right;
+  border: 0px solid #ccc;
+  background-color: rgb(88, 150, 139);
+  width: 20%;
+  height: 800px;
+  margin-top: -90px; 
+  font-family: 'Roboto', sans-serif;
+}
+
+h1{
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  font-family: 'Roboto', sans-serif;
+  line-height: 10;
+}
+

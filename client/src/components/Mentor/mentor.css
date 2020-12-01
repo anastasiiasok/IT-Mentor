@@ -77,7 +77,7 @@ header {
     right: 50%;
     bottom: 50%;
     transform: translate(50%, 50%)
-} */
+}  */
 
 .card__item > * + *  {
     margin-left: 20px;
@@ -165,6 +165,7 @@ header {
         margin-top: 15px;
     }
 }
+
 
 
 
