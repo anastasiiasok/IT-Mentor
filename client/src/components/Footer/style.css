@@ -1,14 +1,14 @@
-footer {
+.footer {
   background-color: #58968b;
   color: #fafafa;
   padding: 0.5rem;
 
   line-height: 1.6;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 80px;
+}
 
-}
-.footerMentors {
-  margin-left: 1200px;
-}
 .footerTitle {
   text-transform: uppercase;
 }
