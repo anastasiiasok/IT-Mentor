@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
-import { addValues, searchMentors } from '../../store/actions';
+import {searchMentors } from '../../store/actions';
 import { Button } from '@material-ui/core';
 import './style.css';
 
 function SearchForm() {
+  const [filters, setFilters] = useState([]);
   const [checkedItems, setChecked] = useState({
     priceup: false,
     pricedown: false,
     timezone: false,
   });
 
-  const selectedValue = useSelector((store) => store.selectedValues);
   const dispatch = useDispatch();
   const tags = [
     { value: 'express', label: 'Express', isFixed: true },
@@ -28,19 +28,23 @@ function SearchForm() {
   const tagOptions = tags.map((tag) => ({ ...tag, value: tag.label }));
 
   const handleChange = (e) => {
-    let values = [];
-    if (Array.isArray(e)) values = e.map((x) => x.value);
-    dispatch(addValues({ values }));
+    setFilters(Array.isArray(e)? e.map(x=>x.value): []);
   };
 
   const handleChangeCheckbox = (e) => {
     setChecked({ ...checkedItems, [e.target.name]: e.target.checked });
   };
-  console.log('>>>>', checkedItems);
+  
   const handleClick = async () => {
-    const query = selectedValue.join(',');
+    const queryArr = [];
+
+    if (filters.length) queryArr.push('skills='+filters.join(','));
+    if (checkedItems.timezone) queryArr.push('timezone=+3');
+    if (checkedItems.price) queryArr.push(`price=${checkedItems.down? -1: 1}`);
+    const query =queryArr.join('&');
+    console.log(query);
     const repsonse = await fetch(
-      `http://localhost:3100/mentor?skills=${query}`
+      `http://localhost:3100/mentor?${query}`
     );
     const mentors = await repsonse.json(); // { [{}]} object with array of objects
     console.log(mentors);
@@ -51,7 +55,7 @@ function SearchForm() {
       <div className='search'>
         <Select
           onChange={handleChange}
-          value={tagOptions.filter((obj) => selectedValue.includes(obj.value))}
+          value={tagOptions.filter((obj) => filters.includes(obj.value))}
           // defaultValue={[tagOptions[2], tagOptions[3]]}
           isMulti
           name='skills'
@@ -65,32 +69,25 @@ function SearchForm() {
 
       <label>
         <input
-          disabled={checkedItems.pricedown}
-          name='priceup'
-          id='priceup'
-          value='priceup'
+          name='price'
           type='checkbox'
           onChange={handleChangeCheckbox}
         />
-        Price Up
+        Price
       </label>
       <br />
       <label>
         <input
-          disabled={checkedItems.priceup}
-          name='pricedown'
-          id='pricedown'
-          value='pricedown'
+          disabled={!checkedItems.price}
+          name='down'
           type='checkbox'
           onChange={handleChangeCheckbox}
         />
-        Price Down
+        Down
       </label>
       <label>
         <input
           name='timezone'
-          id='timezone'
-          value='timezone'
           type='checkbox'
           onChange={handleChangeCheckbox}
         />
