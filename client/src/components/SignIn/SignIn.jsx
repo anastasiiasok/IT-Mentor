@@ -14,8 +14,8 @@ const SignIn = ({visible, setVisibility})=>{
       <input   placeholder="password" type="text"/>
       <input  placeholder="confirm password" type="text"/>
       <div className={styles.button_container}>
-        <button className={styles.green} onClick={handleSubmit}>Submit</button>
-        <button className={styles.yellow}>Sign In with Google</button>
+        <button  onClick={handleSubmit}>Submit</button>
+        <button  style={{backgroundColor: "rgba(243, 192, 73, 1)"}}>Sign In with Google</button>
       </div>
     </div>
   )

@@ -46,6 +46,7 @@
 }
 
 .button_container > button {
+  background-color:  rgba(88, 150, 139, 1);
   border: none;
   border-radius: 4px;
   color: white;
@@ -54,14 +55,6 @@
   margin: 4px 2px;
   cursor: pointer;
   font-size: 16px;
-}
-
-.green {
-  background-color:  rgba(88, 150, 139, 1);
-}
-
-.yellow {
-   background-color: rgba(243, 192, 73, 1);
 }
 
 ::placeholder {
