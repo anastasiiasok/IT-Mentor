@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import Select from 'react-select';
-import { addValues, searchMentors } from '../../store/actions';
+import {searchMentors } from '../../store/actions';
 import { Button } from '@material-ui/core';
 import './style.css';
 
 function SearchForm() {
+  const [filters, setFilters] = useState([]);
   const [checkedItems, setChecked] = useState({
     priceup: false,
     pricedown: false,
     timezone: false,
   });
 
-  const selectedValue = useSelector((store) => store.selectedValues);
   const dispatch = useDispatch();
   const tags = [
     { value: 'express', label: 'Express', isFixed: true },
@@ -28,9 +28,7 @@ function SearchForm() {
   const tagOptions = tags.map((tag) => ({ ...tag, value: tag.label }));
 
   const handleChange = (e) => {
-    let values = [];
-    if (Array.isArray(e)) values = e.map((x) => x.value);
-    dispatch(addValues({ values }));
+    setFilters(Array.isArray(e)? e.map(x=>x.value): []);
   };
 
   const handleChangeCheckbox = (e) => {
@@ -38,7 +36,7 @@ function SearchForm() {
   };
   console.log('>>>>', checkedItems);
   const handleClick = async () => {
-    const query = selectedValue.join(',');
+    const query = filters.join(',');
     const repsonse = await fetch(
       `http://localhost:3100/mentor?skills=${query}`
     );
@@ -51,7 +49,7 @@ function SearchForm() {
       <div className='search'>
         <Select
           onChange={handleChange}
-          value={tagOptions.filter((obj) => selectedValue.includes(obj.value))}
+          value={tagOptions.filter((obj) => filters.includes(obj.value))}
           // defaultValue={[tagOptions[2], tagOptions[3]]}
           isMulti
           name='skills'

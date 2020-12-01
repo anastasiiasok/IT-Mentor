@@ -1,4 +1,4 @@
-import { ADD_MENTORS, ADD_VALUES, SEARCH_MENTORS } from './types';
+import { ADD_MENTORS, SEARCH_MENTORS } from './types';
 
 export const reducers = (state, action) => {
   switch (action.type) {
@@ -8,10 +8,6 @@ export const reducers = (state, action) => {
 
     case SEARCH_MENTORS:
       return { ...state, mentors: action.payload.mentors };
-
-    case ADD_VALUES:
-      const addValues = [...state.selectedValues, ...action.payload.values];
-      return { ...state, selectedValues: addValues };
 
     default:
       return state;
