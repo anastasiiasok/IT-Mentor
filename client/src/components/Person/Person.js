@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import React from "react";
 
-function Person() {
+function Person({mentor}) {
   const {
     name,
     surname,
@@ -10,10 +10,8 @@ function Person() {
     timezone,
     email,
     summary,
-  } = useSelector((state) => state.mentors[0]);
-  const { company, position } = useSelector(
-    (state) => state.mentors[0].resume[0]
-  );
+  } = mentor;
+  const { company, position } = mentor.resume;
 
   return (
     <>

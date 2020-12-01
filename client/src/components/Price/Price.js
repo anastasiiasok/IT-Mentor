@@ -19,10 +19,8 @@ import { makeStyles, Card, CardContent, Typography } from "@material-ui/core";
 //   },
 // });
 
-function Price() {
+function Price({price}) {
   // const classes = useStyles();
-
-  const price = useSelector((state) => state.mentors[0].price);
   return (
     // <Card className={classes.root}>
     //   <CardContent>
