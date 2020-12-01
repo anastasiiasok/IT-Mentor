@@ -14,10 +14,10 @@ a:active {
 .tag:active {
   color: #f3c049;
 }
-.main {
+/* .main {
   height: 100vh;
   min-height: 600px;
-}
+} */
 .mainHeading {
   font-size: 36px;
   text-align: center;
