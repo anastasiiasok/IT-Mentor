@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import Education from "../Education/Education";
 import Person from "../Person/Person";
 import Projects from "../Projects/Projects";
@@ -16,17 +16,14 @@ import {
 import "./styles.css";
 
 function Profile() {
-  
   const [visible, setVisibility] = React.useState(false);
 
- const handleClick = ()=>{
-   setVisibility(!visible);
- }
+  const handleClick = () => {
+    setVisibility(!visible);
+  };
 
   return (
     <div className="full">
-      <h1 className="heading">Profile</h1>
-
       <div>
         <br></br>
       </div>
@@ -40,7 +37,7 @@ function Profile() {
         </a>
         <div className="profile__grid__template">
           <div className="card__mentor">
-            <SignIn visible={visible} setVisibility={setVisibility}/>
+            <SignIn visible={visible} setVisibility={setVisibility} />
             <div className="card__mentor__img">
               <img src="mentor_img.svg" alt="" />
             </div>
@@ -123,6 +120,9 @@ function Profile() {
           </div>
         </div>
       </div>
+
+      <br></br>
+      <br></br>
     </div>
   );
 }
