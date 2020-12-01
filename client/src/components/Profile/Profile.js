@@ -78,14 +78,6 @@ function Profile() {
                   <Resume />
                 </div>
                 <div></div>
-                {/* <div>Содержание 5</div>
-                <div>Содержание 6</div>
-                <div>Содержание 7</div>
-                <div>Содержание 8</div>
-                <div>Содержание 9</div>
-                <div>Содержание 10</div>
-                <div>Содержание 11</div>
-                <div>Содержание 12</div> */}
               </div>
             </div>
             <div className="card__info__mentor">
@@ -93,11 +85,6 @@ function Profile() {
               <div>
                 <Projects />
               </div>
-
-              {/* <div>Содержание 5</div>
-              <div>Содержание 6</div>
-              <div>Содержание 7</div>
-              <div>Содержание 8</div> */}
             </div>
             <div className="card__info__mentor">
               <div className="grid-column-2-1fr">
