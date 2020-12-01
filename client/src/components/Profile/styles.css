@@ -142,6 +142,7 @@ ul > li::before {
     max-width: 400px;
     width: 30%;
     min-width: 300px;
+    position: relative;
 }
 
 .info__mentor__container {
