@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
-import { SCREEN_SIZE } from '../../store/types'
+import { SCREEN_SIZE } from '../../store/types';
 
 import styles from './SearchForm.module.css';
 
@@ -46,9 +46,18 @@ function SearchForm() {
 
   const handleClick = async () => {
     const queryArr = [];
+    const key = '1288100a174d447583eb11e7a4ab6d2c';
 
     if (filters.length) queryArr.push('skills=' + filters.join(','));
-    if (checkedItems.timezone) queryArr.push('timezone=+3');
+    if (checkedItems.timezone) {
+      const res = await fetch(
+        `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=17.142.160.59`
+      );
+      const timezoneData = await res.json();
+
+      queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
+    }
+
     if (checkedItems.price)
       queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
     const query = queryArr.join('&');
