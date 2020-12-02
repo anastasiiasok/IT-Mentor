@@ -7,6 +7,7 @@ import {
   Route,
   Redirect,
 } from 'react-router-dom';
+import IconedName from '../IconedName/IconedName';
 
 function Mentor({ mentor }) {
   const {
@@ -35,12 +36,7 @@ function Mentor({ mentor }) {
             </div>
             <div className='card__info'>
               <div className='card__info__item'>
-                <p>
-                  {name} {surname}
-                  <a className="likebutn">
-                    <i class="far fa-thumbs-up"></i>{" "}
-                  </a>
-                </p>
+               <IconedName name={name} surname={surname} liked={mentor.liked} id={mentor._id} />
               </div>
               <div className='card__info__item'>
                 <p>

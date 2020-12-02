@@ -49,6 +49,7 @@ function SearchForm() {
     const key = '1288100a174d447583eb11e7a4ab6d2c';
 
     if (filters.length) queryArr.push('skills=' + filters.join(','));
+
     if (checkedItems.timezone) {
       const res = await fetch(
         `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=17.142.160.59`
@@ -58,15 +59,15 @@ function SearchForm() {
       queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
     }
 
+
     if (checkedItems.price)
       queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
     const query = queryArr.join('&');
     console.log(query);
     const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
     const mentors = await repsonse.json(); // { [{}]} object with array of objects
-    console.log(mentors);
     dispatch(setScreen(SCREEN_SIZE));
-    dispatch(searchMentors(mentors));
+    dispatch(searchMentors({mentors: mentors.mentors.map((mentor)=>({...mentor, liked: false}))}));
   };
   return (
     <div className={styles.searchMain}>
