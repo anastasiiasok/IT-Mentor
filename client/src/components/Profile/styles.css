@@ -77,10 +77,11 @@ ul {
   list-style: none;
 }
 
-a {
+.container > a {
   text-decoration: none;
   color: inherit;
   font-size: 16px;
+  color: rgba(88, 150, 139, 1) !important;
 }
 
 li {
@@ -163,7 +164,9 @@ ul > li::before {
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;
 }
-
+.allMentors {
+  color: rgba(88, 150, 139, 1) !important;
+}
 @media (max-width: 700px) {
   .profile__grid__template {
     flex-direction: column;

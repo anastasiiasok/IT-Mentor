@@ -160,6 +160,12 @@ header {
   outline: none;
   background: none;
 }
+.arrowButton:active {
+  filter: grayscale(100%);
+}
+.arrowButton:hover {
+  filter: grayscale(100%) sepia(100%);
+}
 
 @media (max-width: 500px) {
   /* Меньше 500 пикселей */
