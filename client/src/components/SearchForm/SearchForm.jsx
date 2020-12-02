@@ -1,7 +1,9 @@
+
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
 import { SCREEN_SIZE } from '../../store/types';
+
 
 import styles from './SearchForm.module.css';
 
@@ -24,6 +26,7 @@ function SearchForm() {
 
   const dispatch = useDispatch();
   const tags = [
+
     { value: 'express', label: 'Express', isFixed: true, color: 'pink' },
     { value: 'postman', label: 'Postman' },
     { value: 'nodejs', label: 'NodeJS' },
@@ -33,6 +36,7 @@ function SearchForm() {
     { value: 'mongodb', label: 'MongoDB' },
     { value: 'sass', label: 'Sass' },
     { value: 'ubuntu', label: 'Ubuntu' },
+
   ];
   const tagOptions = tags.map((tag) => ({ ...tag, value: tag.label }));
 
@@ -50,6 +54,7 @@ function SearchForm() {
 
     if (filters.length) queryArr.push('skills=' + filters.join(','));
 
+
     if (checkedItems.timezone) {
       const res = await fetch(
         `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=17.142.160.59`
@@ -63,6 +68,7 @@ function SearchForm() {
     if (checkedItems.price)
       queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
     const query = queryArr.join('&');
+
     console.log(query);
     const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
     const mentors = await repsonse.json(); // { [{}]} object with array of objects
@@ -70,6 +76,7 @@ function SearchForm() {
     dispatch(searchMentors({mentors: mentors.mentors.map((mentor)=>({...mentor, liked: false}))}));
   };
   return (
+
     <div className={styles.searchMain}>
       <div className={styles.searchDiv}>
         <div className={styles.search}>
@@ -89,6 +96,7 @@ function SearchForm() {
         <div className={styles.searchButton}>
           <button onClick={handleClick}>Search</button>
         </div>
+
       </div>
       <div className={styles.checkboxMain}>
         <label className={styles.label}>
@@ -100,6 +108,7 @@ function SearchForm() {
           />
           Price
         </label>
+
 
         <label className={styles.label}>
           <input
@@ -121,6 +130,7 @@ function SearchForm() {
           Timezone
         </label>
       </div>
+
     </div>
   );
 }
