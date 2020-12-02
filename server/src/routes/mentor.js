@@ -9,7 +9,6 @@ router.get('', async (req,res) => {
   if (req.query.skills !== undefined) filter={skills: {$all: req.query.skills.split(',')}};
   if (req.query.timezone !== undefined) filter={...filter,timezone: "GMT:+3"};
   let mentors;
-  console.log(req.query.price);
   if (req.query.price !== undefined) {
     mentors = await Mentor.find(filter).sort({price: Number(req.query.price)}).limit(20).lean();
   } else {

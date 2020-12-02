@@ -46,5 +46,10 @@ app.use(passport.session());
 app.use('/mentor', mentorRouter);
 app.use('/user', userRouter);
 
+app.get('/', (req,res)=>{
+  console.log("something did't go according to plan");
+  res.json('auth failed');
+});
+
 app.listen(PORT, () =>
   console.log('express server is running at PORT: ', PORT));

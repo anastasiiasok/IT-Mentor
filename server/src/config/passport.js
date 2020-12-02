@@ -35,16 +35,21 @@ async (accessToken, refreshToken, profile, done)=>{
 
   passport.use(new LocalStrategy({
     usernameField: 'contacts'
-  },
-    async function(username, password, done) {
+  }, async function(username, password, done) {
       try {
         const user = await User.findOne({contacts: username});
         if (!user) {
           const newUser = new User({contacts: username, password: password});
-          await newUser.save();
+          try {
+            await newUser.save();
+          } catch (err) {
+            if (err.keyValue.googleId !== null) {
+              console.log('Error', err);
+            }
+          };
           return done(null, newUser);
         } 
-        if (user.password !== password) {
+        if ((user) && (user.password !== password)) {
           return done(null, false,{ message: 'Incorrect password.' });
         }
         return done(null, user);

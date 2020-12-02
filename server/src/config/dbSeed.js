@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 require('./dbConnect')(mongoose);
 require('dotenv').config();
 const Mentor = require('../models/Mentor');
