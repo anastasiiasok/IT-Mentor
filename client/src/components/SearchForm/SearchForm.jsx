@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import Select from 'react-select';
+import { SCREEN_SIZE } from '../../store/types'
 
 import styles from './SearchForm.module.css';
 
-import { searchMentors } from '../../store/actions';
+import { searchMentors, setScreen } from '../../store/actions';
 
 const customStyles = {
   multiValue: (provided, state) => ({
@@ -55,6 +56,7 @@ function SearchForm() {
     const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
     const mentors = await repsonse.json(); // { [{}]} object with array of objects
     console.log(mentors);
+    dispatch(setScreen(SCREEN_SIZE));
     dispatch(searchMentors(mentors));
   };
   return (
