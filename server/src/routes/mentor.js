@@ -7,7 +7,7 @@ router.get('', async (req,res) => {
   // const mentors = await Mentor.find({skills: {$all: req.query.skills.split(',')}}).sort({price: 1}).limit(5).lean();
   let filter = {};
   if (req.query.skills !== undefined) filter={skills: {$all: req.query.skills.split(',')}};
-  if (req.query.timezone !== undefined) filter={...filter,timezone: "GMT:+3"};
+  if (req.query.timezone !== undefined) filter={...filter,timezone: "3"};
   let mentors;
   if (req.query.price !== undefined) {
     mentors = await Mentor.find(filter).sort({price: Number(req.query.price)}).limit(20).lean();

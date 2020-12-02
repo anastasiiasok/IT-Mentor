@@ -22,7 +22,7 @@ const seed = ()=>{
         country: faker.address.country(),
         city: faker.address.city(),
         email: faker.internet.email(),
-        timezone: Math.round(Math.random()*4)+1
+        timezone: Math.round(Math.random()*10)-6,
         summary: faker.lorem.words(),
         education: [
           {
@@ -30,7 +30,7 @@ const seed = ()=>{
             institution: faker.company.companyName(),
           },
         ],
-        price: Math.round(Math.random()*2000)+1e3,
+        price: Math.round(Math.random()*20)+20,
         lessons: Math.round(Math.random()*1e2),
         skills: randomSkillSet(),
         benefits: [faker.lorem.words(), faker.lorem.words()],
@@ -55,5 +55,5 @@ const seed = ()=>{
     init.save();
 };
 
-let count = 20;
+let count = 100;
 while(count > 0) {seed(); count -=1;};
