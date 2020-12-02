@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const User = require('../models/User.js');
 const passport = require('passport');
+const Mentor = require('../models/Mentor.js');
 
 router.get('/auth/google', passport.authenticate('google', {scope: ['profile']}));
 
@@ -21,12 +22,18 @@ router.get('/connect/google/callback', passport.authorize('google-authz', { fail
 });
 
 router.post('/auth/local', passport.authenticate('local', { failureRedirect: '/'}), async (req, res)=>{
-  if ((req.body.lastName !== "") && (req.body.firstName !== "")) {
+  if ((req.body.lastName !== "") || (req.body.firstName !== "") || (req.body.mentors.length !== 0)) {
     const user = req.user;
-  user.lastName = req.body.lastName;
-  user.firstName = req.body.firstName;
+  let firstName = user.firstName; 
+  let lastName = user.lastName;
+  let mentors = user.mentors;
+  if (req.body.mentors.length !== 0) {
+    mentors = await Mentor.find({_id : { $in: req.body.mentors }}, '_id');
+  }
+  if (req.body.lastName !== "") lastName = req.body.lastName;
+  if (req.body.firstName !== "") firstName = req.body.firstName;
     try {
-      await user.save();
+      await User.updateOne({_id: user._id}, {$addToSet : {mentors: mentors}, $set : {lastName: lastName, firstName: firstName}});
     } catch(err) {
       if (err.keyValue.googleId !== null) {
         console.log('ERROR', err,'\n We are going to ignore it for now');

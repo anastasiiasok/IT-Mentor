@@ -13,11 +13,19 @@ export const reducers = (state, action) => {
       return {...state, screen: action.payload};  
 
     case TOGGLE_LIKE:
+      let mentors = [...state.likedMentors];
       const likeMentors = state.mentors.map((mentor)=>{
-        if (mentor._id === action.payload) mentor.liked = !mentor.liked;
+        if (mentor._id === action.payload) {
+          mentor.liked = !mentor.liked;
+          if (mentor.liked) {
+            mentors = [...mentors, action.payload];
+          } else {
+            mentors = state.likedMentors.filter((id)=>(id !== action.payload));
+          }
+        }
         return mentor;
       });
-      return {...state, mentors: likeMentors};
+      return {...state, mentors: likeMentors, likedMentors: mentors};
 
 
     default:
