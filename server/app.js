@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
-
 const mentorRouter = require('./src/routes/mentor.js');
 const userRouter = require('./src/routes/user.js');
 const PORT = process.env.PORT || 3000;
@@ -28,16 +27,18 @@ app.use(express.static('public'));
 app.use(cors());
 
 // Session
-app.use(session({
-  store: new MongoStore({mongooseConnection: mongoose.connection}),
-  saveUninitialized: false,
-  secret: 'keyboard cat',
-  resave: false,
-  cookie: {
-    sameSite: 'strict',
-    maxAge: 1000*60*2,
-  }
-}));
+app.use(
+  session({
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    saveUninitialized: false,
+    secret: 'keyboard cat',
+    resave: false,
+    cookie: {
+      sameSite: 'strict',
+      maxAge: 1000 * 60 * 2,
+    },
+  })
+);
 
 // PASSPORT Middleware, should be after session!!!
 app.use(passport.initialize());
@@ -45,6 +46,14 @@ app.use(passport.session());
 
 app.use('/mentor', mentorRouter);
 app.use('/user', userRouter);
+app.get('/ip', (req, res) => {
+  res.json(req.ip);
+});
+app.get('/', (req, res) => {
+  console.log("something did't go according to plan");
+  res.json('auth failed');
+});
 
 app.listen(PORT, () =>
-  console.log('express server is running at PORT: ', PORT));
+  console.log('express server is running at PORT: ', PORT)
+);

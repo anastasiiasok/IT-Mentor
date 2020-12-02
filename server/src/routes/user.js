@@ -21,10 +21,18 @@ router.get('/connect/google/callback', passport.authorize('google-authz', { fail
 });
 
 router.post('/auth/local', passport.authenticate('local', { failureRedirect: '/'}), async (req, res)=>{
-  const user = req.user;
+  if ((req.body.lastName !== "") && (req.body.firstName !== "")) {
+    const user = req.user;
   user.lastName = req.body.lastName;
   user.firstName = req.body.firstName;
-  await user.save();
+    try {
+      await user.save();
+    } catch(err) {
+      if (err.keyValue.googleId !== null) {
+        console.log('ERROR', err,'\n We are going to ignore it for now');
+      };
+    };
+  }
   console.log('you are signed in locally');
   res.json('local signing: success');
 })

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require('mongoose');
 require('./dbConnect')(mongoose);
 require('dotenv').config();
 const Mentor = require('../models/Mentor');
@@ -22,7 +22,7 @@ const seed = ()=>{
         country: faker.address.country(),
         city: faker.address.city(),
         email: faker.internet.email(),
-        timezone: `GMT:+${Math.round(Math.random()*4)+1}`,
+        timezone: Math.round(Math.random()*4)+1
         summary: faker.lorem.words(),
         education: [
           {

@@ -74,14 +74,15 @@ function HomePage() {
                 <div className='profilioImg'>
                   <Link to='/profile'>
                     <img
-                      src='/img/girl.jpg'
+                      className='photo'
+                      src='/img/1.png'
                       width='290'
                       height='350'
                       alt='Profile'
                     />
                   </Link>
                 </div>
-                <div className='portfolioTitle'>Anastasia Soktoeva</div>
+                <div className='portfolioTitle'>Roman Dubinkin</div>
                 <div className='portfolioText'>
                   <p>Front-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
@@ -95,7 +96,8 @@ function HomePage() {
                 <div className='profilioImg'>
                   <Link to='/profile'>
                     <img
-                      src='/img/girl.jpg'
+                      className='photo'
+                      src='/img/3.png'
                       width='290'
                       height='350'
                       alt='Profile'
@@ -116,14 +118,15 @@ function HomePage() {
                 <div className='profilioImg'>
                   <Link to='/profile'>
                     <img
-                      src='/img/man.jpg'
+                      className='photo'
+                      src='/img/2.png'
                       width='290'
                       height='350'
                       alt='Profile'
                     />
                   </Link>
                 </div>
-                <div className='portfolioTitle'>Roman Dubinkin</div>
+                <div className='portfolioTitle'>Anastasia Soktoeva</div>
                 <div className='portfolioText'>
                   <p>Back-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>

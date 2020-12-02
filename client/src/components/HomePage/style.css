@@ -104,7 +104,7 @@ a:active {
 .portfolioTitle {
   font-size: 16px;
   font-weight: 400;
-  margin-top: 15px;
+  /* margin-top: 15px; */
 }
 .moreA {
   color: #3d434b !important;
@@ -121,7 +121,7 @@ a:active {
   line-height: 2.6;
   font-size: 18px !important;
   font-weight: 400;
-  margin-left: 200px;
+  margin-left: 230px;
 }
 .checklist {
   margin-right: 8px;
@@ -137,5 +137,8 @@ a:active {
   line-height: 50px;
   text-align: center;
   font-weight: 400;
-  margin-left: 200px;
+  margin-left: 210px;
+}
+.photo {
+  background-color: white;
 }

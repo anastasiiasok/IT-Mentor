@@ -1,6 +1,7 @@
 import { createStore } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { reducers } from "./reducers";
+import { SCREEN_SIZE } from "./types";
 
 const preloadedState = { mentors: [
   {
@@ -43,7 +44,8 @@ const preloadedState = { mentors: [
       },
     ],
   },
-]
+],
+screen: SCREEN_SIZE,
 };
 
 const composeEnhancers = composeWithDevTools();
