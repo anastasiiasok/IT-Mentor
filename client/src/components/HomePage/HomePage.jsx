@@ -5,7 +5,7 @@ import './style.css';
 function HomePage() {
   return (
     <>
-      <div>
+      <div className='homePage'>
         <div className='mainHeading'>
           Learn technology, solve complex problems, <br />
           prepare for future online interviews

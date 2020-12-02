@@ -36,7 +36,12 @@ function Mentor({ mentor }) {
             </div>
             <div className='card__info'>
               <div className='card__info__item'>
-               <IconedName name={name} surname={surname} liked={mentor.liked} id={mentor._id} />
+                <IconedName
+                  name={name}
+                  surname={surname}
+                  liked={mentor.liked}
+                  id={mentor._id}
+                />
               </div>
               <div className='card__info__item'>
                 <p>
@@ -61,23 +66,21 @@ function Mentor({ mentor }) {
               </div>
             </div>
             <div className='card__action'>
-              <a href='https://www.w3schools.com' className='btn'>
+              <a href='#' className='btn'>
                 ${price} / hour
               </a>
-              <a href='https://www.w3schools.com' className='btn white'>
+              <a href='#' className='btn white'>
                 Schedule a call
               </a>
 
-
-              <span className="btn yellow">
-                <Link to={{ pathname: "/profile", state: { mentor } }}>
-                  {" "}
-                  More Details{" "}
+              <span className='btn yellow'>
+                <Link to={{ pathname: '/profile', state: { mentor } }}>
+                  {' '}
+                  More Details{' '}
                 </Link>
-
               </span>
 
-              <a href='https://www.w3schools.com' className='btn'>
+              <a href='#' className='btn'>
                 Free test session
               </a>
               <div> </div>
