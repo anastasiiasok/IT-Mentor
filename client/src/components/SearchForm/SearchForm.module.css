@@ -1,0 +1,49 @@
+.searchMain {
+  background-color: rgba(88, 150, 139, 1);
+  width: 620px;
+  min-height: 140px;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+.searchDiv {
+  margin-top: 40px;
+
+  display: flex;
+  justify-content: center;
+}
+.search {
+  width: 420px;
+}
+.selectItem {
+  margin-top: 50px;
+  border-radius: 10px;
+}
+.searchButton > button:active {
+  color: #f3c049;
+}
+.searchButton > button:hover {
+  background-color: rgba(196, 156, 64, 1);
+}
+
+.searchButton > button {
+  background-color: rgba(243, 192, 73, 1);
+  width: 100px;
+  height: 40px;
+  border-radius: 10px;
+  color: #fafafa;
+  font-size: 16px;
+  margin-left: 20px;
+  margin-top: 50px;
+  border: 1px solid transparent;
+}
+.checkboxMain {
+  color: #fafafa;
+  display: flex;
+  justify-content: flex-start;
+  margin: 14px 0 0 36px;
+}
+.label:not(:last-child) {
+  margin-right: 10px;
+}

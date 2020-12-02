@@ -1,55 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
-*, *::before, *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
-    height: 100%;
+  height: 100%;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    justify-content: space-between;
-    font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  justify-content: space-between;
+  font-family: 'Roboto', sans-serif;
 }
 
 img {
-    max-width: 100%;
-    display: block;
+  max-width: 100%;
+  display: block;
 }
 
 *:focus {
-    outline: none;
+  outline: none;
 }
 
-.container, .main__container {
-    display: block;
-    width: 100%;
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 0 10px;
+.container,
+.main__container {
+  display: block;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 10px;
 }
 
 .main__container {
-    max-width: 860px;
+  max-width: 860px;
 }
 
 header {
-    padding: 20px 0;
+  padding: 20px 0;
 }
 
 .header__container {
-    display: flex;
+  display: flex;
 }
 
 .header__container > *:last-child {
-    background-color: white;
-    margin-left: auto;
+  background-color: white;
+  margin-left: auto;
 }
 
 /* .card__container {
@@ -57,17 +60,17 @@ header {
 } */
 
 .card__container > * + * {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .card__item {
-    display: flex;
-    justify-content: space-between;
-    background-color: rgba(88, 150, 139, 1);
-    padding: 15px;
-    border-radius: 10px;
-    color: white;
-    /* position: relative; */
+  display: flex;
+  justify-content: space-between;
+  background-color: rgba(88, 150, 139, 1);
+  padding: 15px;
+  border-radius: 10px;
+  color: white;
+  /* position: relative; */
 }
 
 /* .absolute {
@@ -79,95 +82,97 @@ header {
     transform: translate(50%, 50%)
 }  */
 
-.card__item > * + *  {
-    margin-left: 20px;
-
+.card__item > * + * {
+  margin-left: 20px;
 }
 
 .card__img {
-    min-width: 130px;
-    max-width: 130px;
+  min-width: 130px;
+  max-width: 130px;
 }
 
 .card__info {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
 }
 
 .card__info > * + * {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .card__action {
-    display: flex;
-    flex-direction: column;
-   text-align: center;
-
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
-.card__action_schedule{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
+.card__action_schedule {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 .card__action > * + * {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .btn {
-    display: inline-block;
-    border-radius: 10px;
-    padding: 6px 20px;
-    cursor: pointer;
-    border: 1px solid transparent;
-    transition-duration: 0.2s;
-    transition-timing-function: ease-in-out;
-    transition-property: background-color, border-color, color;
-    /* transition: border-color 0.2s ease-in; */
+  display: inline-block;
+  border-radius: 10px;
+  padding: 6px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, border-color, color;
+  /* transition: border-color 0.2s ease-in; */
 }
 
 .btn.no-padding {
-    padding: 0;
+  padding: 0;
 }
 
 .btn.yellow {
-    background-color: rgba(243, 192, 73, 1);
+  background-color: rgba(243, 192, 73, 1);
 }
 
 .btn.yellow:hover {
-    background-color: rgba(196, 156, 64, 1);
+  background-color: rgba(196, 156, 64, 1);
 }
 
-
 .btn.white {
-    border: 1px solid white;
+  border: 1px solid white;
 }
 
 .btn.white:hover {
-    background-color: white;
-    color: black;
+  background-color: white;
+  color: black;
+}
+
+@media (max-width: 500px) {
+  /* Меньше 500 пикселей */
+  .card__item {
+    flex-direction: column;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card__item > * + * {
+    margin-left: 0;
+    margin-top: 15px;
+  }
+}
+
+
+.likebutn{
+    margin-left: 5px;
 }
 
 
 
 
-@media (max-width: 500px) { /* Меньше 500 пикселей */
-    .card__item {
-        flex-direction: column;
-        max-width: 300px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .card__item > * + * {
-        margin-left: 0;
-        margin-top: 15px;
-    }
-}
-
-
 
 
  
- 
+
