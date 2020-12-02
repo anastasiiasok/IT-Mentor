@@ -1,4 +1,4 @@
-import { ADD_MENTORS, SEARCH_MENTORS } from './types';
+import { ADD_MENTORS, SEARCH_MENTORS, SET_SCREEN } from './types';
 
 export const reducers = (state, action) => {
   switch (action.type) {
@@ -8,6 +8,9 @@ export const reducers = (state, action) => {
 
     case SEARCH_MENTORS:
       return { ...state, mentors: action.payload.mentors };
+
+    case SET_SCREEN:
+      return {...state, screen: action.payload};  
 
     default:
       return state;

@@ -2,14 +2,17 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import Mentor from "../Mentor/Mentor";
-
+import { SCREEN_SIZE } from '../../store/types'
 import SearchForm from "../SearchForm/SearchForm";
+import Scroll from "../Scroll/Scroll"
 import "./mentors.css";
 
 
 const Mentors = () => {
-  const state = useSelector((store) => store.mentors).filter((el,i)=> i<5);
-
+  const size = useSelector((store)=>store.screen)
+  const mentors = useSelector((store) => store.mentors);
+  const state = mentors.filter((el,i)=> i < size);
+  const length = mentors.length;
   return (
     <div className='main'>
       <div>
@@ -18,11 +21,7 @@ const Mentors = () => {
           <Mentor mentor={mentor} />
         ))}
       </div>
-      <div className='arrow'>
-        <button className='arrowButton'>
-          <img src='img/arrow.png' alt='arrow'></img>
-        </button>
-      </div>
+     {(size < length) && <Scroll size={size + SCREEN_SIZE}/>}
       <br></br>
       <br></br>
     </div>
