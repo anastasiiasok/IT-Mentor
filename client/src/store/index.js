@@ -46,6 +46,7 @@ const preloadedState = { mentors: [
   },
 ],
 screen: SCREEN_SIZE,
+likedMentors: [],
 };
 
 const composeEnhancers = composeWithDevTools();

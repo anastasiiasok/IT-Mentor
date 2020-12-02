@@ -1,21 +1,25 @@
 import React from 'react';
 import styles from './SignIn.module.css'
+import {useSelector} from 'react-redux';
 
 const SignIn = ({visible, setVisibility})=>{
   const init = {firstName: '', lastName: '', contacts: '', password: '', confirm: ''};
   const [form, updateForm] = React.useState(init);
+  const mentors = useSelector((store)=>store.likedMentors);
 
   const handleSubmit = async ()=>{
+    if (form.password !== '') {
     const res = await fetch('http://localhost:3100/user/auth/local', {
       method: "POST",
       // DO NOT USE MODE NO-CORS !!!
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify(form),
+      body: JSON.stringify({...form, mentors}),
     });
     const data = await res.json();
     console.log(data);
+  }
     updateForm(init);
     setVisibility(false);
   };

@@ -47,3 +47,9 @@
 .label:not(:last-child) {
   margin-right: 10px;
 }
+.checkInput{
+  margin-right: 6px;
+
+  
+}
+

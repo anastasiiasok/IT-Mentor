@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import Select from 'react-select';
-import { SCREEN_SIZE } from '../../store/types';
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import Select from "react-select";
+import { SCREEN_SIZE } from "../../store/types";
 
-import styles from './SearchForm.module.css';
+import styles from "./SearchForm.module.css";
 
-import { searchMentors, setScreen } from '../../store/actions';
+import { searchMentors, setScreen } from "../../store/actions";
 
 const customStyles = {
   multiValue: (provided, state) => ({
     ...provided,
-    borderBottom: '1px solid green',
+    borderBottom: "1px solid green",
     color: state.selectProps.menuColor,
   }),
 };
@@ -24,15 +24,15 @@ function SearchForm() {
 
   const dispatch = useDispatch();
   const tags = [
-    { value: 'express', label: 'Express', isFixed: true, color: 'pink' },
-    { value: 'postman', label: 'Postman' },
-    { value: 'nodejs', label: 'NodeJS' },
-    { value: 'restapi', label: 'REST API' },
-    { value: 'saga', label: 'Saga' },
-    { value: 'react', label: 'React' },
-    { value: 'mongodb', label: 'MongoDB' },
-    { value: 'sass', label: 'Sass' },
-    { value: 'ubuntu', label: 'Ubuntu' },
+    { value: "express", label: "Express", isFixed: true, color: "pink" },
+    { value: "postman", label: "Postman" },
+    { value: "nodejs", label: "NodeJS" },
+    { value: "restapi", label: "REST API" },
+    { value: "saga", label: "Saga" },
+    { value: "react", label: "React" },
+    { value: "mongodb", label: "MongoDB" },
+    { value: "sass", label: "Sass" },
+    { value: "ubuntu", label: "Ubuntu" },
   ];
   const tagOptions = tags.map((tag) => ({ ...tag, value: tag.label }));
 
@@ -46,9 +46,9 @@ function SearchForm() {
 
   const handleClick = async () => {
     const queryArr = [];
-    const key = '1288100a174d447583eb11e7a4ab6d2c';
+    const key = "1288100a174d447583eb11e7a4ab6d2c";
 
-    if (filters.length) queryArr.push('skills=' + filters.join(','));
+    if (filters.length) queryArr.push("skills=" + filters.join(","));
 
     if (checkedItems.timezone) {
       const res = await fetch(
@@ -59,15 +59,19 @@ function SearchForm() {
       queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
     }
 
-
     if (checkedItems.price)
       queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
-    const query = queryArr.join('&');
+    const query = queryArr.join("&");
+
     console.log(query);
     const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
     const mentors = await repsonse.json(); // { [{}]} object with array of objects
     dispatch(setScreen(SCREEN_SIZE));
-    dispatch(searchMentors({mentors: mentors.mentors.map((mentor)=>({...mentor, liked: false}))}));
+    dispatch(
+      searchMentors({
+        mentors: mentors.mentors.map((mentor) => ({ ...mentor, liked: false })),
+      })
+    );
   };
   return (
     <div className={styles.searchMain}>
@@ -78,10 +82,10 @@ function SearchForm() {
             value={tagOptions.filter((obj) => filters.includes(obj.value))}
             // defaultValue={[tagOptions[2], tagOptions[3]]}
             isMulti
-            name='skills'
+            name="skills"
             options={tagOptions}
-            className='basic-multi-select'
-            classNamePrefix='select'
+            className="basic-multi-select"
+            classNamePrefix="select"
             className={styles.selectItem}
             isClearable
           />
@@ -94,8 +98,8 @@ function SearchForm() {
         <label className={styles.label}>
           <input
             className={styles.checkInput}
-            name='price'
-            type='checkbox'
+            name="price"
+            type="checkbox"
             onChange={handleChangeCheckbox}
           />
           Price
@@ -105,8 +109,8 @@ function SearchForm() {
           <input
             className={styles.checkInput}
             disabled={!checkedItems.price}
-            name='down'
-            type='checkbox'
+            name="down"
+            type="checkbox"
             onChange={handleChangeCheckbox}
           />
           Down
@@ -114,8 +118,8 @@ function SearchForm() {
         <label className={styles.label}>
           <input
             className={styles.checkInput}
-            name='timezone'
-            type='checkbox'
+            name="timezone"
+            type="checkbox"
             onChange={handleChangeCheckbox}
           />
           Timezone
