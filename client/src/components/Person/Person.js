@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import React from "react";
+import IconedName from '../IconedName/IconedName';
+
 
 function Person({ mentor }) {
   const { name, surname, city, country, timezone, email, summary } = mentor;
@@ -7,9 +9,7 @@ function Person({ mentor }) {
 
   return (
     <>
-      <h3>
-        {name} {surname} <i class="far fa-thumbs-up"></i>
-      </h3>
+      <IconedName name={name} surname={surname} liked={mentor.liked} id={mentor._id} />
       <span>
         {city}, {country}
       </span>
