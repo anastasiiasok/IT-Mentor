@@ -34,9 +34,11 @@ function Profile() {
       <div className="container">
         <a href="" className="btn no-padding">
           <i className="fas fa-long-arrow-alt-left"></i>
-          <span className="allMentors">
+
+          <div className="allMentors">
+            <span>All mentors</span>
             <Link to="/mentors"> All mentors </Link>
-          </span>
+          </div>
         </a>
         <div className="profile__grid__template">
           <div className="card__mentor">
