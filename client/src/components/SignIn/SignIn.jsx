@@ -1,15 +1,24 @@
 import React from 'react';
 import styles from './SignIn.module.css'
 import {useSelector} from 'react-redux';
+import {useHistory} from 'react-router-dom';
 
 const SignIn = ({visible, setVisibility})=>{
+  const history = useHistory();
   const init = {firstName: '', lastName: '', contacts: '', password: '', confirm: ''};
   const [form, updateForm] = React.useState(init);
   const mentors = useSelector((store)=>store.likedMentors);
 
   const handleSubmit = async ()=>{
     if (form.password !== '') {
+
+    // ACHTUNG !!! COMMENT NEXT LINE BEFORE BUILD!!
     const res = await fetch('http://localhost:3100/user/auth/local', {
+  // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+    // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
+    // const res = await fetch('https://servertestmentor.herokuapp.com/user/auth/local', {
+
+    // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
       method: "POST",
       // DO NOT USE MODE NO-CORS !!!
       headers: {
@@ -19,6 +28,9 @@ const SignIn = ({visible, setVisibility})=>{
     });
     const data = await res.json();
     console.log(data);
+    updateForm(init);
+    setVisibility(false);
+    history.push("/account");
   }
     updateForm(init);
     setVisibility(false);
@@ -29,7 +41,16 @@ const SignIn = ({visible, setVisibility})=>{
   };
 
   const handleGoogle = async ()=>{
+
+    // ACHTUNG !!! COMMENT NEXT LINE BEFORE BUILD!!
     const res = await fetch('http://localhost:3100/user/auth/google', {
+ // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+
+     // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
+    //  const res = await fetch('https://servertestmentor.herokuapp.com/user/auth/google', {
+
+     // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+     
       method: "GET",
       mode: 'no-cors',
     });
