@@ -31,15 +31,20 @@ function Profile() {
         <br></br>
       </div>
 
+
       <div className='container'>
-        <a href='' className='btn no-padding'>
+        <span className='btn no-padding'>
+          <Link to='/mentors' />
           <i className='fas fa-long-arrow-alt-left'></i>
           <span className='allMentors'>
-            <Link to='/mentors'> All mentors </Link>
+            <Link to='/mentors'>
+              <span className='allText'>All Mentors</span>
+            </Link>
           </span>
-        </a>
+        </span>
         <div className='profile__grid__template'>
           <div className='card__mentor'>
+
             <SignIn visible={visible} setVisibility={setVisibility} />
             <div className='card__mentor__img'>
               <img src='mentor_img.svg' alt='' />

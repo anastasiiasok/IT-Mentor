@@ -42,6 +42,16 @@ const skills = [
 //     ]
 //   },
 // ],
+// projects: [
+//   {
+//     title: "Web application IT Mentor",
+//     body: "application for students",
+//   },
+//   {
+//     title: "Cook with Me",
+//     body: "application to cook with chef",
+//   },
+// ],
 
 const randomSkillSet = () => {
   const size = Math.round(Math.random() * 3) + 4;
@@ -57,49 +67,51 @@ const randomSkillSet = () => {
   return set;
 };
 
-
-const seed = ()=>{
-    const preloadedState = {
-        name: faker.name.firstName(),
-        surname: faker.name.lastName(),
-        country: faker.address.country(),
-        city: faker.address.city(),
-        email: faker.internet.email(),
-        timezone: Math.round(Math.random()*10)-6,
-        summary: faker.lorem.words(),
-        education: [
-          {
-            degree: faker.lorem.word(),
-            institution: faker.company.companyName(),
-          },
-        ],
-        price: Math.round(Math.random()*20)+20,
-        lessons: Math.round(Math.random()*1e2),
-        skills: randomSkillSet(),
-        benefits: [faker.lorem.words(), faker.lorem.words()],
-        projects: [
-          {
-            title: faker.lorem.word(),
-            body: faker.lorem.words(),
-          },
-        ],
-        resume: [
-          {
-            date: {
-              start: faker.date.past(),
-              end: faker.date.recent(),
-            },
-            company: faker.company.companyName(),
-            position: faker.name.jobTitle(),
-          },
-        ],
-      };
-    const init= new Mentor(preloadedState);
-    init.save();
+const seed = () => {
+  const preloadedState = {
+    name: faker.name.firstName(),
+    surname: faker.name.lastName(),
+    country: faker.address.country(),
+    city: faker.address.city(),
+    email: faker.internet.email(),
+    timezone: Math.round(Math.random() * 10) - 6,
+    summary: faker.lorem.words(),
+    education: [
+      {
+        degree: faker.lorem.word(),
+        institution: faker.company.companyName(),
+      },
+    ],
+    price: Math.round(Math.random() * 20) + 20,
+    lessons: Math.round(Math.random() * 1e2),
+    skills: randomSkillSet(),
+    benefits: [faker.lorem.words(), faker.lorem.words()],
+    projects: [
+      {
+        title: faker.lorem.word(),
+        body: faker.lorem.words(),
+      },
+    ],
+    resume: [
+      {
+        date: {
+          start: faker.date.past(),
+          end: faker.date.recent(),
+        },
+        company: faker.company.companyName(),
+        position: faker.name.jobTitle(),
+      },
+    ],
+  };
+  const init = new Mentor(preloadedState);
+  init.save();
 };
 
 let count = 100;
-while(count > 0) {seed(); count -=1;};
+while (count > 0) {
+  seed();
+  count -= 1;
+}
 
 const seed = () => {
   const preloadedState = {
@@ -146,4 +158,3 @@ while (count > 0) {
   seed();
   count -= 1;
 }
-
