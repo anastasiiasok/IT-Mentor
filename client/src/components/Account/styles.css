@@ -1,59 +1,60 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-@media (max-width: 500px) { 
-
-
-  .account{
+@media (max-width: 500px) {
+  .account {
     float: right;
     border: 0px solid #ccc;
     background-color: rgb(88, 150, 139);
     width: 20%;
     height: 600px;
-    margin-top: 10px; 
+    margin-top: 10px;
     margin-bottom: 10px;
     font-family: 'Roboto', sans-serif;
     border-radius: 14px;
     margin-right: -6px;
   }
-
 }
-.schedule{
+.schedule {
   margin-top: -40px;
 }
 
-
-.account{
+.account {
   float: right;
   border: 0px solid #ccc;
   background-color: rgb(88, 150, 139);
   width: 20%;
   height: 600px;
-  margin-top: 10px; 
+  margin-top: 10px;
   margin-bottom: 10px;
   font-family: 'Roboto', sans-serif;
   border-radius: 14px;
   margin-right: -6px;
 }
-.calendar{
+.calendar {
   margin-top: -52px;
-  margin-left:62px;
-  margin-right:40px;
+  margin-left: 62px;
+  margin-right: 40px;
 }
-h1{
+h1 {
   color: rgb(255, 255, 255);
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
   line-height: 8;
   text-align: center;
-
 }
-.logout{
-text-align: center;
+.logout {
+  text-align: center;
+  margin-top: 40px;
 }
-
-
-
+.mentorsBtn {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+  font-size: 18px;
+  background: transparent;
+}
