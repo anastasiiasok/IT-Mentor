@@ -31,9 +31,10 @@ const SignIn = ({visible, setVisibility})=>{
     updateForm(init);
     setVisibility(false);
     history.push("/account");
-  }
+  } else {
     updateForm(init);
     setVisibility(false);
+  }
   };
 
   const handleChange = (e) => {

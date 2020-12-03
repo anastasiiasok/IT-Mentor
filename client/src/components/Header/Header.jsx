@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
+import SignIn from '../SignIn/SignIn';
 
 function Header() {
   return (
@@ -11,6 +12,7 @@ function Header() {
             <span className='it'>it</span>MENTOR
           </div>
         </Link>
+        <div className='anchor'><SignIn visible={true} /></div>
       </div>
     </>
   );
