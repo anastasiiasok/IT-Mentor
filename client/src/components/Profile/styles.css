@@ -167,6 +167,10 @@ ul > li::before {
 .allMentors {
   color: rgba(88, 150, 139, 1) !important;
 }
+.allText {
+  color: rgba(88, 150, 139, 1);
+  margin-left: 5px;
+}
 @media (max-width: 700px) {
   .profile__grid__template {
     flex-direction: column;
