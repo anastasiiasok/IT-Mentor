@@ -3,7 +3,7 @@ import styles from './SignIn.module.css';
 import { useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 
-const SignIn = () => {
+const SignIn = (signin) => {
   const history = useHistory();
   const init = {
     firstName: '',
@@ -78,20 +78,24 @@ const SignIn = () => {
       >
         <i onClick={handleClick} class='fas fa-times'></i>
       </div>
-      <input
-        onChange={handleChange}
-        value={form.firstName}
-        name='firstName'
-        placeholder='first name'
-        type='text'
-      />
-      <input
-        onChange={handleChange}
-        value={form.lastName}
-        name='lastName'
-        placeholder='last name'
-        type='text'
-      />
+      {!signin && (
+        <input
+          onChange={handleChange}
+          value={form.firstName}
+          name='firstName'
+          placeholder='first name'
+          type='text'
+        />
+      )}
+      {!signin && (
+        <input
+          onChange={handleChange}
+          value={form.lastName}
+          name='lastName'
+          placeholder='last name'
+          type='text'
+        />
+      )}
       <input
         onChange={handleChange}
         value={form.contacts}
@@ -99,7 +103,7 @@ const SignIn = () => {
         placeholder='email'
         type='text'
       />
-      <div style={{ height: '100px' }}></div>
+      {!signin && <div style={{ height: '100px' }}></div>}
       <input
         onChange={handleChange}
         value={form.password}
@@ -107,13 +111,15 @@ const SignIn = () => {
         placeholder='password'
         type='text'
       />
-      <input
-        onChange={handleChange}
-        value={form.confirm}
-        name='confirm'
-        placeholder='confirm password'
-        type='text'
-      />
+      {!signin && (
+        <input
+          onChange={handleChange}
+          value={form.confirm}
+          name='confirm'
+          placeholder='confirm password'
+          type='text'
+        />
+      )}
       <div className={styles.button_container}>
         <button onClick={handleSubmit}>Submit</button>
         <button
