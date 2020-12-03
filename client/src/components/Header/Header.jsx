@@ -12,7 +12,7 @@ function Header() {
             <span className='it'>it</span>MENTOR
           </div>
         </Link>
-        <div className='anchor'><SignIn visible={true} /></div>
+        <div className='anchor'><SignIn visible={false} /></div>
       </div>
     </>
   );
