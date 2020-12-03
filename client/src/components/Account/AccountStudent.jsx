@@ -1,12 +1,26 @@
 import React from 'react';
 import './styles.css';
+import { useSelector } from 'react-redux';
+import Mentor from '../Mentor/Mentor';
 
 function AccountStudent() {
+  const id = useSelector((store) => store.likedMentors);
+  const mentors = useSelector((store) =>
+    store.mentors.filter((mentor) => id.filter((el) => el === mentor.id))
+  );
+  const [value, toggleValue] = React.useState(false);
   const onClickLikedMentors = () => {
-    console.log('liked button account');
+    toggleValue(!value);
   };
   return (
     <div>
+      {value && (
+        <div>
+          {mentors.map((mentor) => (
+            <Mentor mentor={mentor} />
+          ))}
+        </div>
+      )}
       <div className='account'>
         <div>
           <div className='nav'>
