@@ -14,11 +14,15 @@ function AccountStudent() {
             </h1>
             <br></br>
             <br></br>
-            <h1>
-              Liked Mentors <i class="fas fa-user-friends"></i>
-            </h1>
+            <div className="logout">
+              <a href="#" className="btn white">
+                Liked Mentors <i class="fas fa-user-friends"></i>
+              </a>
+            </div>
           </div>
         </div>
+        <br></br>
+        <br></br>
         <div className="logout">
           <a href="#" className="btn yellow">
             Log Out
