@@ -21,6 +21,9 @@
   }
 
 }
+.schedule{
+  margin-top: -40px;
+}
 
 
 .account{
@@ -47,6 +50,9 @@ h1{
   line-height: 8;
   text-align: center;
 
+}
+.logout{
+text-align: center;
 }
 
 
