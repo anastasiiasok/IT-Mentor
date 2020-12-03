@@ -55,6 +55,8 @@ function SearchForm() {
     if (filters.length) queryArr.push('skills=' + filters.join(','));
 
 
+    // ACHTUNG !!!! COMMENT!!!! PART BELOW BEFORE BUILD !!
+
     if (checkedItems.timezone) {
       const res = await fetch(
         `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=17.142.160.59`
@@ -64,6 +66,22 @@ function SearchForm() {
       queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
     }
 
+    // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
+
+    // if (checkedItems.timezone) {
+    //   const ipAddress = await fetch('https://servertestmentor.herokuapp.com/ip');
+    //   const ipResult = await ipAddress.json();
+    //   console.log('expected ip from the server  ipResult', ipResult);
+    //   const res = await fetch(
+    //     `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=${ipResult}`
+    //   );
+    //   const timezoneData = await res.json();
+    //   console.log('result from geo API ', timezoneData);
+
+    //   queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
+    // }
+
+    // ACHTUNG !!!! COMMENT!!!! PART BELOW BEFORE BUILD !!
 
     if (checkedItems.price)
       queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
@@ -75,6 +93,25 @@ function SearchForm() {
     dispatch(setScreen(SCREEN_SIZE));
     dispatch(searchMentors({mentors: mentors.mentors.map((mentor)=>({...mentor, liked: false}))}));
   };
+
+  // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
+
+  // if (checkedItems.price)
+  //     queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
+  //   const query = queryArr.join("&");
+
+  //   console.log('query to the server', query);
+  //   const repsonse = await fetch(`https://servertestmentor.herokuapp.com/mentor?${query}`);
+  //   const mentors = await repsonse.json(); // { [{}]} object with array of objects
+  //   console.log('list of mentors', mentors);
+  //   dispatch(setScreen(SCREEN_SIZE));
+  //   dispatch(
+  //     searchMentors({
+  //       mentors: mentors.mentors.map((mentor) => ({ ...mentor, liked: false })),
+  //     })
+  //   );
+  // };
+
   return (
 
     <div className={styles.searchMain}>
