@@ -17,6 +17,7 @@ a:active {
   color: #fafafa;
   font-size: 18px;
   border-radius: 4px;
+  position: absolute;
 }
 .logoName {
   text-align: center;
@@ -33,4 +34,13 @@ a:active {
   width: 24px;
   height: 24px;
   /* padding-bottom: 1px; */
+}
+
+.anchor {
+  position: absolute;
+  width: 100px;
+  height: 200px;
+  top: 500px;
+  left: 400px;
+  visibility: hidden;
 }

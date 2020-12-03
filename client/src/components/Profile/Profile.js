@@ -31,6 +31,7 @@ function Profile() {
         <br></br>
       </div>
 
+
       <div className='container'>
         <span className='btn no-padding'>
           <Link to='/mentors' />
@@ -43,6 +44,7 @@ function Profile() {
         </span>
         <div className='profile__grid__template'>
           <div className='card__mentor'>
+
             <SignIn visible={visible} setVisibility={setVisibility} />
             <div className='card__mentor__img'>
               <img src='mentor_img.svg' alt='' />
