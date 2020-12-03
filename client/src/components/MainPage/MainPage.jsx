@@ -10,25 +10,23 @@ function MainPage() {
   return (
     <>
       <div>
-        <Switch>
           <Route exact path="/">
             <HomePage />
           </Route>
 
-          <Route exact path="/profile">
+          <Route  path="/profile">
             <Profile />
           </Route>
 
-          <Route exact path="/mentors">
+          <Route  path="/mentors">
             <Mentors />
           </Route>
-          <Route exact path="/signup">
+          <Route  path="/signup">
             <SignUp />
           </Route>
-          <Route exact path="/account">
+          <Route  path="/account">
             <AccountStudent />
           </Route>
-        </Switch>
       </div>
     </>
   );
