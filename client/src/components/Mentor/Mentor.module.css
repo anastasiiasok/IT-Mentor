@@ -128,6 +128,31 @@ header {
   /* transition: border-color 0.2s ease-in; */
 }
 
+.btn_yellow {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 6px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, border-color, color;
+  background-color: rgba(243, 192, 73, 1);
+  /* transition: border-color 0.2s ease-in; */
+}
+
+.btn_no_padding {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 0;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, border-color, color;
+  /* transition: border-color 0.2s ease-in; */
+}
+
 .btn.no-padding {
   padding: 0;
 }
@@ -136,8 +161,21 @@ header {
   background-color: rgba(243, 192, 73, 1);
 }
 
-.btn.yellow:hover {
+.btn_yellow:hover {
   background-color: rgba(196, 156, 64, 1);
+}
+
+.btn_white {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 6px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-property: background-color, border-color, color;
+  border: 1px solid white;
+  /* transition: border-color 0.2s ease-in; */
 }
 
 .btn.white {
@@ -149,6 +187,10 @@ header {
   color: black;
 }
 
+.btn_white:hover {
+  background-color: white;
+  color: black;
+}
 @media (max-width: 500px) {
   /* Меньше 500 пикселей */
   .card__item {
@@ -164,15 +206,10 @@ header {
   }
 }
 
-
-.likebutn{
-    margin-left: 5px;
+.likebutn {
+  margin-left: 5px;
 }
 
-
-
-
-
-
- 
-
+a {
+  color: #fafafa;
+}

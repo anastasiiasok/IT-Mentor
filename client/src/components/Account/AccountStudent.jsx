@@ -1,44 +1,40 @@
-import React from 'react';
-import './styles.css';
+import React from "react";
+import styles from "./Account.module.css";
+import { useSelector } from "react-redux";
+import Mentor from "../Mentor/Mentor";
 
 function AccountStudent() {
+  const id = useSelector((store) => store.likedMentors);
+  const storeMentors = useSelector((store) => store.mentors);
+  const mentors = storeMentors.filter(
+    (mentor) => id.filter((el) => el === mentor._id).length === 1
+  );
+
+  const [value, toggleValue] = React.useState(false);
   const onClickLikedMentors = () => {
-    console.log('liked button account');
+    toggleValue(!value);
   };
   return (
-    <div>
-      <div className='account'>
-        <div>
-          <div className='nav'>
-            <h1>Student's Name </h1>
-            <h1 className='schedule'>
-              Schedule{' '}
-              <img className='calendar' src='calendar.png' width='160'></img>
-            </h1>
-            <br></br>
-            <br></br>
-            <div className='logout'>
-              <button
-                onClick={onClickLikedMentors}
-                className='btn white mentorsBtn'
-              >
-                Liked Mentors <i class='fas fa-user-friends'></i>
-              </button>
-              {/* <a className='btn white'>
-                Liked Mentors <i class='fas fa-user-friends'></i>
-              </a> */}
-            </div>
-          </div>
+    <>
+      {value && mentors.map((mentor) => <Mentor mentor={mentor} />)}
+      <div className={styles.account}>
+        {/* <h1>Student's Name </h1> */}
+        <div className={styles.schedule}>
+          <h1>Schedule </h1>
+          <img className={styles.calendar} src="calendar.png" width="50" />
         </div>
-        <br></br>
-        <br></br>
-        <div className='logout'>
-          <a href='#' className='btn yellow'>
-            Log Out
-          </a>
+
+        <div className={styles.logout}>
+          <button onClick={onClickLikedMentors} className={styles.mentorsBtn}>
+            Liked Mentors <i class="fas fa-user-friends"></i>
+          </button>
+        </div>
+
+        <div className={styles.logout}>
+          <a href="#">Log Out</a>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

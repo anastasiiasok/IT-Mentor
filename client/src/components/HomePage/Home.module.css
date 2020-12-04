@@ -56,6 +56,12 @@ a:active {
   flex-wrap: wrap;
   margin-top: 32px;
 }
+.tagBox_second {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 22px;
+}
 .tag {
   padding: 5px;
   height: 30px;
@@ -71,7 +77,7 @@ a:active {
 }
 
 .second {
-  margin-top: 14px;
+  margin-top: 22px;
 }
 
 /* PROFILES*/

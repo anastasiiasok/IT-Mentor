@@ -5,7 +5,7 @@ import MainPage from './components/MainPage/MainPage';
 import Header from './components/Header/Header';
 import Footer from './components/Footer/Footer';
 
-// import './App.css';
+import './App.css';
 function App() {
   return (
     <Provider store={store}>

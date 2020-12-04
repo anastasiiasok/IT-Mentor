@@ -115,6 +115,18 @@ ul > li::before {
   transition-property: background-color, border-color, color;
 }
 
+.btn_yellow {
+  display: inline-block;
+  border-radius: 10px;
+  padding: 6px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background-color: rgba(243, 192, 73, 1);
+  transition-property: background-color, border-color, color;
+}
+
 .btn.yellow {
   background-color: rgba(243, 192, 73, 1);
 }
@@ -123,9 +135,13 @@ ul > li::before {
   background-color: rgba(196, 156, 64, 1);
 }
 
+.btn_yellow:hover {
+  background-color: rgba(196, 156, 64, 1);
+}
+
 .profile__grid__template {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
 }
 
@@ -159,7 +175,7 @@ ul > li::before {
   margin-top: 20px;
 }
 
-.grid-column-2-1fr {
+.grid_column_2_1fr {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-gap: 10px;

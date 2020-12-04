@@ -6,6 +6,27 @@
   padding: 0;
 }
 
+.schedule {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  margin: 10px;
+
+  
+}
+
+.schedule h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: white;
+  text-align: center;
+}
+
+.calendar {
+  margin: 0 auto;
+}
+
 @media (max-width: 500px) {
   .account {
     float: right;
@@ -20,9 +41,7 @@
     margin-right: -6px;
   }
 }
-.schedule {
-  margin-top: -40px;
-}
+
 
 .account {
   float: right;
@@ -35,13 +54,14 @@
   font-family: 'Roboto', sans-serif;
   border-radius: 14px;
   margin-right: -6px;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
 }
-.calendar {
-  margin-top: -52px;
-  margin-left: 62px;
-  margin-right: 40px;
-}
-h1 {
+
+
+.account > h1 {
   color: rgb(255, 255, 255);
   font-size: 18px;
   font-family: 'Roboto', sans-serif;
@@ -50,7 +70,6 @@ h1 {
 }
 .logout {
   text-align: center;
-  margin-top: 40px;
 }
 .mentorsBtn {
   text-decoration: none;

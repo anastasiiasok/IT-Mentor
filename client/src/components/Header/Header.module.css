@@ -1,23 +1,24 @@
-a {
+.header > a {
   text-decoration: none;
   font-weight: 400;
   color: #fafafa;
 }
 
-a:active {
+.header > a:active {
   color: #f3c049;
 }
 
 .header {
-  margin-left: 80px;
-  margin-top: 32px;
+  
   width: 110px;
-  height: 40px;
+
   background-color: #58968b;
   color: #fafafa;
   font-size: 18px;
   border-radius: 4px;
   position: relative;
+  display: flex;
+  justify-content: space-between;
 }
 .logoName {
   text-align: center;
@@ -43,4 +44,11 @@ a:active {
   top: 500px;
   left: 400px;
   visibility: hidden;
+}
+
+.container {
+  display: flex;
+  height: 40px;
+  justify-content: space-between;
+  margin: 50px 80px;
 }
