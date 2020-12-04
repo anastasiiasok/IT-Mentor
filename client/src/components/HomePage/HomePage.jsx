@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './style.css';
+import  styles from './Home.module.css';
 // import Tag from '../Tag/Tag';
 
 function HomePage() {
@@ -17,79 +17,79 @@ function HomePage() {
   // ];
   return (
     <>
-      <div className='homePage'>
-        <div className='mainHeading'>
+      <div className={styles.homePage}>
+        <div className={styles.mainHeading}>
           Learn technology, solve complex problems, <br />
           prepare for future online interviews
         </div>
         <Link to='/mentors'>
-          <div className='findBottom'>
-            <div className='findText'>Find Mentor</div>
+          <div className={styles.findBottom}>
+            <div className={styles.findText}>Find Mentor</div>
           </div>
         </Link>
-        <p className='subheading'>Find your mentor among 90+ professionals</p>
+        <p className={styles.subheading}>Find your mentor among 90+ professionals</p>
 
-        <div className='tagBox'>
+        <div className={styles.tagBox}>
           {/* {tags.map((tag) => (
             <Tag value={tag.value} />
           ))} */}
-          <span className='toRight'>
+          <span className={styles.toRight}>
             <Link to='/mentors'>
-              <span className='tag'>&#123; JAVA &#125;</span>
+              <span className={styles.tag}>&#123; JAVA &#125;</span>
             </Link>
           </span>
-          <span className='toRight'>
+          <span className={styles.toRight}>
             <Link to='/mentors'>
-              <span className='tag'>&#123; Python &#125;</span>
+              <span className={styles.tag}>&#123; Python &#125;</span>
             </Link>
           </span>
-          <span className='toRight'>
+          <span className={styles.toRight}>
             <Link to='/mentors'>
-              <span className='tag'>&#123; JavaScript &#125;</span>
+              <span className={styles.tag}>&#123; JavaScript &#125;</span>
             </Link>
           </span>
-          <span className='toRight'>
+          <span className={styles.toRight}>
             <Link to='/mentors'>
-              <span className='tag'>&#123; React &#125;</span>
+              <span className={styles.tag}>&#123; React &#125;</span>
             </Link>
           </span>
-          <span className='toRight'>
+          <span className={styles.toRight}>
             <Link to='/mentors'>
-              <span className='tag'>&#123; NodeJS &#125;</span>
+              <span className={styles.tag}>&#123; NodeJS &#125;</span>
             </Link>
           </span>
         </div>
-        <div className='tagBox second'>
-          <span className='toRight'>
+        <div className={styles.tagBox_second}>
+          <span className={styles.toRight}>
             <Link to='/mentors'>
-              <span className='tag'>&#123; Machine Learning &#125;</span>
+              <span className={styles.tag}>&#123; Machine Learning &#125;</span>
             </Link>
           </span>
-          <span className='toRight'>
+          <span className={styles.toRight}>
             <Link to='/mentors'>
-              <span className='tag'>&#123; Team Lead &#125;</span>
+              <span className={styles.tag}>&#123; Team Lead &#125;</span>
             </Link>
           </span>
-          <span className='toRight'>
+          <span className={styles.toRight}>
             <Link to='/mentors'>
-              <span className='tag'>&#123; DevOps &#125;</span>
+              <span className={styles.tag}>&#123; DevOps &#125;</span>
             </Link>
           </span>
-          <span className='toRight'>
+          <span className={styles.toRight}>
             <Link to='/mentors'>
-              <span className='tag'>&#123; Algorithms &#125;</span>
+              <span className={styles.tag}>&#123; Algorithms &#125;</span>
             </Link>
           </span>
         </div>
 
-        <div className='profileSection'>
-          <div className='container'>
-            <div className='row'>
-              <div className='col3'>
-                <div className='profilioImg'>
+        <div className={styles.profileSection}>
+          <div className={styles.container}>
+            <div className={styles.row}>
+              <div className={styles.col3}>
+                <div className={styles.profilioImg}>
                   <Link to='/profile'>
                     <img
-                      className='photo'
+                      className={styles.photo}
                       src='/img/1.png'
                       width='290'
                       height='350'
@@ -97,21 +97,21 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className='portfolioTitle'>Roman Dubinkin</div>
-                <div className='portfolioText'>
+                <div className={styles.portfolioTitle}>Roman Dubinkin</div>
+                <div className={styles.portfolioText}>
                   <p>Front-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
                   <Link to='/profile'>
-                    <p className='moreA'>More Details</p>
+                    <p className={styles.moreA}>More Details</p>
                   </Link>
                 </div>
               </div>
 
-              <div className='col3'>
-                <div className='profilioImg'>
+              <div className={styles.col3}>
+                <div className={styles.profilioImg}>
                   <Link to='/profile'>
                     <img
-                      className='photo'
+                      className={styles.photo}
                       src='/img/3.png'
                       width='290'
                       height='350'
@@ -119,21 +119,21 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className='portfolioTitle'>Gayane Zurnachyan</div>
-                <div className='portfolioText'>
+                <div className={styles.portfolioTitle}>Gayane Zurnachyan</div>
+                <div className={styles.portfolioText}>
                   <p>Front-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
                   <Link to='/profile'>
-                    <p className='moreA'>More Details</p>
+                    <p className={styles.moreA}>More Details</p>
                   </Link>
                 </div>
               </div>
 
-              <div className='col3'>
-                <div className='profilioImg'>
+              <div className={styles.col3}>
+                <div className={styles.profilioImg}>
                   <Link to='/profile'>
                     <img
-                      className='photo'
+                      className={styles.photo}
                       src='/img/2.png'
                       width='290'
                       height='350'
@@ -141,12 +141,12 @@ function HomePage() {
                     />
                   </Link>
                 </div>
-                <div className='portfolioTitle'>Anastasia Soktoeva</div>
-                <div className='portfolioText'>
+                <div className={styles.portfolioTitle}>Anastasia Soktoeva</div>
+                <div className={styles.portfolioText}>
                   <p>Back-end Developer at Elbrus</p>
                   <p>JavaScript, React</p>
                   <Link to='/profile'>
-                    <p className='moreA'>More Details</p>
+                    <p className={styles.moreA}>More Details</p>
                   </Link>
                 </div>
               </div>
@@ -154,11 +154,11 @@ function HomePage() {
           </div>
         </div>
 
-        <div className='infoSection'>
-          <ul className='listInfo'>
+        <div className={styles.infoSection}>
+          <ul className={styles.listInfo}>
             <li>
               <img
-                className='checklist'
+                className={styles.checklist}
                 src='img/checklist.png'
                 alt='checklist'
               />
@@ -166,7 +166,7 @@ function HomePage() {
             </li>
             <li>
               <img
-                className='checklist'
+                className={styles.checklist}
                 src='img/checklist.png'
                 alt='checklist'
               />
@@ -174,7 +174,7 @@ function HomePage() {
             </li>
             <li>
               <img
-                className='checklist'
+                className={styles.checklist}
                 src='img/checklist.png'
                 alt='checklist'
               />
@@ -182,7 +182,7 @@ function HomePage() {
             </li>
             <li>
               <img
-                className='checklist'
+                className={styles.checklist}
                 src='img/checklist.png'
                 alt='checklist'
               />
@@ -190,7 +190,7 @@ function HomePage() {
             </li>
             <li>
               <img
-                className='checklist'
+                className={styles.checklist}
                 src='img/checklist.png'
                 alt='checklist'
               />
@@ -199,7 +199,7 @@ function HomePage() {
           </ul>
           <div>
             <Link to='/mentors'>
-              <div className='findBtn'>Find Mentor</div>
+              <div className={styles.findBtn}>Find Mentor</div>
             </Link>
           </div>
         </div>

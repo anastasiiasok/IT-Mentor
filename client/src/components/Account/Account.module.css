@@ -41,7 +41,8 @@
   margin-left: 62px;
   margin-right: 40px;
 }
-h1 {
+
+.account > h1 {
   color: rgb(255, 255, 255);
   font-size: 18px;
   font-family: 'Roboto', sans-serif;

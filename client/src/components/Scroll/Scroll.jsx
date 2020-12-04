@@ -1,13 +1,13 @@
 import React from 'react';
-import '../Mentors/mentors.css';
+import styles from './Scroll.module.css';
 import { useDispatch } from 'react-redux';
 import { setScreen } from '../../store/actions';
 
 const Scroll = ({ size }) => {
   const dispatch = useDispatch();
   return (
-    <div className='arrow'>
-      <button onClick={() => dispatch(setScreen(size))} className='arrowButton'>
+    <div className={styles.arrow}>
+      <button onClick={() => dispatch(setScreen(size))} className={styles.arrowButton}>
         <img src='img/arrow.png' alt='arrow'></img>
       </button>
     </div>

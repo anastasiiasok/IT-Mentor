@@ -5,7 +5,7 @@ import Mentor from "../Mentor/Mentor";
 import { SCREEN_SIZE } from '../../store/types'
 import SearchForm from "../SearchForm/SearchForm";
 import Scroll from "../Scroll/Scroll"
-import "./mentors.css";
+import styles from "./Mentors.module.css";
 
 
 const Mentors = () => {
@@ -14,7 +14,7 @@ const Mentors = () => {
   const state = mentors.filter((el,i)=> i < size);
   const length = mentors.length;
   return (
-    <div className='main'>
+    <div className={styles.main}>
       <div>
         <SearchForm />
         {state.map((mentor) => (

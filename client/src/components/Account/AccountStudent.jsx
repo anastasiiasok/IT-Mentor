@@ -1,5 +1,5 @@
 import React from 'react';
-import './styles.css';
+import styles from './Account.module.css';
 import { useSelector } from 'react-redux';
 import Mentor from '../Mentor/Mentor';
 
@@ -21,20 +21,20 @@ function AccountStudent() {
           ))}
         </div>
       )}
-      <div className='account'>
+      <div className={styles.account}>
         <div>
-          <div className='nav'>
+          <div className={styles.nav}>
             <h1>Student's Name </h1>
-            <h1 className='schedule'>
+            <h1 className={styles.schedule}>
               Schedule{' '}
-              <img className='calendar' src='calendar.png' width='160'></img>
+              <img className={styles.calendar} src='calendar.png' width='160'></img>
             </h1>
             <br></br>
             <br></br>
-            <div className='logout'>
+            <div className={styles.logout}>
               <button
                 onClick={onClickLikedMentors}
-                className='btn white mentorsBtn'
+                className={styles.mentorsBtn}
               >
                 Liked Mentors <i class='fas fa-user-friends'></i>
               </button>
@@ -46,8 +46,8 @@ function AccountStudent() {
         </div>
         <br></br>
         <br></br>
-        <div className='logout'>
-          <a href='#' className='btn yellow'>
+        <div className={styles.logout}>
+          <a href='#'>
             Log Out
           </a>
         </div>

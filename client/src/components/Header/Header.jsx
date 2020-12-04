@@ -1,17 +1,17 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import './style.css';
+import styles from './Header.module.css';
 
 function Header() {
   const mentor = useSelector((store) => store.activeMentor);
   const location = useLocation();
   return (
     <>
-      <div className='header'>
+      <div className={styles.header}>
         <Link to='/'>
-          <div className='logoName'>
-            <span className='it'>it</span>MENTOR
+          <div className={styles.logoName}>
+            <span className={styles.it}>it</span>MENTOR
           </div>
         </Link>
 
