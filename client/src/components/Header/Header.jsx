@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import './style.css';
-import SignIn from '../SignIn/SignIn';
 
 function Header() {
+  const mentor = useSelector((store) => store.activeMentor);
+  const location = useLocation();
   return (
     <>
       <div className='header'>
@@ -12,7 +14,35 @@ function Header() {
             <span className='it'>it</span>MENTOR
           </div>
         </Link>
-        {/* <div className='anchor'><SignIn visible={false} /></div> */}
+
+        <span
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            backgroundColor: 'grey',
+          }}
+        >
+          {mentor.name && (
+            <Link
+              to={{
+                pathname: `${location.pathname}/signin`,
+                state: { left: '200px', bottom: '100px', mentor },
+              }}
+            >
+              <i class='fas fa-sign-in-alt'></i>
+            </Link>
+          )}
+          {!mentor.name && (
+            <Link
+              to={{
+                pathname: '/signin',
+                state: { left: '200px', bottom: '100px' },
+              }}
+            >
+              <i class='fas fa-sign-in-alt'></i>
+            </Link>
+          )}
+        </span>
       </div>
     </>
   );

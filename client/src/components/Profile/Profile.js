@@ -1,36 +1,25 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import Education from '../Education/Education';
 import Person from '../Person/Person';
 import Projects from '../Projects/Projects';
 import Price from '../Price/Price';
 import Resume from '../Resume/Resume';
 import BenefitList from '../BenefitList/BenefitList';
-import SignIn from '../SignIn/SignIn';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Link,
-  Route,
-  Redirect,
-} from 'react-router-dom';
+import { activeMentor } from '../../store/actions';
+import { Link, useLocation } from 'react-router-dom';
 import './styles.css';
-import Mentor from '../Mentor/Mentor';
 
 function Profile() {
+  const dispatch = useDispatch();
   const mentor = useLocation().state.mentor;
-  const [visible, setVisibility] = React.useState(false);
-
-  const handleClick = () => {
-    setVisibility(!visible);
-  };
-
+  const location = useLocation();
+  React.useEffect(() => dispatch(activeMentor(mentor)));
   return (
     <div className='full'>
       <div>
         <br></br>
       </div>
-
 
       <div className='container'>
         <span className='btn no-padding'>
@@ -44,7 +33,6 @@ function Profile() {
         </span>
         <div className='profile__grid__template'>
           <div className='card__mentor'>
-
             {/* <SignIn visible={visible} setVisibility={setVisibility} /> */}
             <div className='card__mentor__img'>
               <img src='mentor_img.svg' alt='' />
@@ -54,10 +42,14 @@ function Profile() {
                 <Price price={mentor.price} />
               </a>
             </div>
-
-            <a onClick={handleClick} className='btn yellow'>
-              Schedule a free call
-            </a>
+            <Link
+              to={{
+                pathname: `${location.pathname}/signin`,
+                state: { mentor, left: '200px', bottom: '100px' },
+              }}
+            >
+              <a className='btn yellow'>Schedule a free call</a>{' '}
+            </Link>
             <div className='free_test_session'>
               <a href=''> Free test session</a>
             </div>

@@ -1,4 +1,10 @@
-import { ADD_MENTORS, SEARCH_MENTORS, SET_SCREEN, TOGGLE_LIKE } from './types';
+import {
+  ADD_MENTORS,
+  SEARCH_MENTORS,
+  SET_SCREEN,
+  TOGGLE_LIKE,
+  ACTIVATE_MENTOR,
+} from './types';
 
 export const reducers = (state, action) => {
   switch (action.type) {
@@ -10,23 +16,23 @@ export const reducers = (state, action) => {
       return { ...state, mentors: action.payload.mentors };
 
     case SET_SCREEN:
-      return {...state, screen: action.payload};  
-
+      return { ...state, screen: action.payload };
+    case ACTIVATE_MENTOR:
+      return { ...state, activeMentor: action.payload };
     case TOGGLE_LIKE:
       let mentors = [...state.likedMentors];
-      const likeMentors = state.mentors.map((mentor)=>{
+      const likeMentors = state.mentors.map((mentor) => {
         if (mentor._id === action.payload) {
           mentor.liked = !mentor.liked;
           if (mentor.liked) {
             mentors = [...mentors, action.payload];
           } else {
-            mentors = state.likedMentors.filter((id)=>(id !== action.payload));
+            mentors = state.likedMentors.filter((id) => id !== action.payload);
           }
         }
         return mentor;
       });
-      return {...state, mentors: likeMentors, likedMentors: mentors};
-
+      return { ...state, mentors: likeMentors, likedMentors: mentors };
 
     default:
       return state;

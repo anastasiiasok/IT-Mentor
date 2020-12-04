@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -6,7 +8,7 @@
 
 .container {
   display: flex;
-  padding-top: 30px;
+  padding-top: 10px;
   flex-direction: column;
   align-items: center;
   max-width: 400px;
@@ -15,12 +17,11 @@
   position: absolute;
   background-color: #fafafa;
   z-index: 1;
-  bottom: 100px;
-  left: 200px;
+  /* bottom: 100px;
+  left: 200px; */
   /* height: 550px; */
   border-radius: 10px;
   border: solid rgba(88, 150, 139, 1) 4px;
-
 }
 .container > input {
   color: rgba(88, 150, 139, 1);
@@ -46,7 +47,7 @@
 }
 
 .button_container > button {
-  background-color:  rgba(88, 150, 139, 1);
+  background-color: rgba(88, 150, 139, 1);
   border: none;
   border-radius: 4px;
   color: white;
@@ -58,5 +59,5 @@
 }
 
 ::placeholder {
-  color: rgba(88, 150, 139, 0.5)
+  color: rgba(88, 150, 139, 0.5);
 }

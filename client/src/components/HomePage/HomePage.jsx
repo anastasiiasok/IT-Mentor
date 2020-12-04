@@ -1,8 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import './style.css';
+// import Tag from '../Tag/Tag';
 
 function HomePage() {
+  // const tags = [
+  //   { value: 'express', label: 'Express', isFixed: true, color: 'pink' },
+  //   { value: 'postman', label: 'Postman' },
+  //   { value: 'nodejs', label: 'NodeJS' },
+  //   { value: 'restapi', label: 'REST API' },
+  //   { value: 'saga', label: 'Saga' },
+  //   { value: 'react', label: 'React' },
+  //   { value: 'mongodb', label: 'MongoDB' },
+  //   { value: 'sass', label: 'Sass' },
+  //   { value: 'ubuntu', label: 'Ubuntu' },
+  // ];
   return (
     <>
       <div className='homePage'>
@@ -18,6 +30,9 @@ function HomePage() {
         <p className='subheading'>Find your mentor among 90+ professionals</p>
 
         <div className='tagBox'>
+          {/* {tags.map((tag) => (
+            <Tag value={tag.value} />
+          ))} */}
           <span className='toRight'>
             <Link to='/mentors'>
               <span className='tag'>&#123; JAVA &#125;</span>
