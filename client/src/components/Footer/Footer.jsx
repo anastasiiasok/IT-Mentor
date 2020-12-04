@@ -1,17 +1,17 @@
 import React from 'react';
-import './style.css';
+import styles from './Footer.module.css';
 import { Link } from 'react-router-dom';
 
 function Footer() {
   return (
-    <div className='footer'>
-      <div className='footerMentors'>
-        <p className='footerTitle'>Mentors</p>
+    <div className={styles.footer}>
+      <div className={styles.footerMentors}>
+        <p className={styles.footerTitle}>Mentors</p>
         <Link to='/signup'>
-          <p className='footerA'>Sign In</p>
+          <p className={styles.footerA}>Sign In</p>
         </Link>
         <Link to='/signup'>
-          <p className='footerA'>Become Mentor</p>
+          <p className={styles.footerA}>Become Mentor</p>
         </Link>
       </div>
     </div>
