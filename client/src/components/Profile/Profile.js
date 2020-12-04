@@ -17,10 +17,6 @@ function Profile() {
   React.useEffect(() => dispatch(activeMentor(mentor)));
   return (
     <div className={styles.full}>
-      <div>
-        <br></br>
-      </div>
-
       <div className={styles.container}>
         <span className={styles.btn_no_padding}>
           <Link to="/mentors" />
@@ -50,6 +46,7 @@ function Profile() {
                   left: "200px",
                   bottom: "100px",
                   signin: false,
+                  position: "absolute",
                 },
               }}
             >

@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./SignIn.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import { changeAuth } from "../../store/actions";
+import { changeAuth, setUser } from "../../store/actions";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -50,7 +50,8 @@ const SignIn = () => {
         setError(true);
       } else {
         updateForm(init);
-        dispatch(changeAuth());
+        dispatch(changeAuth(true));
+        dispatch(setUser(data));
         history.push("/account");
       }
     } else {

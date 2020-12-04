@@ -15,16 +15,21 @@
 
   
 }
+h1{
+  color: aliceblue;
+}
 
 .schedule h1 {
   font-size: 24px;
   margin-bottom: 10px;
   color: white;
   text-align: center;
+
 }
 
 .calendar {
   margin: 0 auto;
+  margin-top: 50px;
 }
 
 @media (max-width: 500px) {
@@ -70,10 +75,34 @@
 }
 .logout {
   text-align: center;
+  /* border: 1px solid transparent; */
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background-color: rgba(243, 192, 73, 1);
+  border-radius: 50px;
+  width:70px;
+ 
 }
-.mentorsBtn {
+/* .mentorsBtn {
   text-decoration: none;
   color: rgb(255, 255, 255);
   font-size: 18px;
   background: transparent;
+   display: inline-block; 
+  border-radius: 10px;
+  padding: 6px 20px;
+} */
+.mentorsBtn{
+  padding: 6px 20px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  background-color: rgba(243, 192, 73, 1);
+  transition-property: background-color, border-color, color;
+  border-radius: 20px;
+}
+
+.container{
+  display: flex;
 }

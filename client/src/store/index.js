@@ -44,6 +44,7 @@ const preloadedState = {
   likedMentors: [],
   activeMentor: {},
   isAuth: false,
+  user: {},
 };
 
 const composeEnhancers = composeWithDevTools();

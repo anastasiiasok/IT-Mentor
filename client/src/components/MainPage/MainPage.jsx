@@ -1,5 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
+
+import { Route } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { changeAuth, setUser, initState } from "../../store/actions";
 import Profile from "../Profile/Profile";
 import Mentors from "../Mentors/Mentors";
 import SignIn from "../SignIn/SignIn";
@@ -7,6 +10,19 @@ import HomePage from "../HomePage/HomePage";
 import AccountStudent from "../Account/AccountStudent";
 
 function MainPage() {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    const getData = async () => {
+      const res = await fetch("http://localhost:3100/user/init");
+      const result = await res.json();
+      dispatch(changeAuth(true));
+      dispatch(setUser(result));
+      if (result.mentors !== undefined) {
+        dispatch(initState(result.mentors.map((mentor) => mentor._id)));
+      }
+    };
+    getData();
+  }, []);
   return (
     <>
       <div>
