@@ -93,6 +93,22 @@ router.post('auth/add/mentor', async (req, res) => {
   );
   res.json('mentor added successfully');
 });
+router.get(
+  '/init',
+  (req, res, next) => {
+    if (req.isAuthenticated()) {
+      return res.redirect('/user/auth/init');
+    }
+    next();
+  },
+  async (req, res) => {
+    const user = await User.findOne().populate('mentors');
+    res.json(user);
+  }
+);
+router.get('/auth/init', async (req, res) => {
+  res.json(req.user);
+});
 
 router.get('/logout', (req, res) => {
   if (!req.isAuthenticated()) {

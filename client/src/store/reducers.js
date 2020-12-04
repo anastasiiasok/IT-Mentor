@@ -6,6 +6,7 @@ import {
   ACTIVATE_MENTOR,
   CHANGE_AUTH,
   SET_USER,
+  INIT,
 } from './types';
 
 export const reducers = (state, action) => {
@@ -43,6 +44,10 @@ export const reducers = (state, action) => {
         return mentor;
       });
       return { ...state, mentors: likeMentors, likedMentors: mentors };
+    // return { ...state, likedMentors: mentors };
+
+    case INIT:
+      return { ...state, likedMentors: action.payload };
 
     default:
       return state;

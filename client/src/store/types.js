@@ -6,3 +6,4 @@ export const ACTIVATE_MENTOR = 'ACTIVATE_MENTOR';
 export const SCREEN_SIZE = 5;
 export const CHANGE_AUTH = 'CHANGE_AUTH';
 export const SET_USER = 'SET_USER';
+export const INIT = 'INIT';

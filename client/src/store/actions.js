@@ -6,6 +6,7 @@ import {
   ACTIVATE_MENTOR,
   CHANGE_AUTH,
   SET_USER,
+  INIT,
 } from './types';
 
 export const addMentors = (mentors) => ({
@@ -32,3 +33,7 @@ export const toggleLike = (id) => {
   console.log('calling toggleLike >>>>');
   return { type: TOGGLE_LIKE, payload: id };
 };
+export const initState = (data) => ({
+  type: INIT,
+  payload: data,
+});
