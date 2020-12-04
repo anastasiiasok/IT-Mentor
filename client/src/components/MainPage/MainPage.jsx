@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Switch, Link, Route } from "react-router-dom";
 import Profile from "../Profile/Profile";
 import Mentors from "../Mentors/Mentors";
-import SignUp from "../SignUp/SignUp";
+import SignIn from "../SignIn/SignIn";
 import HomePage from "../HomePage/HomePage";
 import AccountStudent from "../Account/AccountStudent";
 
@@ -21,8 +21,8 @@ function MainPage() {
           <Route  path="/mentors">
             <Mentors />
           </Route>
-          <Route  path="/signup">
-            <SignUp />
+          <Route  path="/:location/signup">
+            <SignIn />
           </Route>
           <Route  path="/account">
             <AccountStudent />

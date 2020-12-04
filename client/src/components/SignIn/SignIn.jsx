@@ -60,7 +60,7 @@ const SignIn = ({visible, setVisibility})=>{
   };
 
   return(
-    <div className={styles.container} style={{visibility: visible ? "visible" : "hidden"}}>
+    <div className={styles.container} style={{visibility: true ? "visible" : "hidden"}}>
       <input onChange={handleChange} value={form.firstName} name="firstName" placeholder="first name" type="text"/>
       <input  onChange={handleChange} value={form.lastName} name="lastName" placeholder="last name" type="text"/>
       <input  onChange={handleChange} value={form.contacts} name="contacts" placeholder="email" type="text"/>
