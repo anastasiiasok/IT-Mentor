@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './SignIn.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
+import { changeAuth } from '../../store/actions';
 
 const SignIn = () => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const left = useLocation().state.left;
   const bottom = useLocation().state.bottom;
@@ -40,10 +42,15 @@ const SignIn = () => {
       const data = await res.json();
       console.log(data);
       if (data === 'auth failed') {
-        updateForm({...form, password: "wrong email or password", contacts: ""})
+        updateForm({
+          ...form,
+          password: 'wrong email or password',
+          contacts: '',
+        });
         setError(true);
       } else {
         updateForm(init);
+        dispatch(changeAuth());
         history.push('/account');
       }
     } else {
@@ -56,9 +63,8 @@ const SignIn = () => {
       setError(false);
       updateForm(init);
     } else {
-        updateForm({ ...form, [e.target.name]: e.target.value });
+      updateForm({ ...form, [e.target.name]: e.target.value });
     }
-  
   };
 
   const handleGoogle = async () => {
@@ -78,7 +84,6 @@ const SignIn = () => {
     console.log(data);
   };
 
-  
   return (
     <div className={styles.container} style={{ left: left, bottom: bottom }}>
       <div
@@ -117,7 +122,8 @@ const SignIn = () => {
         type='text'
       />
       {!signin && <div style={{ height: '100px' }}></div>}
-      <input style={{color: error? "red": "rgba(88, 150, 139, 1)"}}
+      <input
+        style={{ color: error ? 'red' : 'rgba(88, 150, 139, 1)' }}
         onChange={handleChange}
         value={form.password}
         name='password'

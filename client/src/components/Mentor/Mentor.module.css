@@ -206,15 +206,10 @@ header {
   }
 }
 
-
-.likebutn{
-    margin-left: 5px;
+.likebutn {
+  margin-left: 5px;
 }
 
-
-
-
-
-
- 
-
+a {
+  color: #fafafa;
+}

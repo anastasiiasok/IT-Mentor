@@ -1,11 +1,13 @@
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import HeaderLink from '../HeaderLink/HeaderLink';
 import { useSelector } from 'react-redux';
+import User from '../User/User';
+
 import styles from './Header.module.css';
 
 function Header() {
-  const mentor = useSelector((store) => store.activeMentor);
-  const location = useLocation();
+  const isAuth = useSelector((store) => store.isAuth);
   return (
     <>
       <div className={styles.header}>
@@ -15,34 +17,8 @@ function Header() {
           </div>
         </Link>
 
-        <span
-          style={{
-            display: 'flex',
-            justifyContent: 'center',
-            backgroundColor: 'grey',
-          }}
-        >
-          {mentor.name && (
-            <Link
-              to={{
-                pathname: `${location.pathname}/signin`,
-                state: { left: '200px', bottom: '100px', mentor , signin: true},
-              }}
-            >
-              <i class='fas fa-sign-in-alt'></i>
-            </Link>
-          )}
-          {!mentor.name && (
-            <Link
-              to={{
-                pathname: '/signin',
-                state: { left: '200px', bottom: '100px' , signin: true},
-              }}
-            >
-              <i class='fas fa-sign-in-alt'></i>
-            </Link>
-          )}
-        </span>
+        {!isAuth && <HeaderLink />}
+        {isAuth && <User />}
       </div>
     </>
   );

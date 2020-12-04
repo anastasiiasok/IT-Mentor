@@ -4,3 +4,4 @@ export const SET_SCREEN = 'SET_SCREEN';
 export const TOGGLE_LIKE = 'TOGGLE_LIKE';
 export const ACTIVATE_MENTOR = 'ACTIVATE_MENTOR';
 export const SCREEN_SIZE = 5;
+export const CHANGE_AUTH = 'CHANGE_AUTH';

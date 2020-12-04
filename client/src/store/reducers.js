@@ -4,6 +4,7 @@ import {
   SET_SCREEN,
   TOGGLE_LIKE,
   ACTIVATE_MENTOR,
+  CHANGE_AUTH,
 } from './types';
 
 export const reducers = (state, action) => {
@@ -17,8 +18,13 @@ export const reducers = (state, action) => {
 
     case SET_SCREEN:
       return { ...state, screen: action.payload };
+
     case ACTIVATE_MENTOR:
       return { ...state, activeMentor: action.payload };
+
+    case CHANGE_AUTH:
+      return { ...state, isAuth: action.payload };
+
     case TOGGLE_LIKE:
       let mentors = [...state.likedMentors];
       const likeMentors = state.mentors.map((mentor) => {

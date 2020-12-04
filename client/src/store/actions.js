@@ -4,6 +4,7 @@ import {
   SET_SCREEN,
   TOGGLE_LIKE,
   ACTIVATE_MENTOR,
+  CHANGE_AUTH,
 } from './types';
 
 export const addMentors = (mentors) => ({
@@ -17,6 +18,10 @@ export const searchMentors = (mentors) => ({
 export const activeMentor = (mentor) => ({
   type: ACTIVATE_MENTOR,
   payload: mentor,
+});
+export const changeAuth = () => ({
+  type: CHANGE_AUTH,
+  payload: true,
 });
 export const setScreen = (size) => ({ type: SET_SCREEN, payload: size });
 
