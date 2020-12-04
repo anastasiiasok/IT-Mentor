@@ -5,6 +5,7 @@ import {
   TOGGLE_LIKE,
   ACTIVATE_MENTOR,
   CHANGE_AUTH,
+  SET_USER,
 } from './types';
 
 export const reducers = (state, action) => {
@@ -18,6 +19,9 @@ export const reducers = (state, action) => {
 
     case SET_SCREEN:
       return { ...state, screen: action.payload };
+
+    case SET_USER:
+      return { ...state, user: action.payload };
 
     case ACTIVATE_MENTOR:
       return { ...state, activeMentor: action.payload };

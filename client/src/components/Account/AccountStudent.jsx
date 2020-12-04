@@ -1,10 +1,15 @@
 import React from 'react';
 import styles from './Account.module.css';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import Mentor from '../Mentor/Mentor';
+import { changeAuth, setUser } from '../../store/actions';
 
 function AccountStudent() {
+  const history = useHistory();
+  const dispatch = useDispatch();
   const id = useSelector((store) => store.likedMentors);
+  const userName = useSelector((store) => store.user.firstName);
   const storeMentors = useSelector((store) => store.mentors);
   const mentors = storeMentors.filter(
     (mentor) => id.filter((el) => el === mentor._id).length === 1
@@ -13,6 +18,25 @@ function AccountStudent() {
   const [value, toggleValue] = React.useState(false);
   const onClickLikedMentors = () => {
     toggleValue(!value);
+  };
+  const onClickLogout = async () => {
+    // !!!!ACHTUNG!!!! COMMENT NEXT LINE BEFORE BUILD
+
+    const res = await fetch('http://localhost:3100/user/logout');
+
+    //!!!!ACHTUNG UNCOMMENT NEXT LINE BEFORE BUILD
+
+    // const res = await fetch(
+    //   'https://servertestmentor.herokuapp.com/user/logout'
+    // );
+
+    // !!!DONT TOUCH BELOW
+
+    const result = await res.json();
+    console.log('result logout', result);
+    dispatch(changeAuth(false));
+    dispatch(setUser({}));
+    history.push('/');
   };
   return (
     <div
@@ -32,7 +56,7 @@ function AccountStudent() {
       <div className={styles.account}>
         <div>
           <div className={styles.nav}>
-            {/* <h1>Student's Name </h1> */}
+            <h1>{userName}</h1>
             <h1 className={styles.schedule}>
               Schedule{' '}
               <img
@@ -59,7 +83,7 @@ function AccountStudent() {
         <br></br>
         <br></br>
         <div className={styles.logout}>
-          <a href='#'>Log Out</a>
+          <span onClick={onClickLogout}>Log Out</span>
         </div>
       </div>
     </div>
