@@ -9,12 +9,29 @@ function AccountStudent() {
   const history = useHistory();
   const dispatch = useDispatch();
   const id = useSelector((store) => store.likedMentors);
+  const [mentors, setMentors] = React.useState([]);
   const userName = useSelector((store) => store.user.firstName);
-  const storeMentors = useSelector((store) => store.mentors);
-  const mentors = storeMentors.filter(
-    (mentor) => id.filter((el) => el === mentor._id).length === 1
-  );
+  // const storeMentors = useSelector((store) => store.mentors);
+  // const mentors = storeMentors.filter(
+  //   (mentor) => id.filter((el) => el === mentor._id).length === 1
+  // );
 
+  React.useEffect(() => {
+    const getData = async () => {
+      const res = await fetch('http://localhost:3100/mentor/init', {
+        method: 'POST',
+        // DO NOT USE MODE NO-CORS !!!
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ id }),
+      });
+      const data = await res.json();
+      console.log('MENTORss', data);
+      setMentors(data);
+    };
+    getData();
+  }, []);
   const [value, toggleValue] = React.useState(false);
   const onClickLikedMentors = () => {
     toggleValue(!value);

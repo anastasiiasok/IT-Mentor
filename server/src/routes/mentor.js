@@ -21,5 +21,9 @@ router.get('', async (req, res) => {
   }
   res.json({ mentors });
 });
+router.post('/init', async (req, res) => {
+  const mentors = await Mentor.find({ _id: { $in: req.body.id } });
+  res.json(mentors);
+});
 
 module.exports = router;
