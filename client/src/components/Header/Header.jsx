@@ -26,7 +26,7 @@ function Header() {
             <Link
               to={{
                 pathname: `${location.pathname}/signin`,
-                state: { left: '200px', bottom: '100px', mentor },
+                state: { left: '200px', bottom: '100px', mentor , signin: true},
               }}
             >
               <i class='fas fa-sign-in-alt'></i>
@@ -36,7 +36,7 @@ function Header() {
             <Link
               to={{
                 pathname: '/signin',
-                state: { left: '200px', bottom: '100px' },
+                state: { left: '200px', bottom: '100px' , signin: true},
               }}
             >
               <i class='fas fa-sign-in-alt'></i>

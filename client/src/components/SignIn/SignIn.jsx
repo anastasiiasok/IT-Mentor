@@ -3,8 +3,11 @@ import styles from './SignIn.module.css';
 import { useSelector } from 'react-redux';
 import { useHistory, useLocation } from 'react-router-dom';
 
-const SignIn = (signin) => {
+const SignIn = () => {
   const history = useHistory();
+  const left = useLocation().state.left;
+  const bottom = useLocation().state.bottom;
+  const signin = useLocation().state.signin;
   const init = {
     firstName: '',
     lastName: '',
@@ -13,6 +16,7 @@ const SignIn = (signin) => {
     confirm: '',
   };
   const [form, updateForm] = React.useState(init);
+  const [error, setError] = React.useState(false);
   const mentors = useSelector((store) => store.likedMentors);
   const handleClick = () => {
     history.goBack();
@@ -35,16 +39,26 @@ const SignIn = (signin) => {
       });
       const data = await res.json();
       console.log(data);
-      updateForm(init);
-
-      history.push('/account');
+      if (data === 'auth failed') {
+        updateForm({...form, password: "wrong email or password", contacts: ""})
+        setError(true);
+      } else {
+        updateForm(init);
+        history.push('/account');
+      }
     } else {
       updateForm(init);
     }
   };
 
   const handleChange = (e) => {
-    updateForm({ ...form, [e.target.name]: e.target.value });
+    if (error) {
+      setError(false);
+      updateForm(init);
+    } else {
+        updateForm({ ...form, [e.target.name]: e.target.value });
+    }
+  
   };
 
   const handleGoogle = async () => {
@@ -64,8 +78,7 @@ const SignIn = (signin) => {
     console.log(data);
   };
 
-  const left = useLocation().state.left;
-  const bottom = useLocation().state.bottom;
+  
   return (
     <div className={styles.container} style={{ left: left, bottom: bottom }}>
       <div
@@ -104,7 +117,7 @@ const SignIn = (signin) => {
         type='text'
       />
       {!signin && <div style={{ height: '100px' }}></div>}
-      <input
+      <input style={{color: error? "red": "rgba(88, 150, 139, 1)"}}
         onChange={handleChange}
         value={form.password}
         name='password'

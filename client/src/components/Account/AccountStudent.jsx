@@ -5,15 +5,15 @@ import Mentor from '../Mentor/Mentor';
 
 function AccountStudent() {
   const id = useSelector((store) => store.likedMentors);
-  const mentors = useSelector((store) =>
-    store.mentors.filter((mentor) => id.filter((el) => el === mentor.id))
-  );
+  const storeMentors = useSelector((store) => store.mentors);
+  const mentors = storeMentors.filter((mentor)=> id.filter((el)=> el === mentor._id).length === 1);
+
   const [value, toggleValue] = React.useState(false);
   const onClickLikedMentors = () => {
     toggleValue(!value);
   };
   return (
-    <div>
+    <div styles={{display: "flex", flexDirection: "row", justifyContent: "space-between"}}>
       {value && (
         <div>
           {mentors.map((mentor) => (

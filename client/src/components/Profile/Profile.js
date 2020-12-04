@@ -45,7 +45,7 @@ function Profile() {
             <Link
               to={{
                 pathname: `${location.pathname}/signin`,
-                state: { mentor, left: '200px', bottom: '100px' },
+                state: { mentor, left: '200px', bottom: '100px' , signin: false},
               }}
             >
               <a className={styles.btn_yellow}>Schedule a free call</a>{' '}
