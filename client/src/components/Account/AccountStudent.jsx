@@ -44,14 +44,14 @@ function AccountStudent() {
     // !!!!ACHTUNG!!!! COMMENT NEXT LINE BEFORE BUILD
 
 
-    // const res = await fetch('http://localhost:3100/user/logout');
+    const res = await fetch('http://localhost:3100/user/logout');
 
 
     //!!!!ACHTUNG UNCOMMENT NEXT LINE BEFORE BUILD
 
-    const res = await fetch(
-      'https://servertestmentor.herokuapp.com/user/logout'
-    );
+    // const res = await fetch(
+    //   'https://servertestmentor.herokuapp.com/user/logout'
+    // );
 
     // !!!DONT TOUCH BELOW
 
