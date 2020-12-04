@@ -1,14 +1,14 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
-import Education from '../Education/Education';
-import Person from '../Person/Person';
-import Projects from '../Projects/Projects';
-import Price from '../Price/Price';
-import Resume from '../Resume/Resume';
-import BenefitList from '../BenefitList/BenefitList';
-import { activeMentor } from '../../store/actions';
-import { Link, useLocation } from 'react-router-dom';
-import styles from './Profile.module.css';
+import React from "react";
+import { useDispatch } from "react-redux";
+import Education from "../Education/Education";
+import Person from "../Person/Person";
+import Projects from "../Projects/Projects";
+import Price from "../Price/Price";
+import Resume from "../Resume/Resume";
+import BenefitList from "../BenefitList/BenefitList";
+import { activeMentor } from "../../store/actions";
+import { Link, useLocation } from "react-router-dom";
+import styles from "./Profile.module.css";
 
 function Profile() {
   const dispatch = useDispatch();
@@ -17,16 +17,12 @@ function Profile() {
   React.useEffect(() => dispatch(activeMentor(mentor)));
   return (
     <div className={styles.full}>
-      <div>
-        <br></br>
-      </div>
-
       <div className={styles.container}>
         <span className={styles.btn_no_padding}>
-          <Link to='/mentors' />
-          <i className='fas fa-long-arrow-alt-left'></i>
+          <Link to="/mentors" />
+          <i className="fas fa-long-arrow-alt-left"></i>
           <span className={styles.allMentors}>
-            <Link to='/mentors'>
+            <Link to="/mentors">
               <span className={styles.allText}>All Mentors</span>
             </Link>
           </span>
@@ -35,23 +31,29 @@ function Profile() {
           <div className={styles.card__mentor}>
             {/* <SignIn visible={visible} setVisibility={setVisibility} /> */}
             <div className={styles.card__mentor__img}>
-              <img src='mentor_img.svg' alt='' />
+              <img src="mentor_img.svg" alt="" />
             </div>
             <div className={styles.free_test_session}>
-              <a href=''>
+              <a href="">
                 <Price price={mentor.price} />
               </a>
             </div>
             <Link
               to={{
                 pathname: `${location.pathname}/signin`,
-                state: { mentor, left: '200px', bottom: '100px' , signin: false},
+                state: {
+                  mentor,
+                  left: "200px",
+                  bottom: "100px",
+                  signin: false,
+                  position: "absolute",
+                },
               }}
             >
-              <a className={styles.btn_yellow}>Schedule a free call</a>{' '}
+              <a className={styles.btn_yellow}>Schedule a free call</a>{" "}
             </Link>
             <div className={styles.free_test_session}>
-              <a href=''> Free test session</a>
+              <a href=""> Free test session</a>
             </div>
             <br />
           </div>

@@ -141,7 +141,7 @@ ul > li::before {
 
 .profile__grid__template {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: flex-start;
 }
 

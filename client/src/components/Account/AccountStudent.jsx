@@ -1,9 +1,9 @@
-import React from 'react';
-import styles from './Account.module.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory } from 'react-router-dom';
-import Mentor from '../Mentor/Mentor';
-import { changeAuth, setUser } from '../../store/actions';
+import React from "react";
+import styles from "./Account.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
+import Mentor from "../Mentor/Mentor";
+import { changeAuth, setUser } from "../../store/actions";
 
 function AccountStudent() {
   const history = useHistory();
@@ -43,7 +43,9 @@ function AccountStudent() {
   const onClickLogout = async () => {
     // !!!!ACHTUNG!!!! COMMENT NEXT LINE BEFORE BUILD
 
+
     // const res = await fetch('http://localhost:3100/user/logout');
+
 
     //!!!!ACHTUNG UNCOMMENT NEXT LINE BEFORE BUILD
 
@@ -54,60 +56,35 @@ function AccountStudent() {
     // !!!DONT TOUCH BELOW
 
     const result = await res.json();
-    console.log('result logout', result);
+    console.log("result logout", result);
     dispatch(changeAuth(false));
     dispatch(setUser({}));
-    history.push('/');
+    history.push("/");
   };
   return (
-    <div
-      styles={{
-        display: 'flex',
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-      }}
-    >
-      {value && (
-        <div>
-          {mentors.map((mentor) => (
-            <Mentor mentor={mentor} />
-          ))}
-        </div>
-      )}
+    <>
+      {value &&
+        mentors.map((mentor) => (
+          <Mentor styles={{ float: "right" }} mentor={mentor} />
+        ))}
       <div className={styles.account}>
-        <div>
-          <div className={styles.nav}>
-            <h1>{userName}</h1>
-            <h1 className={styles.schedule}>
-              Schedule{' '}
-              <img
-                className={styles.calendar}
-                src='calendar.png'
-                width='160'
-              ></img>
-            </h1>
-            <br></br>
-            <br></br>
-            <div className={styles.logout}>
-              <button
-                onClick={onClickLikedMentors}
-                className={styles.mentorsBtn}
-              >
-                Liked Mentors <i class='fas fa-user-friends'></i>
-              </button>
-              {/* <a className='btn white'>
-                Liked Mentors <i class='fas fa-user-friends'></i>
-              </a> */}
-            </div>
-          </div>
+        <div className={styles.nav}>
+          <h1 className={styles.schedule}>{userName}'s schedule</h1>
+
+          <img className={styles.calendar} src="calendar.png" width="160"></img>
         </div>
-        <br></br>
-        <br></br>
+
+        <div className={styles.mentorsBtn}>
+          <button onClick={onClickLikedMentors} className={styles.mentorsBtn}>
+            Liked Mentors <i class="fas fa-user-friends"></i>
+          </button>
+        </div>
+
         <div className={styles.logout}>
           <span onClick={onClickLogout}>Log Out</span>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 
