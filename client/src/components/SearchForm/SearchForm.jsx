@@ -53,44 +53,66 @@ function SearchForm() {
 
     // ACHTUNG !!!! COMMENT!!!! PART BELOW BEFORE BUILD !!
 
-    if (checkedItems.timezone) {
-      const res = await fetch(
-        `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=17.142.160.59`
-      );
-      const timezoneData = await res.json();
-
-      queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
-    }
-
-    // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
-
     // if (checkedItems.timezone) {
-    //   const ipAddress = await fetch('https://servertestmentor.herokuapp.com/ip');
-    //   const ipResult = await ipAddress.json();
-    //   console.log('expected ip from the server  ipResult', ipResult);
     //   const res = await fetch(
-    //     `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=${ipResult}`
+    //     `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=17.142.160.59`
     //   );
     //   const timezoneData = await res.json();
-    //   console.log('result from geo API ', timezoneData);
 
     //   queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
     // }
 
+    // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
+
+    if (checkedItems.timezone) {
+      const ipAddress = await fetch(
+        'https://servertestmentor.herokuapp.com/ip'
+      );
+      const ipResult = await ipAddress.json();
+      console.log('expected ip from the server  ipResult', ipResult);
+      const res = await fetch(
+        `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=${ipResult}`
+      );
+      const timezoneData = await res.json();
+      console.log('result from geo API ', timezoneData);
+
+      queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
+    }
+
     // ACHTUNG !!!! COMMENT!!!! PART BELOW BEFORE BUILD !!
+
+    //   if (checkedItems.price)
+    //     queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
+    //   const query = queryArr.join('&');
+
+    //   console.log(query);
+    //   const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
+    //   const mentors = await repsonse.json();
+    //   dispatch(setScreen(SCREEN_SIZE));
+
+    //   dispatch(
+    //     searchMentors({
+    //       mentors: mentors.mentors.map((mentor) => ({
+    //         ...mentor,
+    //         liked: likedMentors.filter((el) => el === mentor._id).length === 1,
+    //       })),
+    //     })
+    //   );
+    // };
+
+    // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
 
     if (checkedItems.price)
       queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
     const query = queryArr.join('&');
 
-    console.log(query);
-    const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
-    const mentors = await repsonse.json(); // { [{}]} object with array of objects
+    console.log('query to the server', query);
+    const repsonse = await fetch(
+      `https://servertestmentor.herokuapp.com/mentor?${query}`
+    );
+    const mentors = await repsonse.json();
+    console.log('list of mentors', mentors);
     dispatch(setScreen(SCREEN_SIZE));
-    // const checkLiked = mentors.mentors.map(
-    //   (mentor) => likedMentors.filter((el) => el === mentor._id).length === 1
-    // );
-    // console.log('CHECKED', checkLiked);
     dispatch(
       searchMentors({
         mentors: mentors.mentors.map((mentor) => ({
@@ -100,25 +122,6 @@ function SearchForm() {
       })
     );
   };
-
-  // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
-
-  // if (checkedItems.price)
-  //     queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
-  //   const query = queryArr.join("&");
-
-  //   console.log('query to the server', query);
-  //   const repsonse = await fetch(`https://servertestmentor.herokuapp.com/mentor?${query}`);
-  //   const mentors = await repsonse.json(); // { [{}]} object with array of objects
-  //   console.log('list of mentors', mentors);
-  //   dispatch(setScreen(SCREEN_SIZE));
-  //   dispatch(
-  //     searchMentors({
-  //       mentors: mentors.mentors.map((mentor) => ({ ...mentor, liked: false })),
-  //
-  // })
-  //   );
-  // };
 
   return (
     <div className={styles.searchMain}>
