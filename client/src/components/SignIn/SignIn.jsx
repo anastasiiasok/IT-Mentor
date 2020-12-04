@@ -1,8 +1,8 @@
-import React from 'react';
-import styles from './SignIn.module.css';
-import { useSelector, useDispatch } from 'react-redux';
-import { useHistory, useLocation } from 'react-router-dom';
-import { changeAuth, setUser } from '../../store/actions';
+import React from "react";
+import styles from "./SignIn.module.css";
+import { useSelector, useDispatch } from "react-redux";
+import { useHistory, useLocation } from "react-router-dom";
+import { changeAuth, setUser } from "../../store/actions";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -11,11 +11,11 @@ const SignIn = () => {
   const bottom = useLocation().state.bottom;
   const signin = useLocation().state.signin;
   const init = {
-    firstName: '',
-    lastName: '',
-    contacts: '',
-    password: '',
-    confirm: '',
+    firstName: "",
+    lastName: "",
+    contacts: "",
+    password: "",
+    confirm: "",
   };
   const [form, updateForm] = React.useState(init);
   const [error, setError] = React.useState(false);
@@ -24,8 +24,23 @@ const SignIn = () => {
     history.goBack();
   };
   const handleSubmit = async () => {
-    if (form.password !== '') {
+    if (form.password !== "") {
       // ACHTUNG !!! COMMENT NEXT LINE BEFORE BUILD!!
+
+      const res = await fetch("http://localhost:3100/user/auth/local", {
+        // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+        // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
+        // const res = await fetch('https://servertestmentor.herokuapp.com/user/auth/local', {
+
+        // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+        method: "POST",
+        // DO NOT USE MODE NO-CORS !!!
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ ...form, mentors }),
+      });
+
       // const res = await fetch('http://localhost:3100/user/auth/local', {
       // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
       // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
@@ -41,20 +56,21 @@ const SignIn = () => {
           body: JSON.stringify({ ...form, mentors }),
         }
       );
+
       const data = await res.json();
       console.log(data);
-      if (data === 'auth failed') {
+      if (data === "auth failed") {
         updateForm({
           ...form,
-          password: 'wrong email or password',
-          contacts: '',
+          password: "wrong email or password",
+          contacts: "",
         });
         setError(true);
       } else {
         updateForm(init);
         dispatch(changeAuth(true));
         dispatch(setUser(data));
-        history.push('/account');
+        history.push("/account");
       }
     } else {
       updateForm(init);
@@ -72,8 +88,13 @@ const SignIn = () => {
 
   const handleGoogle = async () => {
     // ACHTUNG !!! COMMENT NEXT LINE BEFORE BUILD!!
+
+    const res = await fetch("http://localhost:3100/user/auth/google", {
+      // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+
     // const res = await fetch('http://localhost:3100/user/auth/google', {
     // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+
 
     // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
     const res = await fetch(
@@ -81,73 +102,72 @@ const SignIn = () => {
       {
         // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
 
+
+      method: "GET",
+      mode: "no-cors",
+    });
+
         method: 'GET',
         mode: 'no-cors',
       }
     );
+
     const data = await res.json();
     console.log(data);
   };
 
   return (
-    <div className={styles.container} style={{ left: left, bottom: bottom }}>
-      <div
-        style={{
-          width: '95%',
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'flex-end',
-        }}
-      >
-        <i onClick={handleClick} class='fas fa-times'></i>
+    <div className={styles.container}>
+      <div className={styles.icon}>
+        <i onClick={handleClick} className="fas fa-times"></i>
       </div>
       {!signin && (
         <input
           onChange={handleChange}
           value={form.firstName}
-          name='firstName'
-          placeholder='first name'
-          type='text'
+          name="firstName"
+          placeholder="first name"
+          type="text"
         />
       )}
       {!signin && (
         <input
           onChange={handleChange}
           value={form.lastName}
-          name='lastName'
-          placeholder='last name'
-          type='text'
+          name="lastName"
+          placeholder="last name"
+          type="text"
         />
       )}
       <input
         onChange={handleChange}
         value={form.contacts}
-        name='contacts'
-        placeholder='email'
-        type='text'
+        name="contacts"
+        placeholder="email"
+        type="text"
       />
-      {!signin && <div style={{ height: '100px' }}></div>}
+      {!signin && <div style={{ height: "100px" }}></div>}
       <input
-        style={{ color: error ? 'red' : 'rgba(88, 150, 139, 1)' }}
+        style={{ color: error ? "red" : "rgba(88, 150, 139, 1)" }}
         onChange={handleChange}
         value={form.password}
-        name='password'
-        placeholder='password'
-        type='text'
+        name="password"
+        placeholder="password"
+        type="text"
       />
       {!signin && (
         <input
           onChange={handleChange}
           value={form.confirm}
-          name='confirm'
-          placeholder='confirm password'
-          type='text'
+          name="confirm"
+          placeholder="confirm password"
+          type="text"
         />
       )}
       <div className={styles.button_container}>
         <button onClick={handleSubmit}>Submit</button>
         <button
-          style={{ backgroundColor: 'rgba(243, 192, 73, 1)' }}
+          style={{ backgroundColor: "rgba(243, 192, 73, 1)" }}
           onClick={handleGoogle}
         >
           Sign In with Google
