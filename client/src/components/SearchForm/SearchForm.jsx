@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { SCREEN_SIZE } from '../../store/types';
 import styles from './SearchForm.module.css';
-import { setScreen } from '../../store/actions';
+import { setScreen, searchMentors} from '../../store/actions';
 
 const customStyles = {
   multiValue: (provided, state) => ({
@@ -12,7 +12,7 @@ const customStyles = {
     color: state.selectProps.menuColor,
   }),
 };
-function SearchForm({func}) {
+function SearchForm({showMentors}) {
   const likedMentors = useSelector((store) => store.likedMentors);
   const [filters, setFilters] = useState([]);
   const [checkedItems, setChecked] = useState({
@@ -49,22 +49,19 @@ function SearchForm({func}) {
 
     if (filters.length) queryArr.push('skills=' + filters.join(','));
 
-    // ACHTUNG !!!! COMMENT!!!! PART BELOW BEFORE BUILD !!
-
+    
     if (checkedItems.timezone) {
+      // ACHTUNG !!!! COMMENT!!!! LINe BELOW BEFORE BUILD !!
+
       const res = await fetch(
         `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=17.142.160.59`
       );
-      const timezoneData = await res.json();
-
-      queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
-    }
-
+     
     // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
     // <<<<<< START OF COMMENT
 
 
-    // if (checkedItems.timezone) {
+   
     //   const ipAddress = await fetch(
     //     'https://servertestmentor.herokuapp.com/ip'
     //   );
@@ -73,13 +70,14 @@ function SearchForm({func}) {
     //   const res = await fetch(
     //     `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=${ipResult}`
     //   );
-    //   const timezoneData = await res.json();
-    //   console.log('result from geo API ', timezoneData);
+      
+    // <<<<< END OF COMMENT
 
-    //   queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
-    // }
+      const timezoneData = await res.json();
+      console.log('result from geo API ', timezoneData);
 
-    // <<<<<< END OF COMMENT
+      queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
+    }
     
     if (checkedItems.price)
     queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
@@ -87,24 +85,32 @@ function SearchForm({func}) {
     
     console.log(query);
 
-    // ACHTUNG !!!! COMMENT!!!! PART BELOW BEFORE BUILD !!
+    // ACHTUNG !!!! COMMENT!!!! LINE BELOW BEFORE BUILD !!
 
     const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
     
-     // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
+     // ACHTUNG !!!! UNCOMMENT LINE BELOW BEFORE BUILD !!!!!!
 
-      //     `https://servertestmentor.herokuapp.com/mentor?${query}`
+      // const repsonse = await fetch(`https://servertestmentor.herokuapp.com/mentor?${query}`);    
+
+
 
     // <<<< END OF CHANGES
     
     const {mentors} = await repsonse.json();
-      dispatch(setScreen(SCREEN_SIZE));
+    dispatch(setScreen(SCREEN_SIZE));
+
+    dispatch(searchMentors({mentors: mentors.map((mentor)=> ({
+      ...mentor,
+          liked: likedMentors.filter((el) => el === mentor._id).length === 1,
+    }))
+  }));
+
 
       // ACHTUNG NEW LINE
-      func(mentors.map((mentor)=> ({
-        ...mentor,
-            liked: likedMentors.filter((el) => el === mentor._id).length === 1,
-      })));
+
+    
+      showMentors();
     }
 
   return (
