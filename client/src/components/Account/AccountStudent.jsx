@@ -32,10 +32,10 @@ function AccountStudent() {
       });
       const data = await res.json();
       console.log('MENTORss', data);
-      setMentors(data);
+      setMentors(data.map((el)=>({...el, liked: true})));
     };
     getData();
-  }, [value]);
+  }, []);
 
   const onClickLikedMentors = () => {
     toggleValue(!value);
@@ -65,7 +65,7 @@ function AccountStudent() {
     <>
       {value &&
         mentors.map((mentor) => (
-          <Mentor styles={{ float: "right" }} mentor={mentor} />
+          <Mentor mentor={mentor} />
         ))}
       <div className={styles.account}>
         <div className={styles.nav}>

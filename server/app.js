@@ -49,7 +49,7 @@ app.use('/user', userRouter);
 app.get('/ip', (req, res) => {
   res.json(req.ip);
 });
-app.get('/', (req, res) => {
+app.get('/fail', (req, res) => {
   console.log("something did't go according to plan");
   res.json('auth failed');
 });
