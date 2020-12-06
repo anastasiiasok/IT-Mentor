@@ -23,10 +23,10 @@ const Mentors = () => {
       <div>
         <SearchForm showMentors={showMentors}/>
         {display && state.map((mentor) => (
-          <Mentor mentor={mentor} />
-        ))}
+          <Mentor mentor={mentor}/>
+          ))}
       </div>
-     {(display)&(size < length) && <Scroll size={size + SCREEN_SIZE}/>}
+     {(display) && (size < length) && <Scroll size={size + SCREEN_SIZE}/>}
       <br></br>
       <br></br>
     </div>
