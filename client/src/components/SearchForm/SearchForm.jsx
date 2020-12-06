@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { SCREEN_SIZE } from '../../store/types';
-
 import styles from './SearchForm.module.css';
-
-import { searchMentors, setScreen } from '../../store/actions';
+import { setScreen } from '../../store/actions';
 
 const customStyles = {
   multiValue: (provided, state) => ({
@@ -14,7 +12,7 @@ const customStyles = {
     color: state.selectProps.menuColor,
   }),
 };
-function SearchForm() {
+function SearchForm({func}) {
   const likedMentors = useSelector((store) => store.likedMentors);
   const [filters, setFilters] = useState([]);
   const [checkedItems, setChecked] = useState({
@@ -63,6 +61,8 @@ function SearchForm() {
     }
 
     // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
+    // <<<<<< START OF COMMENT
+
 
     // if (checkedItems.timezone) {
     //   const ipAddress = await fetch(
@@ -79,49 +79,33 @@ function SearchForm() {
     //   queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
     // }
 
+    // <<<<<< END OF COMMENT
+    
+    if (checkedItems.price)
+    queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
+    const query = queryArr.join('&');
+    
+    console.log(query);
+
     // ACHTUNG !!!! COMMENT!!!! PART BELOW BEFORE BUILD !!
 
-      if (checkedItems.price)
-        queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
-      const query = queryArr.join('&');
+    const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
+    
+     // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
 
-      console.log(query);
-      const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
-      const mentors = await repsonse.json();
+      //     `https://servertestmentor.herokuapp.com/mentor?${query}`
+
+    // <<<< END OF CHANGES
+    
+    const {mentors} = await repsonse.json();
       dispatch(setScreen(SCREEN_SIZE));
 
-      dispatch(
-        searchMentors({
-          mentors: mentors.mentors.map((mentor) => ({
-            ...mentor,
+      // ACHTUNG NEW LINE
+      func(mentors.map((mentor)=> ({
+        ...mentor,
             liked: likedMentors.filter((el) => el === mentor._id).length === 1,
-          })),
-        })
-      );
-    };
-
-    // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
-
-  //   if (checkedItems.price)
-  //     queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
-  //   const query = queryArr.join('&');
-
-  //   console.log('query to the server', query);
-  //   const repsonse = await fetch(
-  //     `https://servertestmentor.herokuapp.com/mentor?${query}`
-  //   );
-  //   const mentors = await repsonse.json();
-  //   console.log('list of mentors', mentors);
-  //   dispatch(setScreen(SCREEN_SIZE));
-  //   dispatch(
-  //     searchMentors({
-  //       mentors: mentors.mentors.map((mentor) => ({
-  //         ...mentor,
-  //         liked: likedMentors.filter((el) => el === mentor._id).length === 1,
-  //       })),
-  //     })
-  //   );
-  // };
+      })));
+    }
 
   return (
     <div className={styles.searchMain}>

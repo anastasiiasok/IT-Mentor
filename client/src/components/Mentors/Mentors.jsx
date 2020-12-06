@@ -1,6 +1,6 @@
 
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector} from "react-redux";
 import Mentor from "../Mentor/Mentor";
 import { SCREEN_SIZE } from '../../store/types'
 import SearchForm from "../SearchForm/SearchForm";
@@ -9,14 +9,19 @@ import styles from "./Mentors.module.css";
 
 
 const Mentors = () => {
+  const [mentors, setMentors] = React.useState([]);
   const size = useSelector((store)=>store.screen)
-  const mentors = useSelector((store) => store.mentors);
+  // const mentors = useSelector((store) => store.mentors);
   const state = mentors.filter((el,i)=> i < size);
   const length = mentors.length;
+  const searchMentors = (mentors) => {
+    setMentors(mentors);
+  };
+
   return (
     <div className={styles.main}>
       <div>
-        <SearchForm />
+        <SearchForm func={searchMentors}/>
         {state.map((mentor) => (
           <Mentor mentor={mentor} />
         ))}
