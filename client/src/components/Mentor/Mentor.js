@@ -34,10 +34,7 @@ function Mentor({ mentor }) {
             <div className={styles.card__info}>
               <div className={styles.card__info__item}>
                 <IconedName
-                  name={name}
-                  surname={surname}
-                  liked={mentor.liked}
-                  id={mentor._id}
+                  mentor={mentor}
                 />
               </div>
               <div className={styles.card__info__item}>
