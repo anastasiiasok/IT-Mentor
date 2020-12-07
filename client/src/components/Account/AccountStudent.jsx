@@ -3,18 +3,18 @@ import styles from "./Account.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import Mentor from "../Mentor/Mentor";
-import { changeAuth, setUser } from "../../store/actions";
+import { changeAuth, searchMentors, setUser } from "../../store/actions";
 
 function AccountStudent() {
   const history = useHistory();
   const dispatch = useDispatch();
   const id = useSelector((store) => store.likedMentors);
-  const [mentors, setMentors] = React.useState([]);
+  // const [mentors, setMentors] = React.useState([]);
   const userName = useSelector((store) => store.user.firstName);
-  // const storeMentors = useSelector((store) => store.mentors);
-  // const mentors = storeMentors.filter(
-  //   (mentor) => id.filter((el) => el === mentor._id).length === 1
-  // );
+  const storeMentors = useSelector((store) => store.mentors);
+  const mentors = storeMentors.filter(
+    (mentor) => id.filter((el) => el === mentor._id).length === 1
+  );
   const [value, toggleValue] = React.useState(false);
   React.useEffect(() => {
     const getData = async () => {
@@ -32,7 +32,7 @@ function AccountStudent() {
       });
       const data = await res.json();
       console.log('MENTORss', data);
-      setMentors(data.map((el)=>({...el, liked: true})));
+      dispatch(searchMentors({mentors: (data.map((el)=>({...el, liked: true})))}));
     };
     getData();
   }, []);
