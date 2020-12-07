@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./SignIn.module.css";
 import { useSelector, useDispatch } from "react-redux";
 import { useHistory, useLocation } from "react-router-dom";
-import { changeAuth, setUser } from "../../store/actions";
+import { changeAuth, setUser, initState } from "../../store/actions";
 
 const SignIn = () => {
   const dispatch = useDispatch();
@@ -41,21 +41,8 @@ const SignIn = () => {
         body: JSON.stringify({ ...form, mentors }),
       });
 
-      // const res = await fetch('http://localhost:3100/user/auth/local', {
-      // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
-      // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
-      const res = await fetch(
-        'https://servertestmentor.herokuapp.com/user/auth/local',
-        {
-          // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
-          method: 'POST',
-          // DO NOT USE MODE NO-CORS !!!
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ ...form, mentors }),
-        }
-      );
+      
+     
 
       const data = await res.json();
       console.log(data);
@@ -70,6 +57,7 @@ const SignIn = () => {
         updateForm(init);
         dispatch(changeAuth(true));
         dispatch(setUser(data));
+        dispatch(initState(data.mentors));
         history.push("/account");
       }
     } else {
@@ -90,16 +78,20 @@ const SignIn = () => {
     // ACHTUNG !!! COMMENT NEXT LINE BEFORE BUILD!!
 
     const res = await fetch("http://localhost:3100/user/auth/google", {
+
+
       // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
 
-    // const res = await fetch('http://localhost:3100/user/auth/google', {
-    // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+    
 
 
     // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
-    const res = await fetch(
-      'https://servertestmentor.herokuapp.com/user/auth/google',
-      {
+
+    // const res = await fetch(
+    //   'https://servertestmentor.herokuapp.com/user/auth/google',
+    //   {
+
+
         // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
 
 
@@ -107,17 +99,14 @@ const SignIn = () => {
       mode: "no-cors",
     });
 
-        method: 'GET',
-        mode: 'no-cors',
-      }
-    );
+  
 
     const data = await res.json();
     console.log(data);
   };
 
   return (
-    <div className={styles.container}>
+    <div className={styles.container} style={{position: "absolute", left: left, bottom: bottom}}>
       <div className={styles.icon}>
         <i onClick={handleClick} className="fas fa-times"></i>
       </div>

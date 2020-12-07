@@ -47,7 +47,8 @@ export const reducers = (state, action) => {
     // return { ...state, likedMentors: mentors };
 
     case INIT:
-      return { ...state, likedMentors: action.payload };
+      const initMentors = state.likedMentors.filter((mentor)=>(action.payload.filter((el)=> el === mentor).length === 0));
+      return { ...state, likedMentors: [...initMentors, ...action.payload] };
 
     default:
       return state;

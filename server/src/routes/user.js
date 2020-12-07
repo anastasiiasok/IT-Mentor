@@ -11,7 +11,7 @@ router.get(
 
 router.get(
   '/auth/google/callback',
-  passport.authenticate('google', { failureRedirect: '/' }),
+  passport.authenticate('google', { failureRedirect: '/fail' }),
   (req, res) => {
     console.log('you are signed in');
     res.json('signed in');
@@ -25,7 +25,7 @@ router.get(
 
 router.get(
   '/connect/google/callback',
-  passport.authorize('google-authz', { failureRedirect: '/' }),
+  passport.authorize('google-authz', { failureRedirect: '/fail' }),
   async (req, res) => {
     const user = req.user;
     user.googleId = req.account;
@@ -37,7 +37,7 @@ router.get(
 
 router.post(
   '/auth/local',
-  passport.authenticate('local', { failureRedirect: '/' }),
+  passport.authenticate('local', { failureRedirect: '/fail' }),
   async (req, res) => {
     if (
       req.body.lastName !== '' ||
@@ -68,7 +68,8 @@ router.post(
       }
     }
     console.log('you are signed in locally');
-    res.json(req.user);
+    const newUser = await User.findById(req.user._id);
+    res.json(newUser);
   }
 );
 
@@ -93,6 +94,7 @@ router.post('auth/add/mentor', async (req, res) => {
   );
   res.json('mentor added successfully');
 });
+
 router.get(
   '/init',
   (req, res, next) => {
@@ -102,10 +104,12 @@ router.get(
     next();
   },
   async (req, res) => {
-    const user = await User.findOne().populate('mentors');
-    res.json(user);
+    // const user = await User.findOne().populate('mentors');
+    // res.json(user);
+    res.status(515);
   }
 );
+
 router.get('/auth/init', async (req, res) => {
   res.json(req.user);
 });

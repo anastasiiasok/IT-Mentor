@@ -3,14 +3,19 @@ import {useDispatch} from 'react-redux';
 import {toggleLike} from '../../store/actions';
 import styles from './Iconed.module.css';
 
-const IconedName = ({liked, id, name, surname})=>{
+const IconedName = ({mentor})=>{
+  const [value, setValue] = React.useState(mentor.liked);
+  const handleClick = (id) => {
+    setValue(!value);
+    dispatch(toggleLike(mentor._id));
+  }
 const dispatch = useDispatch();
   return (
   <p>
-  {name} {surname}
+  {mentor.name} {mentor.surname}
   <a className={styles.likebutn}>
-   {!liked && <i onClick={()=>dispatch(toggleLike(id))} class="far fa-thumbs-up"></i>}
-   {liked && <i onClick={()=>dispatch(toggleLike(id))} class="fas fa-thumbs-up"></i>}
+   {!value && <i onClick={()=>handleClick(mentor._id)} class="far fa-thumbs-up"></i>}
+   {value && <i onClick={()=>handleClick(mentor._id)} class="fas fa-thumbs-up"></i>}
   </a>
 </p>
   )

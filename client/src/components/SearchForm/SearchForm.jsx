@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Select from 'react-select';
 import { SCREEN_SIZE } from '../../store/types';
-
 import styles from './SearchForm.module.css';
-
-import { searchMentors, setScreen } from '../../store/actions';
+import { setScreen, searchMentors} from '../../store/actions';
 
 const customStyles = {
   multiValue: (provided, state) => ({
@@ -14,7 +12,7 @@ const customStyles = {
     color: state.selectProps.menuColor,
   }),
 };
-function SearchForm() {
+function SearchForm({showMentors}) {
   const likedMentors = useSelector((store) => store.likedMentors);
   const [filters, setFilters] = useState([]);
   const [checkedItems, setChecked] = useState({
@@ -51,77 +49,69 @@ function SearchForm() {
 
     if (filters.length) queryArr.push('skills=' + filters.join(','));
 
-    // ACHTUNG !!!! COMMENT!!!! PART BELOW BEFORE BUILD !!
-
-    // if (checkedItems.timezone) {
-    //   const res = await fetch(
-    //     `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=17.142.160.59`
-    //   );
-    //   const timezoneData = await res.json();
-
-    //   queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
-    // }
-
-    // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
-
+    
     if (checkedItems.timezone) {
-      const ipAddress = await fetch(
-        'https://servertestmentor.herokuapp.com/ip'
-      );
-      const ipResult = await ipAddress.json();
-      console.log('expected ip from the server  ipResult', ipResult);
+      // ACHTUNG !!!! COMMENT!!!! LINe BELOW BEFORE BUILD !!
+
       const res = await fetch(
-        `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=${ipResult}`
+        `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=17.142.160.59`
       );
+     
+    // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
+    // <<<<<< START OF COMMENT
+
+
+   
+    //   const ipAddress = await fetch(
+    //     'https://servertestmentor.herokuapp.com/ip'
+    //   );
+    //   const ipResult = await ipAddress.json();
+    //   console.log('expected ip from the server  ipResult', ipResult);
+    //   const res = await fetch(
+    //     `https://api.ipgeolocation.io/ipgeo?apiKey=${key}&ip=${ipResult}`
+    //   );
+      
+    // <<<<< END OF COMMENT
+
       const timezoneData = await res.json();
       console.log('result from geo API ', timezoneData);
 
       queryArr.push(`timezone=${timezoneData.time_zone.offset}`);
     }
-
-    // ACHTUNG !!!! COMMENT!!!! PART BELOW BEFORE BUILD !!
-
-    //   if (checkedItems.price)
-    //     queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
-    //   const query = queryArr.join('&');
-
-    //   console.log(query);
-    //   const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
-    //   const mentors = await repsonse.json();
-    //   dispatch(setScreen(SCREEN_SIZE));
-
-    //   dispatch(
-    //     searchMentors({
-    //       mentors: mentors.mentors.map((mentor) => ({
-    //         ...mentor,
-    //         liked: likedMentors.filter((el) => el === mentor._id).length === 1,
-    //       })),
-    //     })
-    //   );
-    // };
-
-    // ACHTUNG !!!! UNCOMMENT PART BELOW BEFORE BUILD !!!!!!
-
+    
     if (checkedItems.price)
-      queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
+    queryArr.push(`price=${checkedItems.down ? -1 : 1}`);
     const query = queryArr.join('&');
+    
+    console.log(query);
 
-    console.log('query to the server', query);
-    const repsonse = await fetch(
-      `https://servertestmentor.herokuapp.com/mentor?${query}`
-    );
-    const mentors = await repsonse.json();
-    console.log('list of mentors', mentors);
+    // ACHTUNG !!!! COMMENT!!!! LINE BELOW BEFORE BUILD !!
+
+    const repsonse = await fetch(`http://localhost:3100/mentor?${query}`);
+    
+     // ACHTUNG !!!! UNCOMMENT LINE BELOW BEFORE BUILD !!!!!!
+
+      // const repsonse = await fetch(`https://servertestmentor.herokuapp.com/mentor?${query}`);    
+
+
+
+    // <<<< END OF CHANGES
+    
+    const {mentors} = await repsonse.json();
     dispatch(setScreen(SCREEN_SIZE));
-    dispatch(
-      searchMentors({
-        mentors: mentors.mentors.map((mentor) => ({
-          ...mentor,
+
+    dispatch(searchMentors({mentors: mentors.map((mentor)=> ({
+      ...mentor,
           liked: likedMentors.filter((el) => el === mentor._id).length === 1,
-        })),
-      })
-    );
-  };
+    }))
+  }));
+
+
+      // ACHTUNG NEW LINE
+
+    
+      showMentors();
+    }
 
   return (
     <div className={styles.searchMain}>

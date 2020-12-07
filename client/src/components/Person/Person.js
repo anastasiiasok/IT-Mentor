@@ -9,7 +9,7 @@ function Person({ mentor }) {
 
   return (
     <>
-      <IconedName name={name} surname={surname} liked={mentor.liked} id={mentor._id} />
+      <IconedName mentor={mentor} />
       <span>
         {city}, {country}
       </span>
