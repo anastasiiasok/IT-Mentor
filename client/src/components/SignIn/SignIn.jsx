@@ -27,19 +27,21 @@ const SignIn = () => {
     if (form.password !== '') {
       // ACHTUNG !!! COMMENT NEXT LINE BEFORE BUILD!!
 
-      const res = await fetch('http://localhost:3100/user/auth/local', {
-        // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
-        // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
-        // const res = await fetch('https://servertestmentor.herokuapp.com/user/auth/local', {
-
-        // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
-        method: 'POST',
-        // DO NOT USE MODE NO-CORS !!!
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ ...form, mentors }),
-      });
+      // const res = await fetch('http://localhost:3100/user/auth/local', {
+      // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+      // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
+      const res = await fetch(
+        'https://servertestmentor.herokuapp.com/user/auth/local',
+        {
+          // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+          method: 'POST',
+          // DO NOT USE MODE NO-CORS !!!
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ ...form, mentors }),
+        }
+      );
       handleData(res);
     } else {
       updateForm(init);
@@ -77,20 +79,20 @@ const SignIn = () => {
   const handleGoogle = async () => {
     // ACHTUNG !!! COMMENT NEXT LINE BEFORE BUILD!!
 
-    const res = await fetch('http://localhost:3100/user/auth/google', {
-      // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
+    // const res = await fetch('http://localhost:3100/user/auth/google', {
+    // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
 
-      // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
+    // ACHTUNG !!! UNCOMMENT NEXT LINE BEFORE BUILD!!!!
 
-      // const res = await fetch(
-      //   'https://servertestmentor.herokuapp.com/user/auth/google',
-      //   {
+    const res = await fetch(
+      'https://servertestmentor.herokuapp.com/user/auth/google',
+      {
+        // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
 
-      // <<<<<<<<<<<<<<<<<< DON'T TOUCH THIS >>>>>>>>>
-
-      method: 'GET',
-      mode: 'no-cors',
-    });
+        method: 'GET',
+        mode: 'no-cors',
+      }
+    );
 
     handleData(res);
 
