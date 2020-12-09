@@ -8,7 +8,7 @@ It’s not just a matter of having a shoulder to cry on. A mentor can be of enor
 After registration, the student has a personal account.
 
 <p align="center">
-  <img width="500" height="300" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/web.png">
+  <img width="700" height="400" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/web.png">
 </p>
 
 
