@@ -12,7 +12,7 @@ After registration, the student has a personal account.
 </p>
 
 
-## Mentor search by skills, price and person's timezone:
+### Mentor search by skills, price and person's timezone:
 
 <p align="center">
   <img width="460" height="300" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/data.png">
@@ -20,9 +20,12 @@ After registration, the student has a personal account.
 
 
 ### Used stack: 
-## React, Redux, MongoDB, Mongoose, Express, CORS, Passport.js. 
+ React, Redux, MongoDB, Mongoose, Express, CORS, Passport.js. 
 
-## Team:
+### Team:
 Anastasiia Soktoeva,
 Gayane Zurnachyan,
 Roman Dubinkin.
+<p align="center">
+  <img width="400" height="250" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
+</p>
