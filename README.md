@@ -15,7 +15,7 @@ After registration, the student has a personal account.
 ### Mentor search by skills, price and person's timezone:
 
 <p align="center">
-  <img width="500" height="400" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/data.png">
+  <img width="500" height="700" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/data.png">
 </p>
 
 
