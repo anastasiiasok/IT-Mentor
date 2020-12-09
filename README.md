@@ -25,7 +25,7 @@ After registration, the student has a personal account.
 ### Team:
 * Anastasiia Soktoeva,
 * Gayane Zurnachyan,
-* Roman Dubinkin.
+* Roman Dubinkin
 <p align="center">
   <img width="700" height="700" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
 </p>
