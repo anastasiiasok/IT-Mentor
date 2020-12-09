@@ -15,7 +15,7 @@ After registration, the student has a personal account.
 ### Mentor search by skills, price and person's timezone:
 
 <p align="center">
-  <img width="500" height="900" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/data.png">
+  <img width="700" height="400" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/data.png">
 </p>
 
 
@@ -27,5 +27,5 @@ Anastasiia Soktoeva,
 Gayane Zurnachyan,
 Roman Dubinkin.
 <p align="center">
-  <img width="700" height="360" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
+  <img width="700" height="860" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
 </p>
