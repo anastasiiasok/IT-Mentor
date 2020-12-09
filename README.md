@@ -23,9 +23,6 @@ After registration, the student has a personal account.
  * React, Redux, MongoDB, Mongoose, Express, CORS, Passport.js. 
 
 ### Team:
-<p align="center">
-  <img width="700" height="700" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
-</p>
 * Anastasiia Soktoeva,
 * Gayane Zurnachyan,
 * Roman Dubinkin
@@ -37,3 +34,7 @@ After registration, the student has a personal account.
 9 am
 2 pm
 5:40pm
+
+<p align="center">
+  <img width="700" height="700" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
+</p>
