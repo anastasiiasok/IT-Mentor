@@ -5,6 +5,7 @@ It’s not just a matter of having a shoulder to cry on. A mentor can be of enor
 
 ### About our application:
 IT Mentor is a web application for students to find a personal tutor online and for teachers who wants to become a mentor.
+After registration, the student has a personal account.
 
 ![itmentor](https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/web.png)
 
