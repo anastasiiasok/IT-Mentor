@@ -39,3 +39,6 @@ After registration, the student has a personal account.
 2 pm
 5:40pm
 
+### Heroku:
+* https://servertestmentor.herokuapp.com/
+
