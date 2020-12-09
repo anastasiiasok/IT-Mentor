@@ -27,5 +27,5 @@ Anastasiia Soktoeva,
 Gayane Zurnachyan,
 Roman Dubinkin.
 <p align="center">
-  <img width="400" height="300" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
+  <img width="460" height="300" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
 </p>
