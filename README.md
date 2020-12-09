@@ -1,6 +1,6 @@
 #  IT Mentor
 <p align="center">
-  <img width="300" height="400" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
+  <img width="200" height="250" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/us.png">
 </p>
 
 Whether you’re starting a new job, trying to change your current role (such as deciding which programming skills to learn), or looking to move up the corporate ladder, you don’t have to go it alone. It can be a huge advantage to connect with someone with more experience and a willingness to listen. \
