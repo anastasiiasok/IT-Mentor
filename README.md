@@ -26,6 +26,10 @@ After registration, the student has a personal account.
 ### Used stack: 
  * React, Redux, MongoDB, Mongoose, Express, CORS, Passport.js. 
 
+ <p align="left">
+  <img width="400" height="250" src="https://github.com/anastasiiasok/IT-Mentor/blob/main/client/public/tech.png">
+</p>
+
 ### Team:
 * Anastasiia Soktoeva,
 * Gayane Zurnachyan,
